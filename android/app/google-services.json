@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "33156064176",
+    "project_id": "aficmed-android",
+    "storage_bucket": "aficmed-android.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33156064176:android:5ab14062a2a5d45ad0ac75",
+        "android_client_info": {
+          "package_name": "com.africmed.doctor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs-U6Bu9-_KtKqHsgz3aPSsUL4kj4GhcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33156064176:android:7c02efc8d75abcc5d0ac75",
+        "android_client_info": {
+          "package_name": "com.africmed.patient"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs-U6Bu9-_KtKqHsgz3aPSsUL4kj4GhcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
