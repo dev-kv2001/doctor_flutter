@@ -22,12 +22,12 @@ const String appName = 'Africmed Doctor';
 const String subAppName = 'Africmed Doctor';
 
 // App Default Language only use This code :-  ('ar', 'da','nl','en','fr','de','el','hi','id','it','ja','ko','nb','pl','pt','ru','zh','es','th','tr','vi')
-const appLanguageCode = 'en';
+const appLanguageCode = 'fr';
 
 // For Phone Number field
-const countryName = 'India';
-const countryCode = 'IN';
-const phoneCode = '+91';
+const countryName = 'France';
+const countryCode = 'FR';
+const phoneCode = '+33';
 
 ///------------------------ Image quality ------------------------///
 const int imageQuality = 40;
