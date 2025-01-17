@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `DOCTOR.IO`
+  /// `AfricMed`
   String get appName {
     return Intl.message(
-      'DOCTOR.IO',
+      'AfricMed',
       name: 'appName',
       desc: '',
       args: [],

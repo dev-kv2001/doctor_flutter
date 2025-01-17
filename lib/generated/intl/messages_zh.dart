@@ -53,7 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "我们已收到您提交的所有详细信息。一旦我们为您提供更新，我们将检查并更新您。"),
         "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage("已经有帐户？"),
         "and": MessageLookupByLibrary.simpleMessage("和"),
-        "appName": MessageLookupByLibrary.simpleMessage("DOCTOR.IO"),
+        "appName": MessageLookupByLibrary.simpleMessage("AfricMed"),
         "appointmentDetails": MessageLookupByLibrary.simpleMessage("预约详情"),
         "appointmentHistory": MessageLookupByLibrary.simpleMessage("预约历史"),
         "appointmentOnlineDiagnosticBookingManagementMultivendorApp":

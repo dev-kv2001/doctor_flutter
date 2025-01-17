@@ -1,5 +1,6 @@
 {
-  "appName": "DOCTOR.IO",
+  "@@locale" : "ar",
+  "appName": "AfricMed",
   "craftYourProfileEtc": "صياغة ملف التعريف الخاص بك ،\nالحصول على المواعيد ، قبولها ،\nتقديم المشورة وكسب المال",
   "continueText": "يكمل",
   "submit": "يُقدِّم",

@@ -1,5 +1,6 @@
 {
-  "appName": "DOCTOR.IO",
+  "@@locale" : "vi",
+  "appName": "AfricMed",
   "craftYourProfileEtc": "Tạo hồ sơ của bạn,\nNhận cuộc hẹn, Chấp nhận chúng,\nCung cấp tư vấn, Kiếm tiền",
   "continueText": "Tiếp tục",
   "submit": "Nộp",

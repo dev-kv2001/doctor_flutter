@@ -1,5 +1,6 @@
 {
-  "appName": "DOCTOR.IO",
+  "@@locale" : "tr",
+  "appName": "AfricMed",
   "craftYourProfileEtc": "Profilinizi oluşturun,\nRandevu alın, Kabul edin,\nDanışma sağlayın, Para Kazanın",
   "continueText": "Devam etmek",
   "submit": "Göndermek",

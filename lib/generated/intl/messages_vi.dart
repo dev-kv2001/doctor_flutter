@@ -60,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
             "Bạn co săn san để tạo một tai khoản?"),
         "and": MessageLookupByLibrary.simpleMessage("Và"),
-        "appName": MessageLookupByLibrary.simpleMessage("DOCTOR.IO"),
+        "appName": MessageLookupByLibrary.simpleMessage("AfricMed"),
         "appointmentDetails":
             MessageLookupByLibrary.simpleMessage("Chi tiết cuộc hẹn"),
         "appointmentHistory":

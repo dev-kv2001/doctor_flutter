@@ -59,7 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
             "क्या आपके पास पहले से एक खाता मौजूद है?"),
         "and": MessageLookupByLibrary.simpleMessage("और"),
-        "appName": MessageLookupByLibrary.simpleMessage("DOCTOR.IO"),
+        "appName": MessageLookupByLibrary.simpleMessage("AfricMed"),
         "appointmentDetails":
             MessageLookupByLibrary.simpleMessage("नियुक्ति विवरण"),
         "appointmentHistory":

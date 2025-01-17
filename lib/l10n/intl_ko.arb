@@ -1,5 +1,6 @@
 {
-  "appName": "DOCTOR.IO",
+  "@@locale" : "ko",
+  "appName": "AfricMed",
   "craftYourProfileEtc": "프로필 작성,\n약속 잡기, 수락,\n상담 제공, 수익 창출",
   "continueText": "계속하다",
   "submit": "제출하다",
