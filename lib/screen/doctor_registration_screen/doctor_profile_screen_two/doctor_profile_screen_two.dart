@@ -15,50 +15,44 @@ class DoctorProfileScreenTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(DoctorProfileScreenTwoController());
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TopBarArea(
-              title: Get.arguments == null
-                  ? S.current.doctorRegistration
-                  : S.current.aboutAndEducation),
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const ClampingScrollPhysics(),
-              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              child: Column(
-                children: [
-                  GetBuilder(
-                      init: controller,
-                      builder: (context) {
-                        return _textField(
-                            title: S.current.aboutYourSelf,
-                            exampleTitle: S.current.explainAboutYourSelfBriefly,
-                            textController: controller.aboutController,
-                            focusNode: controller.aboutFocusNode,
-                            onChange: controller.onAboutChange,
-                            controller: controller);
-                      }),
-                  GetBuilder(
-                      init: controller,
-                      builder: (context) {
-                        return _textField(
-                            title: S.current.yourEducationalJourney,
-                            exampleTitle: S.current.explainBrieflyForBetterIdea,
-                            textController: controller.educationController,
-                            focusNode: controller.educationFocusNode,
-                            onChange: controller.onEducationChange,
-                            controller: controller);
-                      }),
-                ],
-              ),
+      body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TopBarArea(title: Get.arguments == null ? S.current.doctorRegistration : S.current.aboutAndEducation),
+            Column(
+              children: [
+                GetBuilder(
+                    init: controller,
+                    builder: (context) {
+                      return _textField(
+                          title: S.current.aboutYourSelf,
+                          exampleTitle: S.current.explainAboutYourSelfBriefly,
+                          textController: controller.aboutController,
+                          focusNode: controller.aboutFocusNode,
+                          onChange: controller.onAboutChange,
+                          controller: controller);
+                    }),
+                GetBuilder(
+                    init: controller,
+                    builder: (context) {
+                      return _textField(
+                          title: S.current.yourEducationalJourney,
+                          exampleTitle: S.current.explainBrieflyForBetterIdea,
+                          textController: controller.educationController,
+                          focusNode: controller.educationFocusNode,
+                          onChange: controller.onEducationChange,
+                          controller: controller);
+                    }),
+              ],
             ),
-          ),
-          DoctorRegButton(
-            onTap: controller.updateDoctorDetailsApiCall,
-            title: S.current.continueText,
-          )
-        ],
+            DoctorRegButton(
+              onTap: controller.updateDoctorDetailsApiCall,
+              title: S.current.continueText,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -128,10 +122,7 @@ class DoctorProfileScreenTwo extends StatelessWidget {
               counterText: "",
             ),
             onChanged: onChange,
-            style: const TextStyle(
-                fontFamily: FontRes.medium,
-                color: ColorRes.battleshipGrey,
-                fontSize: 15),
+            style: const TextStyle(fontFamily: FontRes.medium, color: ColorRes.battleshipGrey, fontSize: 15),
             cursorHeight: 15,
             cursorColor: ColorRes.charcoalGrey,
           ),
@@ -147,8 +138,7 @@ class DoctorProfileScreenTwo extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: Text(
                   "${textController.text.length}/$fourHundred",
-                  style:
-                      const TextStyle(fontSize: 17, color: ColorRes.davyGrey),
+                  style: const TextStyle(fontSize: 17, color: ColorRes.davyGrey),
                 ),
               );
             }),

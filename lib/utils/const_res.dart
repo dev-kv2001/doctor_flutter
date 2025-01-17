@@ -22,6 +22,7 @@ const String appName = 'Africmed Doctor';
 const String subAppName = 'Africmed Doctor';
 
 // App Default Language only use This code :-  ('ar', 'da','nl','en','fr','de','el','hi','id','it','ja','ko','nb','pl','pt','ru','zh','es','th','tr','vi')
+// const appLanguageCode = 'en';
 const appLanguageCode = 'fr';
 
 // For Phone Number field
