@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class ConstRes {
   ///------------------------ Backend urls and key ------------------------///
 
@@ -23,7 +25,7 @@ const String subAppName = 'Africmed Doctor';
 
 // App Default Language only use This code :-  ('ar', 'da','nl','en','fr','de','el','hi','id','it','ja','ko','nb','pl','pt','ru','zh','es','th','tr','vi')
 // const appLanguageCode = 'en';
-const appLanguageCode = 'fr';
+const appLanguageCode = kReleaseMode ?  'fr' : 'en';
 
 // For Phone Number field
 const countryName = 'France';
