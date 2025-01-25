@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBs-U6Bu9-_KtKqHsgz3aPSsUL4kj4GhcI',
-    appId: '1:33156064176:android:5ab14062a2a5d45ad0ac75',
-    messagingSenderId: '33156064176',
-    projectId: 'aficmed-android',
-    storageBucket: 'aficmed-android.firebasestorage.app',
+    apiKey: 'AIzaSyCzRKnhavIYNFV0l2G2qldnBfYBDeQlxCM',
+    appId: '1:211007738532:android:2737cbdacb3ccea659cc31',
+    messagingSenderId: '211007738532',
+    projectId: 'africmed-2d2db',
+    storageBucket: 'africmed-2d2db.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBiT6MsvIoPibVrw0-uJ-poi99LiEt-JWE',
-    appId: '1:33156064176:ios:057204d9ea864e4cd0ac75',
-    messagingSenderId: '33156064176',
-    projectId: 'aficmed-android',
-    storageBucket: 'aficmed-android.firebasestorage.app',
+    apiKey: 'AIzaSyAx8D99lx5r6OWIzU1yMjycG_TfwFKwnv8',
+    appId: '1:211007738532:ios:181851b90467d72f59cc31',
+    messagingSenderId: '211007738532',
+    projectId: 'africmed-2d2db',
+    storageBucket: 'africmed-2d2db.firebasestorage.app',
     iosBundleId: 'com.africmed.doctor',
   );
+
 }

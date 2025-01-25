@@ -34,7 +34,6 @@ class CenterAreaChat extends StatelessWidget {
           child: ListView.builder(
             primary: false,
             shrinkWrap: true,
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             controller: scrollController,
             physics: const ClampingScrollPhysics(),
             itemCount: chatData.length,

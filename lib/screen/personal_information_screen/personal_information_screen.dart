@@ -35,8 +35,6 @@ class PersonalInformationScreen extends StatelessWidget {
                 }
 
                 return SingleChildScrollView(
-                  keyboardDismissBehavior:
-                      ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -186,8 +184,7 @@ class PersonalInformationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildPhoneNumberField(
-      PersonalInformationScreenController controller) {
+  Widget _buildPhoneNumberField(PersonalInformationScreenController controller) {
     return GetBuilder(
       init: controller,
       builder: (context) {
@@ -222,8 +219,7 @@ class PersonalInformationScreen extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildDoctorProfileFields(
-      PersonalInformationScreenController controller) {
+  List<Widget> _buildDoctorProfileFields(PersonalInformationScreenController controller) {
     return [
       DoctorProfileTextField(
         isExample: false,

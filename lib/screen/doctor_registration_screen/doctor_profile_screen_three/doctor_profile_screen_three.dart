@@ -32,8 +32,6 @@ class DoctorProfileScreenThree extends StatelessWidget {
                 ),
                 SingleChildScrollView(
                   physics: const ClampingScrollPhysics(),
-                  keyboardDismissBehavior:
-                      ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

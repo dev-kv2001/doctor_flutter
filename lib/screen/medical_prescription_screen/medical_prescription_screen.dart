@@ -27,7 +27,6 @@ class MedicalPrescriptionScreen extends StatelessWidget {
           TopBarArea(title: S.current.medicalPrescription),
           Expanded(
             child: SingleChildScrollView(
-              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

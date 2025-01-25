@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyBiT6MsvIoPibVrw0-uJ-poi99LiEt-JWE</string>
+	<string>AIzaSyAx8D99lx5r6OWIzU1yMjycG_TfwFKwnv8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>33156064176</string>
+	<string>211007738532</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.africmed.doctor</string>
 	<key>PROJECT_ID</key>
-	<string>aficmed-android</string>
+	<string>africmed-2d2db</string>
 	<key>STORAGE_BUCKET</key>
-	<string>aficmed-android.firebasestorage.app</string>
+	<string>africmed-2d2db.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:33156064176:ios:057204d9ea864e4cd0ac75</string>
+	<string>1:211007738532:ios:181851b90467d72f59cc31</string>
 </dict>
 </plist>
