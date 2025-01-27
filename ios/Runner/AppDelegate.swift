@@ -23,7 +23,7 @@ import flutter_local_notifications
         }
 
     GeneratedPluginRegistrant.register(with: self)
-    GMSServices.provideAPIKey("------ GOOGLE MAP KEY ------")
+    GMSServices.provideAPIKey("AIzaSyBrQ0YzS6UL1vKHC0C6_n9gZVXY0S-RwTQ")
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }

@@ -29,7 +29,7 @@
         tools:targetApi="m">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="----- GOOGLE MAP KEY -----" />
+            android:value="AIzaSyDz411VNoR2tM3Dtw2cbew0xvBhDPvgBh8" />
 
         <activity
             android:name=".MainActivity"

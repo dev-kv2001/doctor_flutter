@@ -2056,3 +2056,4 @@ app.*.map.json
 /android/app/build/intermediates/symbol_list_with_package_name/debug/processDebugResources/package-aware-r.txt
 /android/app/build/outputs/apk/debug/app-debug.apk
 /android/app/build/outputs/apk/debug/output-metadata.json
+/android/app/build/
