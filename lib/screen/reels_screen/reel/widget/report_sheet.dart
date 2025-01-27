@@ -34,8 +34,7 @@ class _ReportSheetState extends State<ReportSheet> {
       decoration: const ShapeDecoration(
           color: ColorRes.white,
           shape: SmoothRectangleBorder(
-            borderRadius: SmoothBorderRadius.vertical(
-                top: SmoothRadius(cornerRadius: 30, cornerSmoothing: 1)),
+            borderRadius: SmoothBorderRadius.vertical(top: SmoothRadius(cornerRadius: 30, cornerSmoothing: 1)),
           )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,13 +58,8 @@ class _ReportSheetState extends State<ReportSheet> {
                       ),
                       const SizedBox(height: 15),
                       Text(
-                        S
-                            .of(context)
-                            .pleaseExplainTheIssueBrieflyWeWillSurelyNotifyThis,
-                        style: const TextStyle(
-                            fontFamily: FontRes.light,
-                            fontSize: 17,
-                            color: ColorRes.davyGrey),
+                        S.of(context).pleaseExplainTheIssueBrieflyWeWillSurelyNotifyThis,
+                        style: const TextStyle(fontFamily: FontRes.light, fontSize: 17, color: ColorRes.davyGrey),
                       )
                     ],
                   ),
@@ -83,10 +77,7 @@ class _ReportSheetState extends State<ReportSheet> {
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: Text(
                     S.of(context).selectReason,
-                    style: const TextStyle(
-                        fontFamily: FontRes.regular,
-                        fontSize: 16,
-                        color: ColorRes.battleshipGrey),
+                    style: const TextStyle(fontFamily: FontRes.regular, fontSize: 16, color: ColorRes.battleshipGrey),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -95,21 +86,15 @@ class _ReportSheetState extends State<ReportSheet> {
                   child: Obx(
                     () => DropdownButton<String>(
                       value: dropDownValue.value,
-                      icon: const Icon(Icons.arrow_drop_down,
-                          color: ColorRes.havelockBlue),
+                      icon: const Icon(Icons.arrow_drop_down, color: ColorRes.havelockBlue),
                       iconSize: 30,
                       elevation: 16,
-                      style: const TextStyle(
-                          fontFamily: FontRes.medium,
-                          fontSize: 16,
-                          color: ColorRes.battleshipGrey),
+                      style: const TextStyle(fontFamily: FontRes.medium, fontSize: 16, color: ColorRes.battleshipGrey),
                       underline: const SizedBox(),
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       onChanged: onChanged,
-                      items:
-                          reason.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                            value: value, child: Text(value));
+                      items: reason.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(value: value, child: Text(value));
                       }).toList(),
                       isExpanded: true,
                       menuMaxHeight: 200,
@@ -125,10 +110,7 @@ class _ReportSheetState extends State<ReportSheet> {
                   textFieldHeight: 200,
                   hintTitle: '',
                   controller: explainController,
-                  titleStyle: const TextStyle(
-                      fontFamily: FontRes.regular,
-                      fontSize: 16,
-                      color: ColorRes.battleshipGrey),
+                  titleStyle: const TextStyle(fontFamily: FontRes.regular, fontSize: 16, color: ColorRes.battleshipGrey),
                   textFieldFontFamily: FontRes.medium,
                   textFieldColor: ColorRes.mediumGrey,
                 ),
@@ -138,8 +120,7 @@ class _ReportSheetState extends State<ReportSheet> {
           TextButtonCustom(
               onPressed: () {
                 if (explainController.text.trim().isEmpty) {
-                  return CustomUi.snackBar(
-                      message: S.of(context).pleaseExplainYourReasonBriefly);
+                  return CustomUi.snackBar(message: S.of(context).pleaseExplainYourReasonBriefly);
                 }
                 CustomUi.loader();
                 ApiService.instance.call(

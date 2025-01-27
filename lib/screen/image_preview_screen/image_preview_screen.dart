@@ -8,8 +8,7 @@ import 'package:photo_view/photo_view.dart';
 class ImagePreviewScreen extends StatelessWidget {
   final String? imageUrl;
 
-  const ImagePreviewScreen({Key? key, required this.imageUrl})
-      : super(key: key);
+  const ImagePreviewScreen({Key? key, required this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +17,7 @@ class ImagePreviewScreen extends StatelessWidget {
       body: Stack(
         children: [
           PhotoView(
-            imageProvider:
-                CachedNetworkImageProvider('${ConstRes.itemBaseURL}$imageUrl'),
+            imageProvider: CachedNetworkImageProvider('${ConstRes.itemBaseURL}$imageUrl'),
             filterQuality: FilterQuality.high,
             minScale: PhotoViewComputedScale.contained * 0.8,
             maxScale: PhotoViewComputedScale.covered * 1.5,

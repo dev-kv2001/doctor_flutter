@@ -148,19 +148,15 @@ class AppointmentData {
       });
     }
     _user = json['user'] != null ? User.fromJson(json['user']) : null;
-    _patient =
-        json['patient'] != null ? Patient.fromJson(json['patient']) : null;
-    _doctor =
-        json['doctor'] != null ? DoctorData.fromJson(json['doctor']) : null;
+    _patient = json['patient'] != null ? Patient.fromJson(json['patient']) : null;
+    _doctor = json['doctor'] != null ? DoctorData.fromJson(json['doctor']) : null;
     if (json['documents'] != null) {
       _documents = [];
       json['documents'].forEach((v) {
         _documents?.add(Documents.fromJson(v));
       });
     }
-    _prescription = json['prescription'] != null
-        ? Prescription.fromJson(json['prescription'])
-        : null;
+    _prescription = json['prescription'] != null ? Prescription.fromJson(json['prescription']) : null;
     _rating = json['rating'] != null ? Rating.fromJson(json['rating']) : null;
   }
 
@@ -340,8 +336,7 @@ class AppointmentData {
     map['created_at'] = _createdAt;
     map['updated_at'] = _updatedAt;
     if (_previousAppointments != null) {
-      map['previous_appointments'] =
-          _previousAppointments?.map((v) => v.toJson()).toList();
+      map['previous_appointments'] = _previousAppointments?.map((v) => v.toJson()).toList();
     }
     if (_user != null) {
       map['user'] = _user?.toJson();

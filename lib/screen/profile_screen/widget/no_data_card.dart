@@ -8,12 +8,7 @@ class NoDataCard extends StatelessWidget {
   final String example;
   final VoidCallback onTap;
 
-  const NoDataCard(
-      {Key? key,
-      required this.title,
-      required this.onTap,
-      required this.example})
-      : super(key: key);
+  const NoDataCard({Key? key, required this.title, required this.onTap, required this.example}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,31 +22,19 @@ class NoDataCard extends StatelessWidget {
           RichText(
             text: TextSpan(
                 text: S.current.thereIsNothingToShow,
-                style: const TextStyle(
-                    color: ColorRes.davyGrey,
-                    fontSize: 15,
-                    fontFamily: FontRes.regular),
+                style: const TextStyle(color: ColorRes.davyGrey, fontSize: 15, fontFamily: FontRes.regular),
                 children: [
                   TextSpan(
                     text: S.current.pleaseAddSome,
-                    style: const TextStyle(
-                        color: ColorRes.davyGrey,
-                        fontSize: 15,
-                        fontFamily: FontRes.regular),
+                    style: const TextStyle(color: ColorRes.davyGrey, fontSize: 15, fontFamily: FontRes.regular),
                   ),
                   TextSpan(
                     text: title,
-                    style: const TextStyle(
-                        color: ColorRes.davyGrey,
-                        fontSize: 15,
-                        fontFamily: FontRes.regular),
+                    style: const TextStyle(color: ColorRes.davyGrey, fontSize: 15, fontFamily: FontRes.regular),
                   ),
                   TextSpan(
                     text: S.current.toYourProfile,
-                    style: const TextStyle(
-                        color: ColorRes.davyGrey,
-                        fontSize: 15,
-                        fontFamily: FontRes.regular),
+                    style: const TextStyle(color: ColorRes.davyGrey, fontSize: 15, fontFamily: FontRes.regular),
                   ),
                 ]),
           ),
@@ -75,10 +58,7 @@ class NoDataCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Text(
                 '${S.current.add} $title',
-                style: const TextStyle(
-                    color: ColorRes.tuftsBlue,
-                    fontSize: 15,
-                    fontFamily: FontRes.semiBold),
+                style: const TextStyle(color: ColorRes.tuftsBlue, fontSize: 15, fontFamily: FontRes.semiBold),
               ),
             ),
           )

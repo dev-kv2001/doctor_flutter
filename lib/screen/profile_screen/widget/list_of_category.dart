@@ -25,17 +25,13 @@ class ProfileCategory extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: controller.selectedCategory.value == index
-                    ? ColorRes.tuftsBlue
-                    : ColorRes.whiteSmoke,
+                color: controller.selectedCategory.value == index ? ColorRes.tuftsBlue : ColorRes.whiteSmoke,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
                 controller.list[index],
                 style: TextStyle(
-                  color: controller.selectedCategory.value == index
-                      ? ColorRes.white
-                      : ColorRes.starDust,
+                  color: controller.selectedCategory.value == index ? ColorRes.white : ColorRes.starDust,
                   fontFamily: FontRes.semiBold,
                   fontSize: 15,
                 ),

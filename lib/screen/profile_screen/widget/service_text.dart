@@ -8,8 +8,7 @@ class ServiceText extends StatelessWidget {
   final int? itemCount;
   final List<Services>? services;
 
-  const ServiceText({Key? key, required this.itemCount, required this.services})
-      : super(key: key);
+  const ServiceText({Key? key, required this.itemCount, required this.services}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +37,7 @@ class ServiceHeading extends StatelessWidget {
   final VoidCallback onManageTap;
   final bool isManageVisible;
 
-  const ServiceHeading(
-      {Key? key,
-      required this.heading,
-      required this.onManageTap,
-      required this.isManageVisible})
-      : super(key: key);
+  const ServiceHeading({Key? key, required this.heading, required this.onManageTap, required this.isManageVisible}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

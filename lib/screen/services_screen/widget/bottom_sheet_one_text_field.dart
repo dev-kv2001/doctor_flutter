@@ -10,12 +10,7 @@ class BottomSheetOneTextField extends StatelessWidget {
   final String title;
   final TextEditingController controller;
 
-  const BottomSheetOneTextField(
-      {Key? key,
-      required this.onTap,
-      required this.title,
-      required this.controller})
-      : super(key: key);
+  const BottomSheetOneTextField({Key? key, required this.onTap, required this.title, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +44,7 @@ class BottomSheetOneTextField extends StatelessWidget {
                     child: Container(
                       height: 37,
                       width: 37,
-                      decoration: const BoxDecoration(
-                          color: ColorRes.iceberg, shape: BoxShape.circle),
+                      decoration: const BoxDecoration(color: ColorRes.iceberg, shape: BoxShape.circle),
                       child: const Icon(
                         Icons.close_rounded,
                         color: ColorRes.havelockBlue,
@@ -64,9 +58,7 @@ class BottomSheetOneTextField extends StatelessWidget {
               Container(
                 height: 50,
                 margin: const EdgeInsets.symmetric(horizontal: 3),
-                decoration: BoxDecoration(
-                    color: ColorRes.silverChalice.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(10)),
+                decoration: BoxDecoration(color: ColorRes.silverChalice.withOpacity(0.2), borderRadius: BorderRadius.circular(10)),
                 alignment: Alignment.center,
                 child: TextField(
                   controller: controller,
@@ -75,25 +67,15 @@ class BottomSheetOneTextField extends StatelessWidget {
                     isDense: true,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                     hintText: S.current.enterHere,
-                    hintStyle: const TextStyle(
-                        color: ColorRes.silverChalice,
-                        fontFamily: FontRes.semiBold,
-                        fontSize: 15),
+                    hintStyle: const TextStyle(color: ColorRes.silverChalice, fontFamily: FontRes.semiBold, fontSize: 15),
                   ),
                   cursorColor: ColorRes.charcoalGrey,
                   cursorHeight: 15,
-                  style: const TextStyle(
-                      fontFamily: FontRes.semiBold,
-                      fontSize: 15,
-                      color: ColorRes.battleshipGrey),
+                  style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 15, color: ColorRes.battleshipGrey),
                 ),
               ),
               const SizedBox(height: 50),
-              TextButtonCustom(
-                  onPressed: onTap,
-                  title: S.current.continueText,
-                  titleColor: ColorRes.white,
-                  backgroundColor: ColorRes.havelockBlue),
+              TextButtonCustom(onPressed: onTap, title: S.current.continueText, titleColor: ColorRes.white, backgroundColor: ColorRes.havelockBlue),
               const SizedBox(height: 50),
             ],
           ),

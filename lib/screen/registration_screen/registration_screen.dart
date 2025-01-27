@@ -36,12 +36,8 @@ class RegistrationScreen extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          S
-                              .of(context)
-                              .fillInYourDetailsToStartYourDigitalPracticeConnect,
-                          style: const TextStyle(
-                              color: ColorRes.battleshipGrey,
-                              fontFamily: FontRes.regular),
+                          S.of(context).fillInYourDetailsToStartYourDigitalPracticeConnect,
+                          style: const TextStyle(color: ColorRes.battleshipGrey, fontFamily: FontRes.regular),
                         ),
                         const SizedBox(height: 40),
                         TextWithTextField(
@@ -62,8 +58,7 @@ class RegistrationScreen extends StatelessWidget {
                             controller: controller.passwordController,
                             isError: controller.passwordError,
                             keyboardType: TextInputType.visiblePassword,
-                            onChangedPasswordVisibility:
-                                controller.onChangePassword,
+                            onChangedPasswordVisibility: controller.onChangePassword,
                             isSuffixVisible: true,
                             obSecure: controller.isPasswordVisible,
                             passwordVisible: controller.isPasswordVisible),
@@ -72,8 +67,7 @@ class RegistrationScreen extends StatelessWidget {
                           controller: controller.reTypePasswordController,
                           isError: controller.reTypePasswordError,
                           keyboardType: TextInputType.visiblePassword,
-                          onChangedPasswordVisibility:
-                              controller.onChangedReTypePassword,
+                          onChangedPasswordVisibility: controller.onChangedReTypePassword,
                           isSuffixVisible: true,
                           obSecure: controller.isReTypePasswordVisible,
                           passwordVisible: controller.isReTypePasswordVisible,
@@ -85,8 +79,7 @@ class RegistrationScreen extends StatelessWidget {
                             onPressed: controller.onRegisterClick,
                             title: S.of(context).register,
                             titleColor: ColorRes.havelockBlue,
-                            backgroundColor:
-                                ColorRes.havelockBlue.withOpacity(0.2)),
+                            backgroundColor: ColorRes.havelockBlue.withOpacity(0.2)),
                         const SizedBox(
                           height: 20,
                         ),
@@ -143,8 +136,7 @@ class TextWithTextField extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 7),
           child: Text(
             title,
-            style:
-                const TextStyle(color: ColorRes.battleshipGrey, fontSize: 16),
+            style: const TextStyle(color: ColorRes.battleshipGrey, fontSize: 16),
           ),
         ),
         Container(
@@ -169,9 +161,7 @@ class TextWithTextField extends StatelessWidget {
                     : InkWell(
                         onTap: onChangedPasswordVisibility,
                         child: Image.asset(
-                          passwordVisible
-                              ? AssetRes.ciNotHide
-                              : AssetRes.ciHide,
+                          passwordVisible ? AssetRes.ciNotHide : AssetRes.ciHide,
                           height: 25,
                           width: 35,
                           color: ColorRes.havelockBlue,
@@ -199,34 +189,22 @@ class PolicyText extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           text: S.of(context).byProceedingForwardYouAgreeToThen,
-          style: const TextStyle(
-              fontFamily: FontRes.regular,
-              fontSize: 12,
-              color: ColorRes.battleshipGrey),
+          style: const TextStyle(fontFamily: FontRes.regular, fontSize: 12, color: ColorRes.battleshipGrey),
           children: [
             TextSpan(
                 text: S.of(context).privacyPolicy,
-                style: const TextStyle(
-                    fontFamily: FontRes.semiBold,
-                    fontSize: 12,
-                    color: ColorRes.charcoalGrey),
+                style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 12, color: ColorRes.charcoalGrey),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
                     CommonFun.loadUrl(url: ConstRes.privacyPolicy);
                   }),
             TextSpan(
               text: ' ${S.of(context).and} ',
-              style: const TextStyle(
-                  fontFamily: FontRes.regular,
-                  fontSize: 12,
-                  color: ColorRes.battleshipGrey),
+              style: const TextStyle(fontFamily: FontRes.regular, fontSize: 12, color: ColorRes.battleshipGrey),
             ),
             TextSpan(
                 text: S.of(context).termsConditions,
-                style: const TextStyle(
-                    fontFamily: FontRes.semiBold,
-                    fontSize: 12,
-                    color: ColorRes.charcoalGrey),
+                style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 12, color: ColorRes.charcoalGrey),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
                     CommonFun.loadUrl(url: ConstRes.termsOfUser);

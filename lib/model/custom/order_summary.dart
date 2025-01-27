@@ -29,8 +29,7 @@ class OrderSummary {
     _payableAmount = json['payable_amount'];
     _couponApply = json['coupon_apply'];
     if (json['coupon'] != null) {
-      _coupon =
-          json['coupon'] != null ? CouponData.fromJson(json['coupon']) : null;
+      _coupon = json['coupon'] != null ? CouponData.fromJson(json['coupon']) : null;
     }
     if (json['taxes'] != null) {
       _taxes = [];

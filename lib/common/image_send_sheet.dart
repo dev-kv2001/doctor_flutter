@@ -11,12 +11,7 @@ class ImageSendSheet extends StatelessWidget {
   final Function(String image) onSendMediaTap;
   final TextEditingController sendMediaController;
 
-  const ImageSendSheet(
-      {Key? key,
-      required this.image,
-      required this.onSendMediaTap,
-      required this.sendMediaController})
-      : super(key: key);
+  const ImageSendSheet({Key? key, required this.image, required this.onSendMediaTap, required this.sendMediaController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +37,7 @@ class ImageSendSheet extends StatelessWidget {
                     children: [
                       Text(
                         S.current.sendMedia,
-                        style: const TextStyle(
-                            color: ColorRes.charcoalGrey,
-                            fontSize: 19,
-                            fontFamily: FontRes.extraBold),
+                        style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 19, fontFamily: FontRes.extraBold),
                       ),
                       Align(
                         alignment: Alignment.centerRight,
@@ -57,9 +49,7 @@ class ImageSendSheet extends StatelessWidget {
                             height: 38,
                             width: 38,
                             margin: const EdgeInsets.only(left: 10),
-                            decoration: const BoxDecoration(
-                                color: ColorRes.iceberg,
-                                shape: BoxShape.circle),
+                            decoration: const BoxDecoration(color: ColorRes.iceberg, shape: BoxShape.circle),
                             child: const Icon(
                               Icons.close_rounded,
                               color: ColorRes.charcoalGrey,
@@ -94,9 +84,7 @@ class ImageSendSheet extends StatelessWidget {
                     Expanded(
                       child: Container(
                         height: Get.width / 2,
-                        decoration: BoxDecoration(
-                            color: ColorRes.snowDrift,
-                            borderRadius: BorderRadius.circular(15)),
+                        decoration: BoxDecoration(color: ColorRes.snowDrift, borderRadius: BorderRadius.circular(15)),
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         margin: const EdgeInsets.symmetric(horizontal: 5),
                         child: TextField(
@@ -106,10 +94,7 @@ class ImageSendSheet extends StatelessWidget {
                           minLines: null,
                           cursorColor: ColorRes.charcoalGrey,
                           cursorHeight: 15,
-                          style: const TextStyle(
-                              color: ColorRes.charcoalGrey,
-                              fontFamily: FontRes.medium,
-                              fontSize: 15),
+                          style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.medium, fontSize: 15),
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.done,
                           decoration: const InputDecoration(
@@ -130,9 +115,7 @@ class ImageSendSheet extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: ColorRes.havelockBlue,
-                          borderRadius: BorderRadius.circular(10)),
+                      decoration: BoxDecoration(color: ColorRes.havelockBlue, borderRadius: BorderRadius.circular(10)),
                       child: Text(
                         S.current.send,
                         style: const TextStyle(

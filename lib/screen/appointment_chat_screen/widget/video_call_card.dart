@@ -11,9 +11,7 @@ class VideoCallCard extends StatelessWidget {
   final AppointmentChat data;
   final Function(AppointmentChat data) onJoinMeeting;
 
-  const VideoCallCard(
-      {Key? key, required this.data, required this.onJoinMeeting})
-      : super(key: key);
+  const VideoCallCard({Key? key, required this.data, required this.onJoinMeeting}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,18 +34,11 @@ class VideoCallCard extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: S.current.video.toUpperCase(),
-                    style: const TextStyle(
-                        color: ColorRes.tuftsBlue,
-                        fontFamily: FontRes.extraBold,
-                        fontSize: 14),
+                    style: const TextStyle(color: ColorRes.tuftsBlue, fontFamily: FontRes.extraBold, fontSize: 14),
                     children: [
                       TextSpan(
                         text: " ${S.current.consultation}",
-                        style: const TextStyle(
-                            color: ColorRes.tuftsBlue,
-                            fontFamily: FontRes.medium,
-                            fontSize: 13,
-                            letterSpacing: 0.5),
+                        style: const TextStyle(color: ColorRes.tuftsBlue, fontFamily: FontRes.medium, fontSize: 13, letterSpacing: 0.5),
                       ),
                     ],
                   ),
@@ -57,19 +48,14 @@ class VideoCallCard extends StatelessWidget {
                 ),
                 Text(
                   '${data.senderUser?.name} ${S.current.isAskingYouToJoinEtc} ',
-                  style:
-                      const TextStyle(color: ColorRes.davyGrey, fontSize: 14),
+                  style: const TextStyle(color: ColorRes.davyGrey, fontSize: 14),
                 ),
                 const SizedBox(
                   height: 7,
                 ),
                 Text(
-                  (data.videoCall?.time ?? milliDate)
-                      .dateMilliFormat(ddMmmYyyyDesHhMmA),
-                  style: const TextStyle(
-                      color: ColorRes.tuftsBlue,
-                      fontFamily: FontRes.semiBold,
-                      fontSize: 13),
+                  (data.videoCall?.time ?? milliDate).dateMilliFormat(ddMmmYyyyDesHhMmA),
+                  style: const TextStyle(color: ColorRes.tuftsBlue, fontFamily: FontRes.semiBold, fontSize: 13),
                 ),
               ],
             ),
@@ -79,21 +65,12 @@ class VideoCallCard extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                  color: data.videoCall?.isStarted == true
-                      ? ColorRes.davyGrey
-                      : ColorRes.davyGrey.withOpacity(0.3),
-                  borderRadius:
-                      const BorderRadius.vertical(bottom: Radius.circular(15))),
+                  color: data.videoCall?.isStarted == true ? ColorRes.davyGrey : ColorRes.davyGrey.withOpacity(0.3),
+                  borderRadius: const BorderRadius.vertical(bottom: Radius.circular(15))),
               alignment: Alignment.center,
               child: Text(
-                (data.videoCall?.isStarted == true
-                        ? S.current.joinMeeting
-                        : S.current.endMeeting)
-                    .toUpperCase(),
-                style: const TextStyle(
-                    color: ColorRes.white,
-                    fontSize: 13,
-                    fontFamily: FontRes.semiBold),
+                (data.videoCall?.isStarted == true ? S.current.joinMeeting : S.current.endMeeting).toUpperCase(),
+                style: const TextStyle(color: ColorRes.white, fontSize: 13, fontFamily: FontRes.semiBold),
               ),
             ),
           )

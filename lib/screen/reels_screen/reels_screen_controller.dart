@@ -14,16 +14,13 @@ import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class ReelsScreenController extends GetxController
-    with GetTickerProviderStateMixin {
+class ReelsScreenController extends GetxController with GetTickerProviderStateMixin {
   final RxList<Reel> reels = <Reel>[].obs;
   final RxInt currentIndex = 0.obs;
-  final RxMap<int, VideoPlayerController> controllers =
-      <int, VideoPlayerController>{}.obs;
+  final RxMap<int, VideoPlayerController> controllers = <int, VideoPlayerController>{}.obs;
 
   bool initialVisible = true;
-  Rx<DoctorCategoryData> selectedCategory =
-      (DoctorCategoryData(id: 0, title: 'Mix')).obs;
+  Rx<DoctorCategoryData> selectedCategory = (DoctorCategoryData(id: 0, title: 'Mix')).obs;
   List<DoctorCategoryData> doctorCategories = [];
   PageController pageController = PageController();
 
@@ -32,8 +29,7 @@ class ReelsScreenController extends GetxController
   ProfileType profileType = ProfileType.dashboard;
   final dashBoardController = Get.find<DashboardScreenController>();
 
-  ReelsScreenController(List<Reel> initialReels, int initialIndex,
-      List<DoctorCategoryData> categories, ProfileType type) {
+  ReelsScreenController(List<Reel> initialReels, int initialIndex, List<DoctorCategoryData> categories, ProfileType type) {
     reels.addAll(initialReels);
     currentIndex.value = initialIndex;
     pageController = PageController(initialPage: initialIndex);
@@ -45,8 +41,7 @@ class ReelsScreenController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    _controller = AnimationController(
-        duration: const Duration(milliseconds: 250), vsync: this);
+    _controller = AnimationController(duration: const Duration(milliseconds: 250), vsync: this);
     animation = CurvedAnimation(parent: _controller, curve: Curves.linear);
   }
 
@@ -94,8 +89,7 @@ class ReelsScreenController extends GetxController
   Future _initializeControllerAtIndex(int index) async {
     if (reels.length > index && index >= 0) {
       /// Create new controller
-      final VideoPlayerController controller = VideoPlayerController.networkUrl(
-          Uri.parse(ConstRes.itemBaseURL + (reels[index].video ?? '')));
+      final VideoPlayerController controller = VideoPlayerController.networkUrl(Uri.parse(ConstRes.itemBaseURL + (reels[index].video ?? '')));
 
       /// Add to [controllers] list
       controllers[index] = controller;
@@ -110,9 +104,7 @@ class ReelsScreenController extends GetxController
   }
 
   void _playControllerAtIndex(int index) {
-    if (DashboardScreenController.isPlayController &&
-        reels.length > index &&
-        index >= 0) {
+    if (DashboardScreenController.isPlayController && reels.length > index && index >= 0) {
       VideoPlayerController? controller = controllers[index];
       if (controller != null && controller.value.isInitialized) {
         controller.play();
@@ -139,8 +131,7 @@ class ReelsScreenController extends GetxController
     if (reels.length > index && index >= 0) {
       final VideoPlayerController? controller = controllers[index];
       if (controller != null) {
-        _stopControllerAtIndex(
-            index); // Ensure the video is stopped before disposal
+        _stopControllerAtIndex(index); // Ensure the video is stopped before disposal
         controller.dispose();
         controllers.remove(index);
         debugPrint('🚀🚀🚀 DISPOSED $index');
@@ -224,15 +215,10 @@ class ReelsScreenController extends GetxController
         isEmptyData: true);
   }
 
-  void fetchDoctorReels(
-      {Function(List<Reel> data)? onComplete, bool isEmptyData = false}) {
+  void fetchDoctorReels({Function(List<Reel> data)? onComplete, bool isEmptyData = false}) {
     ApiService.instance.call(
       url: Urls.fetchReelsDoctorApp,
-      param: {
-        pDoctorId: PrefService.id,
-        if (selectedCategory.value.id != 0)
-          pCategoryId: selectedCategory.value.id
-      },
+      param: {pDoctorId: PrefService.id, if (selectedCategory.value.id != 0) pCategoryId: selectedCategory.value.id},
       completion: (response) {
         if (isEmptyData) {
           reels.value = [];
@@ -293,8 +279,7 @@ class ReelsScreenController extends GetxController
 class Debounce {
   static final Map<String, _EasyDebounceOperation> _operations = {};
 
-  static void debounce(
-      String tag, Duration duration, EasyDebounceCallback onExecute) {
+  static void debounce(String tag, Duration duration, EasyDebounceCallback onExecute) {
     if (duration == Duration.zero) {
       _operations[tag]?.timer.cancel();
       _operations.remove(tag);

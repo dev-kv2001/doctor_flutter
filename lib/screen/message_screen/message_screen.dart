@@ -24,10 +24,7 @@ class MessageScreen extends StatelessWidget {
             builder: (context) {
               return controller.isLoading
                   ? Expanded(child: CustomUi.loaderWidget())
-                  : MessageCard(
-                      userList: controller.userList,
-                      onLongPress: controller.onLongPress,
-                      doctorData: controller.doctorData);
+                  : MessageCard(userList: controller.userList, onLongPress: controller.onLongPress, doctorData: controller.doctorData);
             },
           ),
         ],

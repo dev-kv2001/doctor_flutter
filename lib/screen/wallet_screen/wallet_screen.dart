@@ -24,16 +24,13 @@ class WalletScreen extends StatelessWidget {
           Card(
             elevation: 3,
             margin: const EdgeInsets.all(10),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             child: Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 gradient: const LinearGradient(
-                    colors: [ColorRes.crystalBlue, ColorRes.tuftsBlue100],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight),
+                    colors: [ColorRes.crystalBlue, ColorRes.tuftsBlue100], begin: Alignment.centerLeft, end: Alignment.centerRight),
               ),
               child: Row(
                 children: [
@@ -42,11 +39,7 @@ class WalletScreen extends StatelessWidget {
                     builder: (context) {
                       return Text(
                         "$dollar${controller.doctorData?.wallet ?? 0}",
-                        style: const TextStyle(
-                            color: ColorRes.white,
-                            fontSize: 28,
-                            fontFamily: FontRes.light,
-                            letterSpacing: 0.5),
+                        style: const TextStyle(color: ColorRes.white, fontSize: 28, fontFamily: FontRes.light, letterSpacing: 0.5),
                       );
                     },
                   ),
@@ -54,17 +47,11 @@ class WalletScreen extends StatelessWidget {
                   InkWell(
                     onTap: controller.onWithdrawTap,
                     child: Container(
-                      decoration: BoxDecoration(
-                          color: ColorRes.white.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(10)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(color: ColorRes.white.withOpacity(0.2), borderRadius: BorderRadius.circular(10)),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: Text(
                         S.current.withdraw,
-                        style: const TextStyle(
-                            color: ColorRes.white,
-                            fontFamily: FontRes.medium,
-                            fontSize: 14),
+                        style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.medium, fontSize: 14),
                       ),
                     ),
                   )
@@ -76,8 +63,7 @@ class WalletScreen extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: Text(
               S.current.statement,
-              style: const TextStyle(
-                  fontSize: 16, color: ColorRes.darkJungleGreen),
+              style: const TextStyle(fontSize: 16, color: ColorRes.darkJungleGreen),
             ),
           ),
           _statements(controller)
@@ -95,36 +81,28 @@ class WalletScreen extends StatelessWidget {
           builder: (context) {
             return controller.isLoading
                 ? CustomUi.loaderWidget()
-                : controller.walletData == null ||
-                        controller.walletData!.isEmpty
+                : controller.walletData == null || controller.walletData!.isEmpty
                     ? CustomUi.noData()
                     : ListView.builder(
                         itemCount: controller.walletData?.length ?? 0,
                         padding: EdgeInsets.zero,
                         itemBuilder: (context, index) {
-                          WalletStatementData? data =
-                              controller.walletData?[index];
+                          WalletStatementData? data = controller.walletData?[index];
                           return Container(
                             padding: const EdgeInsets.all(10),
                             margin: const EdgeInsets.symmetric(vertical: 1),
-                            color: data?.crOrDr == 1
-                                ? ColorRes.mediumGreen.withOpacity(0.08)
-                                : ColorRes.bittersweet.withOpacity(0.08),
+                            color: data?.crOrDr == 1 ? ColorRes.mediumGreen.withOpacity(0.08) : ColorRes.bittersweet.withOpacity(0.08),
                             child: Row(
                               children: [
                                 Container(
                                   height: 28,
                                   width: 28,
                                   decoration: BoxDecoration(
-                                    color: data?.crOrDr == 0
-                                        ? ColorRes.bittersweet
-                                        : ColorRes.mediumGreen,
+                                    color: data?.crOrDr == 0 ? ColorRes.bittersweet : ColorRes.mediumGreen,
                                     shape: BoxShape.circle,
                                   ),
                                   child: Icon(
-                                    data?.crOrDr == 0
-                                        ? Icons.remove_rounded
-                                        : Icons.add_rounded,
+                                    data?.crOrDr == 0 ? Icons.remove_rounded : Icons.add_rounded,
                                     size: 20,
                                     color: ColorRes.white,
                                   ),
@@ -134,8 +112,7 @@ class WalletScreen extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Row(
                                         children: [
@@ -147,8 +124,7 @@ class WalletScreen extends StatelessWidget {
                                                   color: ColorRes.davyGrey,
                                                   fontFamily: FontRes.semiBold,
                                                   fontSize: 13,
-                                                  overflow:
-                                                      TextOverflow.ellipsis),
+                                                  overflow: TextOverflow.ellipsis),
                                             ),
                                           ),
                                           Expanded(
@@ -158,18 +134,13 @@ class WalletScreen extends StatelessWidget {
                                                       : data?.type == 1
                                                           ? S.current.commission
                                                           : data?.type == 2
-                                                              ? S.current
-                                                                  .withdraw
+                                                              ? S.current.withdraw
                                                               : data?.type == 3
-                                                                  ? S.current
-                                                                      .refund
-                                                                  : S.current
-                                                                      .reject)
+                                                                  ? S.current.refund
+                                                                  : S.current.reject)
                                                   .toUpperCase(),
                                               style: TextStyle(
-                                                color: data?.crOrDr == 1
-                                                    ? ColorRes.mediumGreen
-                                                    : ColorRes.bittersweet,
+                                                color: data?.crOrDr == 1 ? ColorRes.mediumGreen : ColorRes.bittersweet,
                                                 fontFamily: FontRes.semiBold,
                                                 letterSpacing: 0.5,
                                                 fontSize: 13,
@@ -182,11 +153,8 @@ class WalletScreen extends StatelessWidget {
                                         height: 3,
                                       ),
                                       Text(
-                                        (data?.createdAt ?? createdDate)
-                                            .dateParse(eeeDdMmmYyyyHhMmA),
-                                        style: const TextStyle(
-                                            color: ColorRes.davyGrey,
-                                            fontSize: 12),
+                                        (data?.createdAt ?? createdDate).dateParse(eeeDdMmmYyyyHhMmA),
+                                        style: const TextStyle(color: ColorRes.davyGrey, fontSize: 12),
                                       )
                                     ],
                                   ),

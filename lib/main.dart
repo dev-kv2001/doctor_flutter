@@ -17,8 +17,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,
   // make sure you call `initializeApp` before using other Firebase services.
   await Firebase.initializeApp();
-  debugPrint(
-      '🐦‍🔥🐦‍🔥🐦‍🔥🐦‍🔥 _firebaseMessagingBackgroundHandler ${message.toMap()}');
+  debugPrint('🐦‍🔥🐦‍🔥🐦‍🔥🐦‍🔥 _firebaseMessagingBackgroundHandler ${message.toMap()}');
   FirebaseNotificationManager.shared.showNotification(message);
 }
 
@@ -31,8 +30,7 @@ Future<void> main() async {
   initializeTimeZones();
   PrefService prefService = PrefService();
   await prefService.init();
-  LanguagesScreenController.selectedLanguage =
-      prefService.getString(key: kLanguageCode) ?? appLanguageCode;
+  LanguagesScreenController.selectedLanguage = prefService.getString(key: kLanguageCode) ?? appLanguageCode;
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

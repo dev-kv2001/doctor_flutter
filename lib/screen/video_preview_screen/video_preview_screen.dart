@@ -24,10 +24,7 @@ class VideoPreviewScreen extends StatelessWidget {
                   return Center(
                     child: controller.videoPlayerController.value.isInitialized
                         ? AspectRatio(
-                            aspectRatio: controller
-                                .videoPlayerController.value.aspectRatio,
-                            child:
-                                VideoPlayer(controller.videoPlayerController))
+                            aspectRatio: controller.videoPlayerController.value.aspectRatio, child: VideoPlayer(controller.videoPlayerController))
                         : Container(),
                   );
                 }),
@@ -64,17 +61,11 @@ class VideoPreviewScreen extends StatelessWidget {
                     child: ValueListenableBuilder(
                       valueListenable: controller.videoPlayerController,
                       builder: (context, value, child) => AnimatedOpacity(
-                        opacity:
-                            controller.videoPlayerController.value.isPlaying ==
-                                    true
-                                ? 0.0
-                                : 1.0,
+                        opacity: controller.videoPlayerController.value.isPlaying == true ? 0.0 : 1.0,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.linear,
                         child: Icon(
-                          controller.videoPlayerController.value.isPlaying
-                              ? Icons.pause
-                              : Icons.play_arrow,
+                          controller.videoPlayerController.value.isPlaying ? Icons.pause : Icons.play_arrow,
                           color: ColorRes.white,
                           size: 35,
                         ),
@@ -94,10 +85,7 @@ class VideoPreviewScreen extends StatelessWidget {
                       children: [
                         Text(
                           '${controller.printDuration(controller.videoPlayerController.value.position)} / ${controller.printDuration(controller.videoPlayerController.value.duration)}',
-                          style: const TextStyle(
-                              color: ColorRes.white,
-                              fontFamily: FontRes.semiBold,
-                              letterSpacing: 0.5),
+                          style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.semiBold, letterSpacing: 0.5),
                         ),
                         const SizedBox(
                           height: 5,
@@ -105,9 +93,7 @@ class VideoPreviewScreen extends StatelessWidget {
                         VideoProgressIndicator(
                           controller.videoPlayerController,
                           allowScrubbing: true,
-                          colors: const VideoProgressColors(
-                              backgroundColor: ColorRes.white,
-                              playedColor: ColorRes.tuftsBlue),
+                          colors: const VideoProgressColors(backgroundColor: ColorRes.white, playedColor: ColorRes.tuftsBlue),
                           padding: const EdgeInsets.only(bottom: 15, top: 3),
                         ),
                       ],

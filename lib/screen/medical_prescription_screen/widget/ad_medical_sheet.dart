@@ -11,8 +11,7 @@ class AdMedicalSheet extends StatelessWidget {
   final MedicalPrescriptionScreenController controller;
   final int type;
 
-  const AdMedicalSheet({Key? key, required this.controller, required this.type})
-      : super(key: key);
+  const AdMedicalSheet({Key? key, required this.controller, required this.type}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +26,7 @@ class AdMedicalSheet extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding:
-                const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+            padding: const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
             child: Row(
               children: [
                 Text(
@@ -47,8 +45,7 @@ class AdMedicalSheet extends StatelessWidget {
                   child: Container(
                     height: 37,
                     width: 37,
-                    decoration: const BoxDecoration(
-                        color: ColorRes.iceberg, shape: BoxShape.circle),
+                    decoration: const BoxDecoration(color: ColorRes.iceberg, shape: BoxShape.circle),
                     child: const Icon(
                       Icons.close_rounded,
                       color: ColorRes.havelockBlue,
@@ -73,12 +70,8 @@ class AdMedicalSheet extends StatelessWidget {
                         exampleTitle: "",
                         hintTitle: S.current.medicine,
                         controller: controller.medicineController,
-                        hintTextColor: controller.isTitleError == true
-                            ? ColorRes.bittersweet
-                            : ColorRes.silverChalice,
-                        errorColor: controller.isTitleError == true
-                            ? ColorRes.bittersweet.withOpacity(0.2)
-                            : ColorRes.whiteSmoke,
+                        hintTextColor: controller.isTitleError == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                        errorColor: controller.isTitleError == true ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
                       );
                     },
                   ),
@@ -91,12 +84,8 @@ class AdMedicalSheet extends StatelessWidget {
                             exampleTitle: "",
                             hintTitle: S.current.totalUnits,
                             textInputType: TextInputType.number,
-                            hintTextColor: controller.isQuantityError == true
-                                ? ColorRes.bittersweet
-                                : ColorRes.silverChalice,
-                            errorColor: controller.isQuantityError == true
-                                ? ColorRes.bittersweet.withOpacity(0.2)
-                                : ColorRes.whiteSmoke,
+                            hintTextColor: controller.isQuantityError == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                            errorColor: controller.isQuantityError == true ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
                             controller: controller.quantityController);
                       }),
                   GetBuilder(
@@ -108,12 +97,8 @@ class AdMedicalSheet extends StatelessWidget {
                             title: S.current.dosageDetailsEtc,
                             exampleTitle: S.current.timingUnitEtc,
                             hintTitle: S.current.writeHere,
-                            hintTextColor: controller.isDosageError == true
-                                ? ColorRes.bittersweet
-                                : ColorRes.silverChalice,
-                            errorColor: controller.isDosageError == true
-                                ? ColorRes.bittersweet.withOpacity(0.2)
-                                : ColorRes.whiteSmoke,
+                            hintTextColor: controller.isDosageError == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                            errorColor: controller.isDosageError == true ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
                             controller: controller.doseController);
                       }),
                   const SizedBox(
@@ -133,23 +118,17 @@ class AdMedicalSheet extends StatelessWidget {
                                 child: FittedBox(
                                   child: Container(
                                     height: 40,
-                                    margin: const EdgeInsets.only(
-                                        right: 5, bottom: 5),
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
+                                    margin: const EdgeInsets.only(right: 5, bottom: 5),
+                                    padding: const EdgeInsets.symmetric(horizontal: 20),
                                     decoration: BoxDecoration(
-                                      color: index == controller.selectedMeal
-                                          ? ColorRes.tuftsBlue
-                                          : ColorRes.softPeach,
+                                      color: index == controller.selectedMeal ? ColorRes.tuftsBlue : ColorRes.softPeach,
                                       borderRadius: BorderRadius.circular(30),
                                     ),
                                     alignment: Alignment.center,
                                     child: Text(
                                       controller.mealList[index],
                                       style: TextStyle(
-                                        color: index == controller.selectedMeal
-                                            ? ColorRes.white
-                                            : ColorRes.charcoalGrey,
+                                        color: index == controller.selectedMeal ? ColorRes.white : ColorRes.charcoalGrey,
                                         fontFamily: FontRes.semiBold,
                                         fontSize: 15,
                                       ),
@@ -171,28 +150,20 @@ class AdMedicalSheet extends StatelessWidget {
                       builder: (context) {
                         return Container(
                           height: 100,
-                          color: controller.isExtraNotesError
-                              ? ColorRes.bittersweet.withOpacity(0.2)
-                              : ColorRes.snowDrift,
+                          color: controller.isExtraNotesError ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.snowDrift,
                           child: TextField(
                             controller: controller.noteController,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               isDense: true,
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                               hintText: S.current.extraNotes,
                               hintStyle: TextStyle(
                                 fontFamily: FontRes.medium,
-                                color: controller.isExtraNotesError
-                                    ? ColorRes.bittersweet
-                                    : ColorRes.silverChalice,
+                                color: controller.isExtraNotesError ? ColorRes.bittersweet : ColorRes.silverChalice,
                               ),
                             ),
-                            style: const TextStyle(
-                                fontFamily: FontRes.semiBold,
-                                color: ColorRes.charcoalGrey,
-                                fontSize: 15),
+                            style: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey, fontSize: 15),
                             expands: true,
                             maxLines: null,
                             minLines: null,

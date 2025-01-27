@@ -18,10 +18,7 @@ class DoctorProfileScreenThree extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TopBarArea(
-              title: Get.arguments == null
-                  ? S.current.doctorRegistration
-                  : S.current.consultationType),
+          TopBarArea(title: Get.arguments == null ? S.current.doctorRegistration : S.current.consultationType),
           Expanded(
             child: Stack(
               children: [
@@ -45,12 +42,10 @@ class DoctorProfileScreenThree extends StatelessWidget {
                               children: [
                                 Container(
                                   width: double.infinity,
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 15),
+                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                                   color: ColorRes.whiteSmoke,
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         S.current.addClinicDetails,
@@ -64,8 +59,7 @@ class DoctorProfileScreenThree extends StatelessWidget {
                                         height: 5,
                                       ),
                                       Text(
-                                        S.current
-                                            .whereYouWillBeConsultingPatients,
+                                        S.current.whereYouWillBeConsultingPatients,
                                         style: const TextStyle(
                                           fontFamily: FontRes.regular,
                                           color: ColorRes.battleshipGrey,
@@ -83,10 +77,8 @@ class DoctorProfileScreenThree extends StatelessWidget {
                                         isExample: false,
                                         exampleTitle: "",
                                         hintTitle: S.current.enterHere,
-                                        controller:
-                                            controller.clinicNameController,
-                                        focusNode:
-                                            controller.clinicNameFocusNode,
+                                        controller: controller.clinicNameController,
+                                        focusNode: controller.clinicNameFocusNode,
                                       );
                                     }),
                                 GetBuilder(
@@ -99,10 +91,8 @@ class DoctorProfileScreenThree extends StatelessWidget {
                                       exampleTitle: "",
                                       hintTitle: S.current.enterHere,
                                       textFieldHeight: 100,
-                                      controller:
-                                          controller.clinicAddressController,
-                                      focusNode:
-                                          controller.clinicAddressFocusNode,
+                                      controller: controller.clinicAddressController,
+                                      focusNode: controller.clinicAddressFocusNode,
                                       textInputType: TextInputType.multiline,
                                     );
                                   },
@@ -142,10 +132,7 @@ class DoctorProfileScreenThree extends StatelessWidget {
           ),
           Text(
             S.current.chooseConsultationType,
-            style: const TextStyle(
-                fontFamily: FontRes.semiBold,
-                fontSize: 16,
-                color: ColorRes.charcoalGrey),
+            style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 16, color: ColorRes.charcoalGrey),
           ),
           Text(
             S.current.youCanChangeThisLater,
@@ -158,25 +145,17 @@ class DoctorProfileScreenThree extends StatelessWidget {
             children: [
               GetBuilder<DoctorProfileScreenThreeController>(
                   init: controller,
-                  builder: (controller) => _checkBox(
-                      context: Get.context!,
-                      onChange: controller.onChangeOnline,
-                      value: controller.isOnline)),
+                  builder: (controller) => _checkBox(context: Get.context!, onChange: controller.onChangeOnline, value: controller.isOnline)),
               Text(
                 S.current.online,
-                style: const TextStyle(
-                    color: ColorRes.grey, fontFamily: FontRes.semiBold),
+                style: const TextStyle(color: ColorRes.grey, fontFamily: FontRes.semiBold),
               ),
               GetBuilder<DoctorProfileScreenThreeController>(
                   init: controller,
-                  builder: (controller) => _checkBox(
-                      context: Get.context!,
-                      onChange: controller.onChangeAtClinic,
-                      value: controller.isAtClinic)),
+                  builder: (controller) => _checkBox(context: Get.context!, onChange: controller.onChangeAtClinic, value: controller.isAtClinic)),
               Text(
                 S.current.atClinic,
-                style: const TextStyle(
-                    color: ColorRes.grey, fontFamily: FontRes.semiBold),
+                style: const TextStyle(color: ColorRes.grey, fontFamily: FontRes.semiBold),
               ),
             ],
           ),
@@ -188,10 +167,7 @@ class DoctorProfileScreenThree extends StatelessWidget {
     );
   }
 
-  Widget _checkBox(
-      {required BuildContext context,
-      bool? value,
-      required Function(bool? value) onChange}) {
+  Widget _checkBox({required BuildContext context, bool? value, required Function(bool? value) onChange}) {
     return Theme(
       data: Theme.of(context).copyWith(
         unselectedWidgetColor: ColorRes.havelockBlue,
@@ -244,18 +220,12 @@ class DoctorProfileScreenThree extends StatelessWidget {
               child: Container(
                 height: 45,
                 width: double.infinity,
-                color: controller.latitude != null
-                    ? ColorRes.irishGreen.withOpacity(0.10)
-                    : ColorRes.whiteSmoke,
+                color: controller.latitude != null ? ColorRes.irishGreen.withOpacity(0.10) : ColorRes.whiteSmoke,
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "  ${controller.latitude != null ? S.current.locationFetched : S.current.clickToFetchLocation}",
                   style: TextStyle(
-                      color: controller.latitude != null
-                          ? ColorRes.irishGreen
-                          : ColorRes.silverChalice,
-                      fontFamily: FontRes.medium,
-                      fontSize: 15),
+                      color: controller.latitude != null ? ColorRes.irishGreen : ColorRes.silverChalice, fontFamily: FontRes.medium, fontSize: 15),
                 ),
               ),
             );

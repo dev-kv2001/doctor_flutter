@@ -20,8 +20,7 @@ import 'package:get/get.dart';
 class FirebaseNotificationManager {
   static var shared = FirebaseNotificationManager();
   FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
   AndroidNotificationChannel channel = const AndroidNotificationChannel(
       'doctor', // id
@@ -34,15 +33,8 @@ class FirebaseNotificationManager {
 
   NotificationDetails notificationDetails = const NotificationDetails(
     android: AndroidNotificationDetails('doctor', appName,
-        playSound: true,
-        priority: Priority.max,
-        category: AndroidNotificationCategory.reminder,
-        channelShowBadge: false),
-    iOS: DarwinNotificationDetails(
-        presentSound: true,
-        presentAlert: true,
-        presentBadge: false,
-        presentBanner: false),
+        playSound: true, priority: Priority.max, category: AndroidNotificationCategory.reminder, channelShowBadge: false),
+    iOS: DarwinNotificationDetails(presentSound: true, presentAlert: true, presentBadge: false, presentBanner: false),
   );
 
   String? messageId;
@@ -55,12 +47,10 @@ class FirebaseNotificationManager {
     subscribeToTopic();
     if (Platform.isAndroid) {
       await flutterLocalNotificationsPlugin
-          .resolvePlatformSpecificImplementation<
-              AndroidFlutterLocalNotificationsPlugin>()
+          .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
           ?.requestNotificationsPermission();
     } else {
-      await firebaseMessaging.requestPermission(
-          alert: true, badge: false, sound: true, announcement: true);
+      await firebaseMessaging.requestPermission(alert: true, badge: false, sound: true, announcement: true);
 
       /// Update the iOS foreground notification presentation options to allow
       /// heads up notifications.
@@ -73,16 +63,12 @@ class FirebaseNotificationManager {
       debugPrint('APNS Token: $apnsToken');
     }
 
-    var initializationSettingsAndroid =
-        const AndroidInitializationSettings('@mipmap/ic_launcher');
+    var initializationSettingsAndroid = const AndroidInitializationSettings('@mipmap/ic_launcher');
 
-    var initializationSettingsIOS = const DarwinInitializationSettings(
-        defaultPresentAlert: true,
-        defaultPresentSound: true,
-        defaultPresentBadge: false);
+    var initializationSettingsIOS =
+        const DarwinInitializationSettings(defaultPresentAlert: true, defaultPresentSound: true, defaultPresentBadge: false);
 
-    var initializationSettings = InitializationSettings(
-        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+    var initializationSettings = InitializationSettings(android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
 
     flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
@@ -112,8 +98,7 @@ class FirebaseNotificationManager {
         return;
       }
       if (message.data[nNotificationType] == '1') {
-        if (message.data[nAppointmentId] !=
-            AppointmentChatScreenController.appointmentId) {
+        if (message.data[nAppointmentId] != AppointmentChatScreenController.appointmentId) {
           showNotification(message);
         }
         return;
@@ -122,15 +107,13 @@ class FirebaseNotificationManager {
     });
 
     await flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
+        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
   }
 
   void showNotification(RemoteMessage message) {
     if (Platform.isAndroid) {
-      debugPrint(
-          'Show Flutter Local Notification ${message.toMap()}\nNotification: ${message.notification?.toMap()}');
+      debugPrint('Show Flutter Local Notification ${message.toMap()}\nNotification: ${message.notification?.toMap()}');
       flutterLocalNotificationsPlugin.show(
         1,
         message.data['title'] ?? message.notification?.title,
@@ -170,23 +153,17 @@ class FirebaseNotificationManager {
         completion: (response) {
           AddReel data = AddReel.fromJson(response);
           if (data.status == true && data.data != null) {
-            Get.to(() => ReelsScreen(
-                reels: [data.data!],
-                initialIndex: 0,
-                profileType: ProfileType.profile));
+            Get.to(() => ReelsScreen(reels: [data.data!], initialIndex: 0, profileType: ProfileType.profile));
           }
         },
       );
       return;
     }
     if (payload.type == 0) {
-      ApiService.instance
-          .fetchAppointmentDetails(appointmentId: payload.id)
-          .then(
+      ApiService.instance.fetchAppointmentDetails(appointmentId: payload.id).then(
         (value) {
           if (value.status == true) {
-            Get.to(() => const AppointmentDetailScreen(),
-                arguments: value.data);
+            Get.to(() => const AppointmentDetailScreen(), arguments: value.data);
           }
         },
       );

@@ -28,26 +28,20 @@ class DropDownMenu extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
       ),
-      decoration: BoxDecoration(
-          color: ColorRes.whiteSmoke,
-          borderRadius: BorderRadius.circular(radius)),
+      decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(radius)),
       child: DropdownButton<String>(
         value: initialValue,
         isExpanded: true,
         alignment: Alignment.center,
         onChanged: onChange,
         items: items
-            .map<DropdownMenuItem<String>>(
-                (String value) => DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(
-                        value.capitalize ?? '',
-                        style: TextStyle(
-                            fontFamily: fontFamily,
-                            color: textColor,
-                            fontSize: 15),
-                      ),
-                    ))
+            .map<DropdownMenuItem<String>>((String value) => DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value.capitalize ?? '',
+                    style: TextStyle(fontFamily: fontFamily, color: textColor, fontSize: 15),
+                  ),
+                ))
             .toList(),
         underline: const SizedBox(),
       ),

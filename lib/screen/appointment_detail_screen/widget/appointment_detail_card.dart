@@ -44,8 +44,7 @@ class AppointmentDetailCard extends StatelessWidget {
             children: [
               AppointmentCardFiled(title: S.current.date, desc: CommonFun.dateFormat(data?.date, 2)),
               AppointmentCardFiled(title: S.current.time, desc: CommonFun.convert24HoursInto12Hours(data?.time)),
-              AppointmentCardFiled(
-                  title: S.current.type, desc: data?.type == 0 ? S.current.online : S.current.atClinic),
+              AppointmentCardFiled(title: S.current.type, desc: data?.type == 0 ? S.current.online : S.current.atClinic),
             ],
           ),
           const SizedBox(
@@ -103,21 +102,18 @@ class AppointmentDetailCard extends StatelessWidget {
                                 RichText(
                                   text: TextSpan(
                                     text: '${tax?.taxTitle} ',
-                                    style: const TextStyle(
-                                        fontFamily: FontRes.medium, color: ColorRes.davyGrey, fontSize: 16),
+                                    style: const TextStyle(fontFamily: FontRes.medium, color: ColorRes.davyGrey, fontSize: 16),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text: tax?.type == 0 ? '(${tax?.value ?? ''}$percentage)' : '',
-                                          style: const TextStyle(
-                                              fontFamily: FontRes.bold, color: ColorRes.tuftsBlue, fontSize: 13)),
+                                          style: const TextStyle(fontFamily: FontRes.bold, color: ColorRes.tuftsBlue, fontSize: 13)),
                                     ],
                                   ),
                                 ),
                                 const Spacer(),
                                 Text(
                                   '$dollar${NumberFormat(numberFormat).format(tax?.taxAmount ?? 0)}',
-                                  style: const TextStyle(
-                                      fontFamily: FontRes.bold, fontSize: 17, color: ColorRes.tuftsBlue),
+                                  style: const TextStyle(fontFamily: FontRes.bold, fontSize: 17, color: ColorRes.tuftsBlue),
                                 )
                               ],
                             ),

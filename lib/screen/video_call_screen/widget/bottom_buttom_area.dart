@@ -24,8 +24,7 @@ class BottomButtonArea extends StatelessWidget {
                 height: 50,
                 width: 50,
                 padding: const EdgeInsets.all(12),
-                decoration: const BoxDecoration(
-                    color: ColorRes.white, shape: BoxShape.circle),
+                decoration: const BoxDecoration(color: ColorRes.white, shape: BoxShape.circle),
                 child: Icon(
                   controller.isMuted ? Icons.keyboard_voice : Icons.mic_off,
                   color: ColorRes.davyGrey,
@@ -55,8 +54,7 @@ class BottomButtonArea extends StatelessWidget {
                 height: 50,
                 width: 50,
                 padding: const EdgeInsets.all(12),
-                decoration: const BoxDecoration(
-                    color: ColorRes.white, shape: BoxShape.circle),
+                decoration: const BoxDecoration(color: ColorRes.white, shape: BoxShape.circle),
                 child: const Icon(
                   Icons.exit_to_app,
                   color: ColorRes.ferrariRed,

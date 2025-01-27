@@ -20,8 +20,7 @@ class MapScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        Get.put(MapScreenController(LatLng(latitude ?? -1, longitude ?? -1)));
+    final controller = Get.put(MapScreenController(LatLng(latitude ?? -1, longitude ?? -1)));
     return Scaffold(
       body: GetBuilder(
           init: controller,
@@ -35,13 +34,10 @@ class MapScreen extends StatelessWidget {
                     children: [
                       GoogleMap(
                         onTap: (argument) {
-                          controller.getCameraPosition(
-                              latitude: argument.latitude,
-                              longitude: argument.longitude);
+                          controller.getCameraPosition(latitude: argument.latitude, longitude: argument.longitude);
                         },
                         initialCameraPosition: CameraPosition(
-                          target: LatLng(controller.lng.latitude,
-                              controller.lng.longitude),
+                          target: LatLng(controller.lng.latitude, controller.lng.longitude),
                           zoom: 14.4746,
                         ),
                         markers: Set<Marker>.of(controller.markers.toSet()),
@@ -62,17 +58,13 @@ class MapScreen extends StatelessWidget {
                             height: 45,
                             width: Get.width / 3,
                             margin: const EdgeInsets.symmetric(vertical: 20),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                gradient: StyleRes.linearGradient),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), gradient: StyleRes.linearGradient),
                             alignment: Alignment.center,
                             child: SafeArea(
                               top: false,
                               child: Text(
                                 S.current.done,
-                                style: const TextStyle(
-                                    color: ColorRes.white,
-                                    fontFamily: FontRes.medium),
+                                style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.medium),
                               ),
                             ),
                           ),
@@ -87,8 +79,7 @@ class MapScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           controller.getUserCurrentLocation().then((value) async {
-            controller.getCameraPosition(
-                latitude: value.latitude, longitude: value.longitude);
+            controller.getCameraPosition(latitude: value.latitude, longitude: value.longitude);
           });
         },
         child: const Icon(Icons.location_on),

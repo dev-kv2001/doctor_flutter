@@ -40,9 +40,7 @@ class ReelScreenController extends GetxController {
       if (reel != null) {
         final isCurrentlyLiked = reel.isLiked ?? false;
         reel.isLiked = !isCurrentlyLiked;
-        reel.likesCount = (isCurrentlyLiked
-            ? (reel.likesCount ?? 0).clamp(1, double.infinity).toInt() - 1
-            : (reel.likesCount ?? 0) + 1);
+        reel.likesCount = (isCurrentlyLiked ? (reel.likesCount ?? 0).clamp(1, double.infinity).toInt() - 1 : (reel.likesCount ?? 0) + 1);
       }
     });
 
@@ -61,10 +59,7 @@ class ReelScreenController extends GetxController {
               if (reel != null) {
                 final isCurrentlyLiked = reel.isLiked ?? false;
                 reel.isLiked = !isCurrentlyLiked;
-                reel.likesCount = isCurrentlyLiked
-                    ? (reel.likesCount ?? 0).clamp(1, double.infinity).toInt() -
-                        1
-                    : (reel.likesCount ?? 0) + 1;
+                reel.likesCount = isCurrentlyLiked ? (reel.likesCount ?? 0).clamp(1, double.infinity).toInt() - 1 : (reel.likesCount ?? 0) + 1;
               }
             });
           }
@@ -75,8 +70,7 @@ class ReelScreenController extends GetxController {
 
   void onCommentTap() {
     fetchComment();
-    Get.bottomSheet(Obx(() => CommentSheet(reelData: reel.value)),
-        isScrollControlled: true);
+    Get.bottomSheet(Obx(() => CommentSheet(reelData: reel.value)), isScrollControlled: true);
   }
 
   onSendComment(String comment) {
@@ -117,18 +111,12 @@ class ReelScreenController extends GetxController {
       // Debounced API update
       _debounce?.cancel();
       _debounce = Timer(const Duration(milliseconds: 1000), () async {
-
         await prefService.init();
 
         // Parse saved reels from preferences
         final savedList = <String>{
-          if (prefService.getRegistrationData()?.savedReels?.isNotEmpty ??
-              false)
-            ...prefService
-                .getRegistrationData()!
-                .savedReels!
-                .split(',')
-                .where((e) => e.isNotEmpty)
+          if (prefService.getRegistrationData()?.savedReels?.isNotEmpty ?? false)
+            ...prefService.getRegistrationData()!.savedReels!.split(',').where((e) => e.isNotEmpty)
         };
 
         debugPrint('Current saved list: $savedList');
@@ -151,8 +139,7 @@ class ReelScreenController extends GetxController {
           debugPrint('Sending updated saved list to API');
 
           // Make a single API call after updating the list
-          await ApiService()
-              .updateDoctorDetails(savedReels: savedList.join(','));
+          await ApiService().updateDoctorDetails(savedReels: savedList.join(','));
           debugPrint('Updated saved list sent to API: ${savedList.join(',')}');
         });
       });
@@ -172,11 +159,7 @@ class ReelScreenController extends GetxController {
     isCommentLoading.value = true;
     ApiService.instance.call(
         url: Urls.fetchReelComments,
-        param: {
-          pReelId: reel.value.id,
-          pStart: comments.length,
-          pCount: paginationLimit
-        },
+        param: {pReelId: reel.value.id, pStart: comments.length, pCount: paginationLimit},
         completion: (response) {
           FetchComment data = FetchComment.fromJson(response);
           if (data.status == true) {

@@ -10,13 +10,7 @@ class SettingTopArea extends StatelessWidget {
   final bool enable;
   final VoidCallback onTap;
 
-  const SettingTopArea(
-      {Key? key,
-      required this.title,
-      required this.title2,
-      required this.alignment,
-      required this.enable,
-      required this.onTap})
+  const SettingTopArea({Key? key, required this.title, required this.title2, required this.alignment, required this.enable, required this.onTap})
       : super(key: key);
 
   @override
@@ -33,18 +27,14 @@ class SettingTopArea extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                      fontFamily: FontRes.medium,
-                      fontSize: 15,
-                      color: ColorRes.charcoalGrey),
+                  style: const TextStyle(fontFamily: FontRes.medium, fontSize: 15, color: ColorRes.charcoalGrey),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
                   title2,
-                  style: const TextStyle(
-                      fontSize: 12.5, color: ColorRes.mediumGrey),
+                  style: const TextStyle(fontSize: 12.5, color: ColorRes.mediumGrey),
                 )
               ],
             ),
@@ -61,10 +51,7 @@ class SettingTopArea extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
                 gradient: enable
                     ? StyleRes.linearGradient
-                    : const LinearGradient(
-                        colors: [ColorRes.grey, ColorRes.grey],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter),
+                    : const LinearGradient(colors: [ColorRes.grey, ColorRes.grey], begin: Alignment.topCenter, end: Alignment.bottomCenter),
               ),
               duration: const Duration(milliseconds: 250),
               child: Container(

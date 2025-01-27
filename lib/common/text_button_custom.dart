@@ -9,13 +9,13 @@ class TextButtonCustom extends StatelessWidget {
   final Color? titleColor;
   final Color? backgroundColor;
 
-  const TextButtonCustom(
-      {Key? key,
-      required this.onPressed,
-      required this.title,
-      required this.titleColor,
-      required this.backgroundColor,
-      }) : super(key: key);
+  const TextButtonCustom({
+    Key? key,
+    required this.onPressed,
+    required this.title,
+    required this.titleColor,
+    required this.backgroundColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

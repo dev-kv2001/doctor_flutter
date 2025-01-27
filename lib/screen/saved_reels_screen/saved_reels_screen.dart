@@ -28,12 +28,8 @@ class SavedReelsScreen extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: controller.reels.length,
                         padding: const EdgeInsets.symmetric(horizontal: 10),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                crossAxisSpacing: 5,
-                                mainAxisSpacing: 5,
-                                mainAxisExtent: 180),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5, mainAxisExtent: 180),
                         itemBuilder: (context, index) {
                           Reel reel = controller.reels[index];
                           return ReelCard(

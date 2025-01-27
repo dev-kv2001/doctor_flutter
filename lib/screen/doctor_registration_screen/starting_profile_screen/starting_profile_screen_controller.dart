@@ -51,8 +51,7 @@ class StartingProfileScreenController extends GetxController {
     String response = await rootBundle.loadString(AssetRes.countryJson);
     countries = Countries.fromJson(json.decode(response)).country ?? [];
     filterCountries = Countries.fromJson(json.decode(response)).country ?? [];
-    selectCountry =
-        countries.firstWhere((element) => element.countryCode == countryCode);
+    selectCountry = countries.firstWhere((element) => element.countryCode == countryCode);
     prefData();
     update([kSelectCountries]);
   }
@@ -138,8 +137,7 @@ class StartingProfileScreenController extends GetxController {
         .updateDoctorDetails(
       countryCode: selectCountry?.phoneCode,
       gender: selectGender == S.current.male ? 1 : 0,
-      mobileNumber:
-          phoneController.text.trim().isEmpty ? null : '${phoneController.text.trim()} ${selectCountry?.countryCode}',
+      mobileNumber: phoneController.text.trim().isEmpty ? null : '${phoneController.text.trim()} ${selectCountry?.countryCode}',
     )
         .then((value) {
       if (value.status == true) {

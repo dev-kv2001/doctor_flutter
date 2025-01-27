@@ -6,12 +6,7 @@ class ChatMsgTextCard extends StatelessWidget {
   final Color cardColor;
   final Color textColor;
 
-  const ChatMsgTextCard(
-      {Key? key,
-      required this.msg,
-      required this.cardColor,
-      required this.textColor})
-      : super(key: key);
+  const ChatMsgTextCard({Key? key, required this.msg, required this.cardColor, required this.textColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

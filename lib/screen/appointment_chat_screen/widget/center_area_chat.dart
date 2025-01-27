@@ -16,12 +16,7 @@ class CenterAreaChat extends StatelessWidget {
   final DoctorData? doctorData;
   final Function(AppointmentChat data) onJoinMeeting;
 
-  const CenterAreaChat(
-      {Key? key,
-      required this.scrollController,
-      required this.chatData,
-      this.doctorData,
-      required this.onJoinMeeting})
+  const CenterAreaChat({Key? key, required this.scrollController, required this.chatData, this.doctorData, required this.onJoinMeeting})
       : super(key: key);
 
   @override
@@ -41,9 +36,7 @@ class CenterAreaChat extends StatelessWidget {
             reverse: true,
             itemBuilder: (context, index) {
               AppointmentChat data = chatData[index];
-              return data.senderUser?.userId == doctorData?.id
-                  ? _yourMsg(data, onJoinMeeting)
-                  : _otherMsg(data);
+              return data.senderUser?.userId == doctorData?.id ? _yourMsg(data, onJoinMeeting) : _otherMsg(data);
             },
           ),
         ),
@@ -59,10 +52,7 @@ class CenterAreaChat extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         data.msgType == FirebaseRes.text
-            ? ChatMsgTextCard(
-                msg: data.msg ?? '',
-                cardColor: ColorRes.whiteSmoke,
-                textColor: ColorRes.davyGrey)
+            ? ChatMsgTextCard(msg: data.msg ?? '', cardColor: ColorRes.whiteSmoke, textColor: ColorRes.davyGrey)
             : data.msgType == FirebaseRes.image
                 ? ChatImageCard(
                     imageUrl: data.image,
@@ -86,8 +76,7 @@ class CenterAreaChat extends StatelessWidget {
                         msg: data.msg,
                         imageTextColor: ColorRes.davyGrey)
                     : data.msgType == FirebaseRes.videoCall
-                        ? VideoCallCard(
-                            data: data, onJoinMeeting: onJoinMeeting)
+                        ? VideoCallCard(data: data, onJoinMeeting: onJoinMeeting)
                         : const SizedBox(),
         ChatDateFormat(time: data.id)
       ],
@@ -99,10 +88,7 @@ class CenterAreaChat extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         data.msgType == FirebaseRes.text
-            ? ChatMsgTextCard(
-                msg: data.msg ?? '',
-                cardColor: ColorRes.havelockBlue,
-                textColor: ColorRes.white)
+            ? ChatMsgTextCard(msg: data.msg ?? '', cardColor: ColorRes.havelockBlue, textColor: ColorRes.white)
             : data.msgType == FirebaseRes.image
                 ? ChatImageCard(
                     imageUrl: data.image,
@@ -131,8 +117,7 @@ class CenterAreaChat extends StatelessWidget {
 
 class MyBehavior extends ScrollBehavior {
   @override
-  Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails details) {
+  Widget buildOverscrollIndicator(BuildContext context, Widget child, ScrollableDetails details) {
     return child;
   }
 }

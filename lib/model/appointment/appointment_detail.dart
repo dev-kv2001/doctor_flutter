@@ -14,8 +14,7 @@ class AppointmentDetail {
   AppointmentDetail.fromJson(dynamic json) {
     _status = json['status'];
     _message = json['message'];
-    _data =
-        json['data'] != null ? AppointmentData.fromJson(json['data']) : null;
+    _data = json['data'] != null ? AppointmentData.fromJson(json['data']) : null;
   }
 
   bool? _status;

@@ -26,14 +26,8 @@ class EarningReportScreen extends StatelessWidget {
             builder: (context) {
               return Row(
                 children: [
-                  _earningTopCard(
-                      title1:
-                          '$dollar${controller.doctorData?.lifetimeEarnings ?? 0}',
-                      category: S.current.totalEarnings),
-                  _earningTopCard(
-                      title1: (controller.doctorData?.totalPatientsCured ?? 0)
-                          .formatCurrency,
-                      category: S.current.totalOrders),
+                  _earningTopCard(title1: '$dollar${controller.doctorData?.lifetimeEarnings ?? 0}', category: S.current.totalEarnings),
+                  _earningTopCard(title1: (controller.doctorData?.totalPatientsCured ?? 0).formatCurrency, category: S.current.totalOrders),
                 ],
               );
             },
@@ -49,31 +43,21 @@ class EarningReportScreen extends StatelessWidget {
     return Expanded(
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        padding:
-            const EdgeInsets.only(left: 15, right: 10, top: 15, bottom: 15),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: ColorRes.whiteSmoke),
+        padding: const EdgeInsets.only(left: 15, right: 10, top: 15, bottom: 15),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: ColorRes.whiteSmoke),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title1,
-              style: const TextStyle(
-                  color: ColorRes.havelockBlue,
-                  fontFamily: FontRes.extraBold,
-                  fontSize: 21),
+              style: const TextStyle(color: ColorRes.havelockBlue, fontFamily: FontRes.extraBold, fontSize: 21),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
               category,
-              style: const TextStyle(
-                  fontSize: 14,
-                  color: ColorRes.davyGrey,
-                  overflow: TextOverflow.ellipsis,
-                  letterSpacing: 0.5),
+              style: const TextStyle(fontSize: 14, color: ColorRes.davyGrey, overflow: TextOverflow.ellipsis, letterSpacing: 0.5),
             )
           ],
         ),

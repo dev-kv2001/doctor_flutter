@@ -27,9 +27,7 @@ class AddServiceLocation extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TopBarArea(
-            title: apiType == 1
-                ? S.current.addServiceLocation
-                : S.current.editServiceLocation,
+            title: apiType == 1 ? S.current.addServiceLocation : S.current.editServiceLocation,
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -38,9 +36,7 @@ class AddServiceLocation extends StatelessWidget {
                   GetBuilder(
                       init: controller,
                       initState: (state) {
-                        controller.hospitalNameController =
-                            TextEditingController(
-                                text: serviceLocations?.hospitalTitle ?? '');
+                        controller.hospitalNameController = TextEditingController(text: serviceLocations?.hospitalTitle ?? '');
                       },
                       builder: (context) {
                         return DoctorProfileTextField(
@@ -53,9 +49,7 @@ class AddServiceLocation extends StatelessWidget {
                   GetBuilder(
                       init: controller,
                       initState: (state) {
-                        controller.hospitalAddressController =
-                            TextEditingController(
-                                text: serviceLocations?.hospitalAddress ?? '');
+                        controller.hospitalAddressController = TextEditingController(text: serviceLocations?.hospitalAddress ?? '');
                       },
                       builder: (context) {
                         return DoctorProfileTextField(
@@ -78,10 +72,7 @@ class AddServiceLocation extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
                           S.current.location,
-                          style: const TextStyle(
-                              fontFamily: FontRes.semiBold,
-                              color: ColorRes.charcoalGrey,
-                              fontSize: 15),
+                          style: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey, fontSize: 15),
                         ),
                       ),
                       const SizedBox(
@@ -91,34 +82,24 @@ class AddServiceLocation extends StatelessWidget {
                         init: controller,
                         builder: (context) {
                           return InkWell(
-                            onTap: () => controller.navigateMapScreen(
-                                serviceLocations, apiType),
+                            onTap: () => controller.navigateMapScreen(serviceLocations, apiType),
                             child: Container(
                               height: 50,
                               width: double.infinity,
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              color: (serviceLocations?.hospitalLong == null ||
-                                          serviceLocations?.hospitalLong ==
-                                              'null') &&
-                                      controller.longitude == null
-                                  ? ColorRes.whiteSmoke
-                                  : ColorRes.mediumGreen.withOpacity(0.1),
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              color:
+                                  (serviceLocations?.hospitalLong == null || serviceLocations?.hospitalLong == 'null') && controller.longitude == null
+                                      ? ColorRes.whiteSmoke
+                                      : ColorRes.mediumGreen.withOpacity(0.1),
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                (serviceLocations?.hospitalLong == null ||
-                                            serviceLocations?.hospitalLong ==
-                                                'null') &&
-                                        controller.longitude == null
+                                (serviceLocations?.hospitalLong == null || serviceLocations?.hospitalLong == 'null') && controller.longitude == null
                                     ? S.current.clickToFetchLocation
                                     : S.current.locationFetched,
                                 style: TextStyle(
                                   fontFamily: FontRes.medium,
                                   fontSize: 15,
-                                  color: (serviceLocations?.hospitalLong ==
-                                                  null ||
-                                              serviceLocations?.hospitalLong ==
-                                                  'null') &&
+                                  color: (serviceLocations?.hospitalLong == null || serviceLocations?.hospitalLong == 'null') &&
                                           controller.longitude == null
                                       ? ColorRes.silverChalice
                                       : ColorRes.irishGreen,
@@ -135,8 +116,7 @@ class AddServiceLocation extends StatelessWidget {
             ),
           ),
           DoctorRegButton(
-            onTap: () => controller.addServiceLocationApiCall(
-                type: apiType, id: serviceLocations?.id, isBack: true),
+            onTap: () => controller.addServiceLocationApiCall(type: apiType, id: serviceLocations?.id, isBack: true),
             title: apiType == 1 ? S.current.add : S.current.edit,
           )
         ],

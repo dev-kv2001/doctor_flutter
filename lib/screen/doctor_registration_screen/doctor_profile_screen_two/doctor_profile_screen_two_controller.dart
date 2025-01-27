@@ -46,11 +46,7 @@ class DoctorProfileScreenTwoController extends GetxController {
     }
     unFocusFiled();
     CustomUi.loader();
-    ApiService.instance
-        .updateDoctorDetails(
-            aboutYourself: aboutController.text,
-            educationalJourney: educationController.text)
-        .then((value) {
+    ApiService.instance.updateDoctorDetails(aboutYourself: aboutController.text, educationalJourney: educationController.text).then((value) {
       if (value.status == true) {
         Get.back();
         if (Get.arguments == null) {
@@ -65,8 +61,7 @@ class DoctorProfileScreenTwoController extends GetxController {
   }
 
   void navigateRoot() {
-    if (userData?.onlineConsultation == 0 &&
-        userData?.clinicConsultation == 0) {
+    if (userData?.onlineConsultation == 0 && userData?.clinicConsultation == 0) {
       Get.off(() => const DoctorProfileScreenThree());
     } else {
       Get.offAll(() => const RegistrationSuccessfulScreen());
@@ -77,8 +72,7 @@ class DoctorProfileScreenTwoController extends GetxController {
     await prefService.init();
     userData = prefService.getRegistrationData();
     aboutController = TextEditingController(text: userData?.aboutYouself ?? '');
-    educationController =
-        TextEditingController(text: userData?.educationalJourney ?? '');
+    educationController = TextEditingController(text: userData?.educationalJourney ?? '');
     update();
   }
 }

@@ -26,57 +26,39 @@ class PayoutHistoryScreen extends StatelessWidget {
               builder: (context) {
                 return controller.isLoading
                     ? CustomUi.loaderWidget()
-                    : controller.payoutData == null ||
-                            controller.payoutData!.isEmpty
-                        ? CustomUi.noData(
-                            message:
-                                '${S.current.no} ${S.current.payoutHistory}')
+                    : controller.payoutData == null || controller.payoutData!.isEmpty
+                        ? CustomUi.noData(message: '${S.current.no} ${S.current.payoutHistory}')
                         : SafeArea(
                             top: false,
                             child: ListView.builder(
                               itemCount: controller.payoutData?.length ?? 0,
                               padding: EdgeInsets.zero,
                               itemBuilder: (context, index) {
-                                PayoutHistoryData? data =
-                                    controller.payoutData?[index];
+                                PayoutHistoryData? data = controller.payoutData?[index];
                                 return Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(vertical: 1.5),
+                                  margin: const EdgeInsets.symmetric(vertical: 1.5),
                                   padding: const EdgeInsets.all(10),
                                   color: ColorRes.whiteSmoke,
                                   child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Expanded(
                                         child: Row(
                                           children: [
                                             Expanded(
                                               child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
                                                     data?.requestNumber ?? '',
-                                                    style: const TextStyle(
-                                                        color:
-                                                            ColorRes.tuftsBlue,
-                                                        fontFamily:
-                                                            FontRes.semiBold,
-                                                        fontSize: 16),
+                                                    style: const TextStyle(color: ColorRes.tuftsBlue, fontFamily: FontRes.semiBold, fontSize: 16),
                                                   ),
                                                   const SizedBox(
                                                     height: 5,
                                                   ),
                                                   Text(
-                                                    (data?.createdAt ??
-                                                            createdDate)
-                                                        .dateParse(
-                                                            ddMmmmYyyyHhMmA),
-                                                    style: const TextStyle(
-                                                        fontSize: 14,
-                                                        color:
-                                                            ColorRes.davyGrey),
+                                                    (data?.createdAt ?? createdDate).dateParse(ddMmmmYyyyHhMmA),
+                                                    style: const TextStyle(fontSize: 14, color: ColorRes.davyGrey),
                                                   ),
                                                 ],
                                               ),
@@ -85,32 +67,21 @@ class PayoutHistoryScreen extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   "$dollar${data?.amount ?? '0'}",
-                                                  style: const TextStyle(
-                                                      fontFamily: FontRes.bold,
-                                                      fontSize: 18,
-                                                      color: ColorRes.davyGrey),
+                                                  style: const TextStyle(fontFamily: FontRes.bold, fontSize: 18, color: ColorRes.davyGrey),
                                                 ),
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
                                                 Container(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                      vertical: 5,
-                                                      horizontal: 8),
+                                                  padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
                                                   decoration: BoxDecoration(
                                                     color: (data?.status == 0
-                                                            ? ColorRes
-                                                                .mangoOrange
+                                                            ? ColorRes.mangoOrange
                                                             : data?.status == 1
-                                                                ? ColorRes
-                                                                    .irishGreen
-                                                                : ColorRes
-                                                                    .lightRed)
+                                                                ? ColorRes.irishGreen
+                                                                : ColorRes.lightRed)
                                                         .withOpacity(0.15),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5),
+                                                    borderRadius: BorderRadius.circular(5),
                                                   ),
                                                   child: Text(
                                                     data?.status == 0
@@ -120,15 +91,11 @@ class PayoutHistoryScreen extends StatelessWidget {
                                                             : S.current.reject,
                                                     style: TextStyle(
                                                         color: data?.status == 0
-                                                            ? ColorRes
-                                                                .mangoOrange
+                                                            ? ColorRes.mangoOrange
                                                             : data?.status == 1
-                                                                ? ColorRes
-                                                                    .irishGreen
-                                                                : ColorRes
-                                                                    .lightRed,
-                                                        fontFamily:
-                                                            FontRes.medium),
+                                                                ? ColorRes.irishGreen
+                                                                : ColorRes.lightRed,
+                                                        fontFamily: FontRes.medium),
                                                   ),
                                                 )
                                               ],

@@ -35,8 +35,7 @@ class DashboardScreenController extends GetxController {
 
   RxList<Reel> reels = <Reel>[].obs;
   RxList<int> unReadMessages = <int>[].obs;
-  RxList<DoctorCategoryData> doctorCategoryData =
-      [DoctorCategoryData(id: 0, title: 'Mix')].obs;
+  RxList<DoctorCategoryData> doctorCategoryData = [DoctorCategoryData(id: 0, title: 'Mix')].obs;
 
   @override
   void onInit() {
@@ -94,8 +93,7 @@ class DashboardScreenController extends GetxController {
         .doc('${doctorData?.id}D')
         .collection(FirebaseRes.userList)
         .withConverter(
-            fromFirestore: (snapshot, options) =>
-                Conversation.fromJson(snapshot.data()!),
+            fromFirestore: (snapshot, options) => Conversation.fromJson(snapshot.data()!),
             toFirestore: (Conversation value, options) {
               return value.toJson();
             })
@@ -124,13 +122,10 @@ class DashboardScreenController extends GetxController {
 
   void getBackgroundNotificationTap() {
     if (Platform.isAndroid) {
-      FlutterLocalNotificationsPlugin()
-          .getNotificationAppLaunchDetails()
-          .then((value) {
+      FlutterLocalNotificationsPlugin().getNotificationAppLaunchDetails().then((value) {
         if (value?.notificationResponse == null) return;
         debugPrint('✅ getNotificationAppLaunchDetails');
-        Payload payload = Payload.fromJson(
-            jsonDecode(value?.notificationResponse?.payload ?? ''));
+        Payload payload = Payload.fromJson(jsonDecode(value?.notificationResponse?.payload ?? ''));
 
         FirebaseNotificationManager.shared.onNotificationTap(payload);
       });

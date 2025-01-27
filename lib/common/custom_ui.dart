@@ -12,10 +12,7 @@ class CustomUi {
     Get.rawSnackbar(
       messageText: Text(
         (message?.capitalize ?? '').capitalizeFirst ?? '',
-        style: TextStyle(
-            color: textColor ?? ColorRes.white,
-            fontFamily: FontRes.medium,
-            fontSize: 14),
+        style: TextStyle(color: textColor ?? ColorRes.white, fontFamily: FontRes.medium, fontSize: 14),
       ),
       snackPosition: SnackPosition.TOP,
       borderRadius: 10,
@@ -31,15 +28,11 @@ class CustomUi {
           SnackBar(
             content: Text(
               (titleName ?? '').capitalizeFirst ?? '',
-              style: const TextStyle(
-                  color: ColorRes.white,
-                  fontFamily: FontRes.medium,
-                  fontSize: 14),
+              style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.medium, fontSize: 14),
               maxLines: 2,
             ),
             backgroundColor: ColorRes.havelockBlue,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: 5,
             behavior: SnackBarBehavior.floating,
             duration: const Duration(milliseconds: 2500),
@@ -96,8 +89,7 @@ class CustomUi {
     return Center(
       child: Text(
         message ?? S.current.noData,
-        style: const TextStyle(
-            color: ColorRes.nobel, fontFamily: FontRes.medium, fontSize: 15),
+        style: const TextStyle(color: ColorRes.nobel, fontFamily: FontRes.medium, fontSize: 15),
       ),
     );
   }
@@ -110,8 +102,7 @@ class CustomUi {
         SizedBox(
           width: size ?? 100,
           height: size ?? 100,
-          child:
-              Image.asset(AssetRes.icEmptyData, width: size ?? Get.width / 1.5),
+          child: Image.asset(AssetRes.icEmptyData, width: size ?? Get.width / 1.5),
         ),
         const SizedBox(height: 10),
         Text(

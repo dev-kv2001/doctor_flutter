@@ -23,8 +23,7 @@ class AttachmentCard extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 child: Text(
                   S.current.attachments,
-                  style: const TextStyle(
-                      color: ColorRes.battleshipGrey, fontSize: 15),
+                  style: const TextStyle(color: ColorRes.battleshipGrey, fontSize: 15),
                 ),
               ),
               Container(
@@ -37,8 +36,7 @@ class AttachmentCard extends StatelessWidget {
                     return InkWell(
                       onTap: () {
                         Get.to(
-                          () => ImagePreviewScreen(
-                              imageUrl: '${doc?[index].image}'),
+                          () => ImagePreviewScreen(imageUrl: '${doc?[index].image}'),
                         );
                       },
                       child: Container(
@@ -46,8 +44,7 @@ class AttachmentCard extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: CachedNetworkImage(
-                            imageUrl:
-                                '${ConstRes.itemBaseURL}${doc?[index].image}',
+                            imageUrl: '${ConstRes.itemBaseURL}${doc?[index].image}',
                             height: 100,
                             width: 100,
                             fit: BoxFit.cover,

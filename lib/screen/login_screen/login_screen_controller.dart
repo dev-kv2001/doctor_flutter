@@ -20,10 +20,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginScreenController extends GetxController {
-  TextEditingController emailController =
-      TextEditingController();
-  TextEditingController passwordController =
-      TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   TextEditingController forgotController = TextEditingController();
   bool emailError = false;
   bool passwordError = false;
@@ -47,9 +45,7 @@ class LoginScreenController extends GetxController {
       viewSnackBar(S.current.pleaseEnterValidEmail);
     }
 
-    UserCredential? user = await signIn(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim());
+    UserCredential? user = await signIn(email: emailController.text.trim(), password: passwordController.text.trim());
 
     if (user == null) return;
 
@@ -60,35 +56,25 @@ class LoginScreenController extends GetxController {
         if (user.user?.emailVerified == true) {
           ApiService.instance
               .doctorRegistration(
-                  identity: emailController.text.trim(),
-                  deviceToken: deviceToken,
-                  name: emailController.text.split('@')[0],
-                  isLogin: 1)
+                  identity: emailController.text.trim(), deviceToken: deviceToken, name: emailController.text.split('@')[0], isLogin: 1)
               .then((value) async {
             Get.back();
             if (value.status == true) {
               PrefService.id = value.data?.id ?? -1;
               await prefService.setLogin(key: kLogin, value: true);
-              await prefService.saveString(
-                  key: kPassword, value: passwordController.text);
+              await prefService.saveString(key: kPassword, value: passwordController.text);
               if (value.data?.status == 0) {
                 navigatePage(value.data!);
               } else {
                 Get.offAll(() => const DashboardScreen());
               }
             } else {
-              CustomUi.snackBar(
-                  message: value.message.toString(),
-                  textColor: ColorRes.havelockBlue,
-                  bgColor: ColorRes.white);
+              CustomUi.snackBar(message: value.message.toString(), textColor: ColorRes.havelockBlue, bgColor: ColorRes.white);
             }
           });
         } else {
           Get.back();
-          CustomUi.snackBar(
-              message: S.current.pleaseVerifiedYourEmail,
-              textColor: ColorRes.havelockBlue,
-              bgColor: ColorRes.white);
+          CustomUi.snackBar(message: S.current.pleaseVerifiedYourEmail, textColor: ColorRes.havelockBlue, bgColor: ColorRes.white);
           return;
         }
       },
@@ -96,11 +82,9 @@ class LoginScreenController extends GetxController {
   }
 
   ///-------------- SIGN IN METHOD --------------///
-  Future<UserCredential?> signIn(
-      {required String email, required String password}) async {
+  Future<UserCredential?> signIn({required String email, required String password}) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
       return userCredential;
     } on FirebaseAuthException catch (e) {
       Get.back();
@@ -127,13 +111,7 @@ class LoginScreenController extends GetxController {
       Get.offAll(() => StartingProfileScreen(doctorData: data));
     } else if (data.categoryId == null) {
       Get.offAll(() => const SelectCategoryScreen(screenType: 0));
-    } else if ([
-      data.image,
-      data.designation,
-      data.degrees,
-      data.experienceYear,
-      data.consultationFee
-    ].any((element) => element == null)) {
+    } else if ([data.image, data.designation, data.degrees, data.experienceYear, data.consultationFee].any((element) => element == null)) {
       Get.offAll(() => const DoctorProfileScreenOne());
     } else if (data.aboutYouself == null || data.educationalJourney == null) {
       Get.offAll(() => const DoctorProfileScreenTwo());
@@ -172,9 +150,6 @@ class LoginScreenController extends GetxController {
   }
 
   void viewSnackBar(String? title) {
-    CustomUi.snackBar(
-        message: title,
-        textColor: ColorRes.havelockBlue,
-        bgColor: ColorRes.white);
+    CustomUi.snackBar(message: title, textColor: ColorRes.havelockBlue, bgColor: ColorRes.white);
   }
 }

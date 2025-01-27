@@ -23,9 +23,7 @@ class TopBarTab extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              child: Text(title.toUpperCase(),
-                  style: const TextStyle(
-                      color: ColorRes.charcoalGrey, fontSize: 18)),
+              child: Text(title.toUpperCase(), style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 18)),
             ),
             const MessageIcon(),
           ],
@@ -56,9 +54,7 @@ class MessageIcon extends StatelessWidget {
               height: 45,
               width: 45,
               padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: ColorRes.havelockBlue.withOpacity(.1)),
+              decoration: BoxDecoration(shape: BoxShape.circle, color: ColorRes.havelockBlue.withOpacity(.1)),
               child: Image.asset(
                 AssetRes.chatQuote,
                 color: ColorRes.havelockBlue,
@@ -72,19 +68,14 @@ class MessageIcon extends StatelessWidget {
                       child: Container(
                         height: 20,
                         width: 20,
-                        decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorRes.bittersweet),
+                        decoration: const BoxDecoration(shape: BoxShape.circle, color: ColorRes.bittersweet),
                         alignment: Alignment.center,
                         child: Text(
                           '${controller.unReadMessages.length}',
-                          style: const TextStyle(
-                              fontFamily: FontRes.regular,
-                              color: ColorRes.white,
-                              fontSize: 12),
+                          style: const TextStyle(fontFamily: FontRes.regular, color: ColorRes.white, fontSize: 12),
                         ),
                       ),
-              ),
+                    ),
             )
           ],
         ),

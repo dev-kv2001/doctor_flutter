@@ -64,10 +64,8 @@ class DoctorProfileScreenOne extends StatelessWidget {
                                                     )
                                                   : controller.netWorkProfileImage != null
                                                       ? CachedNetworkImage(
-                                                          imageUrl:
-                                                              '${ConstRes.itemBaseURL}${controller.netWorkProfileImage}',
-                                                          cacheKey:
-                                                              '${ConstRes.itemBaseURL}${controller.netWorkProfileImage}',
+                                                          imageUrl: '${ConstRes.itemBaseURL}${controller.netWorkProfileImage}',
+                                                          cacheKey: '${ConstRes.itemBaseURL}${controller.netWorkProfileImage}',
                                                           width: double.infinity,
                                                           height: double.infinity,
                                                           fit: BoxFit.cover,

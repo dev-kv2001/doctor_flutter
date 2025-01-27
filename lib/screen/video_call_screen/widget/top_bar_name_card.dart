@@ -14,9 +14,7 @@ class TopBarNameCard extends StatelessWidget {
       height: 50,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      decoration: BoxDecoration(
-          color: ColorRes.darkJungleGreen.withOpacity(0.20),
-          borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(color: ColorRes.darkJungleGreen.withOpacity(0.20), borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Row(
         children: [

@@ -89,7 +89,7 @@ class MedicalPrescriptionScreenController extends GetxController {
     }
     if (selectedMeal == null) {
       CustomUi.snackBar(
-          message: S.current.pleaseSelectMeal,
+        message: S.current.pleaseSelectMeal,
       );
       return false;
     }
@@ -119,9 +119,7 @@ class MedicalPrescriptionScreenController extends GetxController {
   }
 
   void addMedicineTap(MedicalPrescriptionScreenController controller) {
-    Get.bottomSheet(AdMedicalSheet(controller: controller, type: 0),
-            isScrollControlled: true)
-        .then((value) {
+    Get.bottomSheet(AdMedicalSheet(controller: controller, type: 0), isScrollControlled: true).then((value) {
       clearText();
     });
   }
@@ -129,7 +127,7 @@ class MedicalPrescriptionScreenController extends GetxController {
   void onContinueTap(int type) {
     if (medicines.isEmpty) {
       CustomUi.snackBar(
-          message: S.current.pleaseAtLeastOneMedicineAdd,
+        message: S.current.pleaseAtLeastOneMedicineAdd,
       );
       return;
     }
@@ -140,13 +138,9 @@ class MedicalPrescriptionScreenController extends GetxController {
     //   return;
     // }
     if (type == 0) {
-      prescription =
-          MedicalPrescription(medicines, extraNoteController.text.trim());
+      prescription = MedicalPrescription(medicines, extraNoteController.text.trim());
       ApiService.instance
-          .addPrescription(
-              appointmentId: appointmentData?.id,
-              medicine: prescription?.toJson(),
-              userId: appointmentData?.userId)
+          .addPrescription(appointmentId: appointmentData?.id, medicine: prescription?.toJson(), userId: appointmentData?.userId)
           .then((value) {
         Get.back();
         if (value.status == true) {
@@ -156,17 +150,12 @@ class MedicalPrescriptionScreenController extends GetxController {
         }
       });
     } else {
-      prescription =
-          MedicalPrescription(medicines, extraNoteController.text.trim());
-      ApiService.instance
-          .editPrescription(
-              prescriptionId: appointmentData?.prescription?.id,
-              medicine: prescription?.toJson())
-          .then((value) {
+      prescription = MedicalPrescription(medicines, extraNoteController.text.trim());
+      ApiService.instance.editPrescription(prescriptionId: appointmentData?.prescription?.id, medicine: prescription?.toJson()).then((value) {
         Get.back();
         if (value.status == true) {
           CustomUi.snackBar(
-              message: value.message,
+            message: value.message,
           );
         } else {
           CustomUi.snackBar(message: value.message);
@@ -177,8 +166,7 @@ class MedicalPrescriptionScreenController extends GetxController {
 
   void addPrescription() {
     if (appointmentData?.prescription != null) {
-      prescription = MedicalPrescription.fromJson(
-          jsonDecode(appointmentData?.prescription?.medicine ?? ''));
+      prescription = MedicalPrescription.fromJson(jsonDecode(appointmentData?.prescription?.medicine ?? ''));
       medicines = prescription?.addMedicine ?? [];
       extraNoteController = TextEditingController(text: prescription?.notes);
     }
@@ -194,18 +182,14 @@ class MedicalPrescriptionScreenController extends GetxController {
     update();
   }
 
-  void onMedicineEdit(
-      AddMedicine addMedicine, MedicalPrescriptionScreenController controller) {
+  void onMedicineEdit(AddMedicine addMedicine, MedicalPrescriptionScreenController controller) {
     medicineController = TextEditingController(text: addMedicine.title);
-    quantityController =
-        TextEditingController(text: addMedicine.quantity.toString());
+    quantityController = TextEditingController(text: addMedicine.quantity.toString());
     doseController = TextEditingController(text: addMedicine.dosage);
     noteController = TextEditingController(text: addMedicine.notes);
     selectedMeal = addMedicine.mealTime;
     editMedicine = addMedicine;
-    Get.bottomSheet(AdMedicalSheet(controller: controller, type: 1),
-            isScrollControlled: true)
-        .then((value) {
+    Get.bottomSheet(AdMedicalSheet(controller: controller, type: 1), isScrollControlled: true).then((value) {
       clearText();
     });
   }

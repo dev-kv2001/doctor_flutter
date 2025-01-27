@@ -28,8 +28,7 @@ class ReelsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = ReelsScreenController(
-        reels, initialIndex, categoryData ?? [], profileType);
+    final controller = ReelsScreenController(reels, initialIndex, categoryData ?? [], profileType);
     return GetBuilder(
         init: controller,
         tag: '${DateTime.now().millisecondsSinceEpoch}',
@@ -41,17 +40,12 @@ class ReelsScreen extends StatelessWidget {
               children: [
                 Obx(
                   () => controller.reels.isEmpty
-                      ? Center(
-                          child: CustomUi.noDataImage(
-                              message: S.of(context).noReels))
+                      ? Center(child: CustomUi.noDataImage(message: S.of(context).noReels))
                       : RefreshIndicator(
                           onRefresh: controller.onRefresh,
                           color: ColorRes.whiteSmoke,
                           backgroundColor: ColorRes.transparent,
-                          notificationPredicate:
-                              profileType == ProfileType.dashboard
-                                  ? (_) => true
-                                  : (_) => false,
+                          notificationPredicate: profileType == ProfileType.dashboard ? (_) => true : (_) => false,
                           child: PageView.builder(
                             controller: controller.pageController,
                             scrollDirection: Axis.vertical,
@@ -59,17 +53,13 @@ class ReelsScreen extends StatelessWidget {
                             onPageChanged: controller.onPageChanged,
                             itemBuilder: (context, index) {
                               return Obx(() {
-                                final videoController =
-                                    controller.controllers[index];
+                                final videoController = controller.controllers[index];
                                 videoController?.setLooping(true);
                                 return ClipRRect(
                                   child: VisibilityDetector(
                                     key: const Key('reels'),
-                                    onVisibilityChanged:
-                                        controller.onVisibilityChanged,
-                                    child: ReelScreen(
-                                        reelData: controller.reels[index],
-                                        videoPlayerController: videoController),
+                                    onVisibilityChanged: controller.onVisibilityChanged,
+                                    child: ReelScreen(reelData: controller.reels[index], videoPlayerController: videoController),
                                   ),
                                 );
                               });
@@ -80,9 +70,7 @@ class ReelsScreen extends StatelessWidget {
                 Obx(
                   () => ReelsTopBar(
                       profileType: profileType,
-                      reelData: controller.reels.isNotEmpty
-                          ? controller.reels[controller.currentIndex.value]
-                          : null,
+                      reelData: controller.reels.isNotEmpty ? controller.reels[controller.currentIndex.value] : null,
                       controller: controller,
                       isDataNotShow: controller.reels.isEmpty),
                 ),

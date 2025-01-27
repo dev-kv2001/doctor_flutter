@@ -15,20 +15,15 @@ import 'package:get/get.dart';
 class SelectCategoryScreen extends StatelessWidget {
   final int screenType;
 
-  const SelectCategoryScreen({Key? key, required this.screenType})
-      : super(key: key);
+  const SelectCategoryScreen({Key? key, required this.screenType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SelectCategoryScreenController controller =
-        Get.put(SelectCategoryScreenController(screenType));
+    SelectCategoryScreenController controller = Get.put(SelectCategoryScreenController(screenType));
     return Scaffold(
       body: Column(
         children: [
-          TopBarArea(
-              title: screenType == 1
-                  ? S.of(context).myCategory
-                  : S.current.doctorRegistration),
+          TopBarArea(title: screenType == 1 ? S.of(context).myCategory : S.current.doctorRegistration),
           _searchArea(controller),
           _categories(controller),
           const SizedBox(height: 10),
@@ -36,26 +31,18 @@ class SelectCategoryScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(
               text: S.current.yourCategoryIsNotEtc,
-              style: const TextStyle(
-                  fontSize: 15,
-                  color: ColorRes.battleshipGrey,
-                  fontFamily: FontRes.regular),
+              style: const TextStyle(fontSize: 15, color: ColorRes.battleshipGrey, fontFamily: FontRes.regular),
               children: [
                 TextSpan(
                   text: " ${S.current.suggestUs}",
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = controller.onSuggestUsTap,
-                  style: const TextStyle(
-                      fontFamily: FontRes.semiBold,
-                      color: ColorRes.havelockBlue),
+                  recognizer: TapGestureRecognizer()..onTap = controller.onSuggestUsTap,
+                  style: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.havelockBlue),
                 ),
               ],
             ),
           ),
           const SizedBox(height: 20),
-          DoctorRegButton(
-              onTap: controller.updateDoctorDetailsApiCall,
-              title: S.current.continueText)
+          DoctorRegButton(onTap: controller.updateDoctorDetailsApiCall, title: S.current.continueText)
         ],
       ),
     );
@@ -72,10 +59,7 @@ class SelectCategoryScreen extends StatelessWidget {
           ),
           Text(
             S.current.selectYourCategory,
-            style: const TextStyle(
-                color: ColorRes.charcoalGrey,
-                fontFamily: FontRes.semiBold,
-                fontSize: 15),
+            style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.semiBold, fontSize: 15),
           ),
           const SizedBox(
             height: 20,
@@ -95,13 +79,9 @@ class SelectCategoryScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       isDense: true,
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 15),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 15),
                       hintText: S.current.search,
-                      hintStyle: const TextStyle(
-                          fontFamily: FontRes.medium,
-                          fontSize: 15,
-                          color: ColorRes.grey),
+                      hintStyle: const TextStyle(fontFamily: FontRes.medium, fontSize: 15, color: ColorRes.grey),
                     ),
                     style: const TextStyle(
                       color: ColorRes.charcoalGrey,
@@ -147,17 +127,13 @@ class SelectCategoryScreen extends StatelessWidget {
                 : GridView.builder(
                     itemCount: controller.filterList.length,
                     padding: const EdgeInsets.symmetric(horizontal: 15),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 1.7,
                     ),
                     itemBuilder: (BuildContext context, int index) {
-                      DoctorCategoryData? categories =
-                          controller.filterList[index];
-                      bool selected = controller.selectedCategories?.title
-                              ?.contains('${categories.title}') ??
-                          false;
+                      DoctorCategoryData? categories = controller.filterList[index];
+                      bool selected = controller.selectedCategories?.title?.contains('${categories.title}') ?? false;
                       return InkWell(
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
@@ -173,21 +149,16 @@ class SelectCategoryScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color: selected
-                                  ? ColorRes.havelockBlue
-                                  : ColorRes.havelockBlue.withOpacity(0.1),
+                              color: selected ? ColorRes.havelockBlue : ColorRes.havelockBlue.withOpacity(0.1),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Spacer(),
                                 CachedNetworkImage(
-                                  imageUrl:
-                                      '${ConstRes.itemBaseURL}${categories.image}',
+                                  imageUrl: '${ConstRes.itemBaseURL}${categories.image}',
                                   width: 35,
-                                  color: selected
-                                      ? ColorRes.white
-                                      : ColorRes.havelockBlue,
+                                  color: selected ? ColorRes.white : ColorRes.havelockBlue,
                                   errorWidget: (context, url, error) {
                                     return Container();
                                   },
@@ -197,12 +168,8 @@ class SelectCategoryScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   (categories.title ?? '').capitalize ?? '',
-                                  style: TextStyle(
-                                      color: selected
-                                          ? ColorRes.white
-                                          : ColorRes.havelockBlue,
-                                      fontFamily: FontRes.semiBold,
-                                      fontSize: 13),
+                                  style:
+                                      TextStyle(color: selected ? ColorRes.white : ColorRes.havelockBlue, fontFamily: FontRes.semiBold, fontSize: 13),
                                 ),
                                 const Spacer(),
                               ],

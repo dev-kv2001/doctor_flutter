@@ -26,40 +26,25 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: AppBar().preferredSize.height * 2),
                 const Text(
                   appName,
-                  style: TextStyle(
-                      fontFamily: FontRes.black,
-                      fontSize: 25,
-                      color: ColorRes.white),
+                  style: TextStyle(fontFamily: FontRes.black, fontSize: 25, color: ColorRes.white),
                 ),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   decoration: const BoxDecoration(color: ColorRes.white),
                   child: const Text(
                     subAppName,
-                    style: TextStyle(
-                        fontFamily: FontRes.semiBold,
-                        fontSize: 16,
-                        color: ColorRes.havelockBlue),
+                    style: TextStyle(fontFamily: FontRes.semiBold, fontSize: 16, color: ColorRes.havelockBlue),
                   ),
                 ),
                 Text(
                   S.of(context).signInToContinue,
-                  style: const TextStyle(
-                      fontFamily: FontRes.productSansMedium,
-                      color: ColorRes.white,
-                      fontSize: 16),
+                  style: const TextStyle(fontFamily: FontRes.productSansMedium, color: ColorRes.white, fontSize: 16),
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  S
-                      .of(context)
-                      .manageYourAppointmentsWithPrecisionTransformingTheWayYouConnect,
-                  style: const TextStyle(
-                      fontFamily: FontRes.light,
-                      color: ColorRes.white,
-                      fontSize: 16),
+                  S.of(context).manageYourAppointmentsWithPrecisionTransformingTheWayYouConnect,
+                  style: const TextStyle(fontFamily: FontRes.light, color: ColorRes.white, fontSize: 16),
                 ),
                 const SizedBox(height: 10),
                 GetBuilder(
@@ -92,8 +77,7 @@ class LoginScreen extends StatelessWidget {
                           child: Center(
                             child: InkWell(
                               onTap: controller.onRegistrationTap,
-                              child: Text(S.of(context).newUserRegisterHere,
-                                  style: _regularTextStyle()),
+                              child: Text(S.of(context).newUserRegisterHere, style: _regularTextStyle()),
                             ),
                           ),
                         ),
@@ -135,8 +119,7 @@ class BuildInputField extends StatefulWidget {
   final TextEditingController controller;
   final bool isHideVisible;
 
-  const BuildInputField(
-      {super.key, required this.controller, this.isHideVisible = false});
+  const BuildInputField({super.key, required this.controller, this.isHideVisible = false});
 
   @override
   State<BuildInputField> createState() => _BuildInputFieldState();
@@ -154,9 +137,7 @@ class _BuildInputFieldState extends State<BuildInputField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: ColorRes.white.withOpacity(.25)),
-          color: ColorRes.white.withOpacity(.1)),
+          borderRadius: BorderRadius.circular(8), border: Border.all(color: ColorRes.white.withOpacity(.25)), color: ColorRes.white.withOpacity(.1)),
       width: double.infinity,
       child: TextField(
         controller: widget.controller,
@@ -165,25 +146,16 @@ class _BuildInputFieldState extends State<BuildInputField> {
             border: InputBorder.none,
             contentPadding: const EdgeInsets.symmetric(horizontal: 15),
             hintText: '${S.current.writeHere} ...',
-            hintStyle: const TextStyle(
-                color: ColorRes.white,
-                fontFamily: FontRes.productSansLight,
-                fontSize: 13),
-            suffixIconConstraints:
-                widget.isHideVisible ? const BoxConstraints() : null,
+            hintStyle: const TextStyle(color: ColorRes.white, fontFamily: FontRes.productSansLight, fontSize: 13),
+            suffixIconConstraints: widget.isHideVisible ? const BoxConstraints() : null,
             suffixIcon: widget.isHideVisible
                 ? InkWell(
                     onTap: onPassWordVisible,
-                    child: Image.asset(
-                        obSecureText ? AssetRes.ciNotHide : AssetRes.ciHide,
-                        width: 35,
-                        height: 20,
-                        color: ColorRes.white),
+                    child: Image.asset(obSecureText ? AssetRes.ciNotHide : AssetRes.ciHide, width: 35, height: 20, color: ColorRes.white),
                   )
                 : null),
         obscureText: obSecureText,
-        style: const TextStyle(
-            fontFamily: FontRes.productSansLight, color: ColorRes.white),
+        style: const TextStyle(fontFamily: FontRes.productSansLight, color: ColorRes.white),
         cursorColor: ColorRes.white,
       ),
     );
@@ -191,8 +163,5 @@ class _BuildInputFieldState extends State<BuildInputField> {
 }
 
 TextStyle _regularTextStyle() {
-  return const TextStyle(
-      fontFamily: FontRes.productSansRegular,
-      color: ColorRes.white,
-      fontSize: 16);
+  return const TextStyle(fontFamily: FontRes.productSansRegular, color: ColorRes.white, fontSize: 16);
 }

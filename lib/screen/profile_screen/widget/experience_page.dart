@@ -26,10 +26,7 @@ class ExperiencePage extends StatelessWidget {
               padding: const EdgeInsets.all(15),
               child: Text(
                 doctorData.experience?[index].title ?? S.current.noData,
-                style: const TextStyle(
-                    color: ColorRes.davyGrey,
-                    fontSize: 14,
-                    fontFamily: FontRes.regular),
+                style: const TextStyle(color: ColorRes.davyGrey, fontSize: 14, fontFamily: FontRes.regular),
               ),
             ),
           );

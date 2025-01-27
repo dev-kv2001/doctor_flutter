@@ -60,9 +60,7 @@ class AppointmentSlotsScreenController extends GetxController {
       aspectRatio: 1.7,
       onPositiveTap: () {
         CustomUi.loader();
-        ApiService.instance
-            .deleteAppointmentSlot(slotId: time?.id)
-            .then((value) {
+        ApiService.instance.deleteAppointmentSlot(slotId: time?.id).then((value) {
           Get.back();
           appointmentSlot[time!.weekday! - 1].time.removeWhere((element) {
             return element?.time == time.time;

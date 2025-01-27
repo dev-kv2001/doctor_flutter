@@ -8,12 +8,7 @@ class ListTiles extends StatelessWidget {
   final Color textColor;
   final Color iconColor;
 
-  const ListTiles(
-      {Key? key,
-      required this.onTap,
-      required this.title,
-      this.textColor = ColorRes.charcoalGrey,
-      this.iconColor = ColorRes.tuftsBlue})
+  const ListTiles({Key? key, required this.onTap, required this.title, this.textColor = ColorRes.charcoalGrey, this.iconColor = ColorRes.tuftsBlue})
       : super(key: key);
 
   @override
@@ -30,10 +25,7 @@ class ListTiles extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                      fontFamily: FontRes.medium,
-                      color: textColor,
-                      fontSize: 15),
+                  style: TextStyle(fontFamily: FontRes.medium, color: textColor, fontSize: 15),
                 ),
                 const Spacer(),
                 Icon(

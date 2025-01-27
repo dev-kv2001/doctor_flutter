@@ -40,17 +40,14 @@ class PrefService {
   }
 
   DoctorData? getRegistrationData() {
-    if (getString(key: kRegistrationUser) == null ||
-        getString(key: kRegistrationUser) == 'null') return null;
-    DoctorData data =
-        DoctorData.fromJson(jsonDecode(getString(key: kRegistrationUser)!));
+    if (getString(key: kRegistrationUser) == null || getString(key: kRegistrationUser) == 'null') return null;
+    DoctorData data = DoctorData.fromJson(jsonDecode(getString(key: kRegistrationUser)!));
     return data;
   }
 
   GlobalSettingData? getSettingData() {
     if (getString(key: kGlobalSetting) == null) return null;
-    return GlobalSettingData.fromJson(
-        jsonDecode(getString(key: kGlobalSetting)!));
+    return GlobalSettingData.fromJson(jsonDecode(getString(key: kGlobalSetting)!));
   }
 
   Countries? getCountries() {

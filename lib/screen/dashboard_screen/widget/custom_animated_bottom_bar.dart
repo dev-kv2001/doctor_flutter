@@ -33,11 +33,7 @@ class CustomAnimatedBottomBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: ColorRes.white,
         boxShadow: [
-          if (showElevation)
-            BoxShadow(
-                color: ColorRes.black.withOpacity(.06),
-                blurRadius: 13,
-                offset: const Offset(0, 0)),
+          if (showElevation) BoxShadow(color: ColorRes.black.withOpacity(.06), blurRadius: 13, offset: const Offset(0, 0)),
         ],
       ),
       child: SafeArea(
@@ -92,9 +88,7 @@ class _ItemWidget extends StatelessWidget {
       duration: animationDuration,
       curve: curve,
       alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: isSelected ? ColorRes.havelockBlue : null),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: isSelected ? ColorRes.havelockBlue : null),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         // physics: const NeverScrollableScrollPhysics(),
@@ -105,18 +99,12 @@ class _ItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset(item.image,
-                  height: 28,
-                  width: 28,
-                  color: isSelected ? ColorRes.white : ColorRes.starDust),
+              Image.asset(item.image, height: 28, width: 28, color: isSelected ? ColorRes.white : ColorRes.starDust),
               const SizedBox(width: 5),
               if (isSelected)
                 Container(
                   child: DefaultTextStyle.merge(
-                    style: const TextStyle(
-                        color: ColorRes.white,
-                        fontFamily: FontRes.semiBold,
-                        fontSize: 14),
+                    style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.semiBold, fontSize: 14),
                     maxLines: 1,
                     textAlign: item.textAlign,
                     child: Text(item.title),

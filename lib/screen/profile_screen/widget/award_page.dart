@@ -32,10 +32,8 @@ class AwardPage extends StatelessWidget {
                     Image.asset(AssetRes.award, width: 20, height: 20),
                     const SizedBox(width: 10),
                     Expanded(
-                      child: Text(
-                          doctorData?.awards?[index].title ?? S.current.noData,
-                          style: const TextStyle(
-                              color: ColorRes.davyGrey, fontSize: 16)),
+                      child:
+                          Text(doctorData?.awards?[index].title ?? S.current.noData, style: const TextStyle(color: ColorRes.davyGrey, fontSize: 16)),
                     ),
                   ],
                 ),

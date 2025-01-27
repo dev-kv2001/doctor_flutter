@@ -34,8 +34,7 @@ class CommentSheet extends StatelessWidget {
         children: [
           const SizedBox(height: 15),
           Padding(
-            padding: const EdgeInsets.only(
-                left: 20.0, right: 15, bottom: 10, top: 5),
+            padding: const EdgeInsets.only(left: 20.0, right: 15, bottom: 10, top: 5),
             child: Row(
               children: [
                 Expanded(
@@ -46,17 +45,14 @@ class CommentSheet extends StatelessWidget {
                         color: ColorRes.darkJungleGreen,
                       )),
                 ),
-                const CustomRoundBtn(
-                    bgColor: ColorRes.greenWhite,
-                    iconColor: ColorRes.battleshipGrey)
+                const CustomRoundBtn(bgColor: ColorRes.greenWhite, iconColor: ColorRes.battleshipGrey)
               ],
             ),
           ),
           const Divider(height: 1, thickness: 1),
           Expanded(
             child: Obx(
-              () => controller.isCommentLoading.value &&
-                      controller.comments.isEmpty
+              () => controller.isCommentLoading.value && controller.comments.isEmpty
                   ? CustomUi.loaderWidget()
                   : controller.comments.isEmpty
                       ? CustomUi.noDataImage(message: S.of(context).noComments)
@@ -102,10 +98,8 @@ class CommentItem extends StatelessWidget {
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return comment.commentBy?.toInt() == 0
-                      ? CustomUi.userPlaceHolder(
-                          male: comment.user?.gender?.toInt() ?? 1, height: 40)
-                      : CustomUi.doctorPlaceHolder(
-                          male: comment.user?.gender?.toInt() ?? 1, height: 40);
+                      ? CustomUi.userPlaceHolder(male: comment.user?.gender?.toInt() ?? 1, height: 40)
+                      : CustomUi.doctorPlaceHolder(male: comment.user?.gender?.toInt() ?? 1, height: 40);
                 },
               ),
             ),
@@ -115,21 +109,13 @@ class CommentItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    comment.commentBy?.toInt() == 0
-                        ? (comment.user?.fullname ?? S.current.unKnown)
-                        : (comment.doctor?.name ?? S.current.unKnown),
-                    style: const TextStyle(
-                        color: ColorRes.davyGrey,
-                        fontFamily: FontRes.semiBold,
-                        fontSize: 14),
+                    comment.commentBy?.toInt() == 0 ? (comment.user?.fullname ?? S.current.unKnown) : (comment.doctor?.name ?? S.current.unKnown),
+                    style: const TextStyle(color: ColorRes.davyGrey, fontFamily: FontRes.semiBold, fontSize: 14),
                   ),
                   const SizedBox(height: 5),
                   Text(
                     CommonFun.timeAgo(DateTime.parse(comment.createdAt ?? '')),
-                    style: const TextStyle(
-                        color: ColorRes.starDust,
-                        fontFamily: FontRes.regular,
-                        fontSize: 12),
+                    style: const TextStyle(color: ColorRes.starDust, fontFamily: FontRes.regular, fontSize: 12),
                   ),
                   const SizedBox(height: 5),
                   TextComment(text: comment.comment),
@@ -156,10 +142,7 @@ class TextComment extends StatelessWidget {
     return DetectableText(
       text: text ?? '',
       detectionRegExp: RegExp(r"\B#\w\w+"),
-      basicStyle: const TextStyle(
-          fontSize: 15,
-          color: ColorRes.mediumGrey,
-          fontFamily: FontRes.regular),
+      basicStyle: const TextStyle(fontSize: 15, color: ColorRes.mediumGrey, fontFamily: FontRes.regular),
       trimMode: TrimMode.Line,
       trimLines: 5,
       trimCollapsedText: ' ${S.of(context).more}',
@@ -209,27 +192,19 @@ class _BottomTextFieldCustomState extends State<BottomTextFieldCustom> {
             child: Row(
               children: [
                 ClipOval(
-                    child: Image.network(
-                        '${ConstRes.itemBaseURL}${doctorData?.image}',
-                        height: 40,
-                        width: 40,
-                        fit: BoxFit.cover,
+                    child: Image.network('${ConstRes.itemBaseURL}${doctorData?.image}', height: 40, width: 40, fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                  return CustomUi.doctorPlaceHolder(
-                      height: 40, male: doctorData?.gender ?? 1);
+                  return CustomUi.doctorPlaceHolder(height: 40, male: doctorData?.gender ?? 1);
                 })),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: ColorRes.dawnPink),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: ColorRes.dawnPink),
                     child: TextField(
                       controller: commentController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 20),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                         suffixIconConstraints: const BoxConstraints(),
                         suffixIcon: InkWell(
                           onTap: () {
@@ -241,21 +216,14 @@ class _BottomTextFieldCustomState extends State<BottomTextFieldCustom> {
                             width: 41,
                             margin: const EdgeInsets.all(3),
                             alignment: const Alignment(.2, 0),
-                            decoration: const BoxDecoration(
-                                color: ColorRes.havelockBlue,
-                                shape: BoxShape.circle),
-                            child: Image.asset(AssetRes.icSend,
-                                height: 25, width: 25),
+                            decoration: const BoxDecoration(color: ColorRes.havelockBlue, shape: BoxShape.circle),
+                            child: Image.asset(AssetRes.icSend, height: 25, width: 25),
                           ),
                         ),
                       ),
-                      onTapOutside: (event) =>
-                          FocusManager.instance.primaryFocus?.unfocus(),
+                      onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
                       textAlignVertical: TextAlignVertical.center,
-                      style: const TextStyle(
-                          fontFamily: FontRes.medium,
-                          color: ColorRes.battleshipGrey,
-                          fontSize: 15),
+                      style: const TextStyle(fontFamily: FontRes.medium, color: ColorRes.battleshipGrey, fontSize: 15),
                     ),
                   ),
                 ),

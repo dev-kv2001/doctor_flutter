@@ -21,8 +21,7 @@ class AssetRes {
   static const String icCalender = "${icon}ic_calender.png";
   static const String icMore = "${icon}ic_more.png";
   static const String icRoundVerified = "${icon}ic_round-verified.png";
-  static const String iconParkSolidCorrect =
-      "${icon}icon-park-solid_correct.png";
+  static const String iconParkSolidCorrect = "${icon}icon-park-solid_correct.png";
   static const String messageAddBox = "${icon}message_add_box.png";
   static const String messageEditBox = "${icon}message_edit_box.png";
   static const String microscope = "${icon}microscope.png";

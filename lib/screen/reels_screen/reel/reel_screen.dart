@@ -18,16 +18,13 @@ class ReelScreen extends StatelessWidget {
   final Reel reelData;
   final VideoPlayerController? videoPlayerController;
 
-  const ReelScreen(
-      {super.key, required this.reelData, required this.videoPlayerController});
+  const ReelScreen({super.key, required this.reelData, required this.videoPlayerController});
 
   @override
   Widget build(BuildContext context) {
-    final isControllerInitialized =
-        videoPlayerController?.value.isInitialized ?? false;
+    final isControllerInitialized = videoPlayerController?.value.isInitialized ?? false;
 
-    final controller =
-        Get.put(ReelScreenController(reelData.obs), tag: '${reelData.id}');
+    final controller = Get.put(ReelScreenController(reelData.obs), tag: '${reelData.id}');
 
     return Stack(
       alignment: Alignment.center,
@@ -40,8 +37,7 @@ class ReelScreen extends StatelessWidget {
                   onTap: () => controller.onLongPress(videoPlayerController),
                   child: SizedBox.expand(
                       child: FittedBox(
-                    fit: (videoPlayerController?.value.size.width ?? 0) <
-                            (videoPlayerController?.value.size.height ?? 0)
+                    fit: (videoPlayerController?.value.size.width ?? 0) < (videoPlayerController?.value.size.height ?? 0)
                         ? BoxFit.cover
                         : BoxFit.fitWidth,
                     child: SizedBox(
@@ -63,8 +59,7 @@ class ReelScreen extends StatelessWidget {
           children: [
             GestureDetector(
                 onTap: () => controller.onLongPress(videoPlayerController),
-                child: Image.asset(AssetRes.icBlackShadow_1,
-                    width: double.infinity, fit: BoxFit.fitWidth)),
+                child: Image.asset(AssetRes.icBlackShadow_1, width: double.infinity, fit: BoxFit.fitWidth)),
             UserInformation(reelData: controller.reel.value),
             SideBarList(reelData: reelData),
           ],
@@ -117,8 +112,7 @@ class UserInfoHeader extends StatelessWidget {
                 height: 45,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  return CustomUi.doctorPlaceHolder(
-                      height: 45, male: reel.doctor?.gender ?? 1);
+                  return CustomUi.doctorPlaceHolder(height: 45, male: reel.doctor?.gender ?? 1);
                 },
               ),
             ),
@@ -128,17 +122,11 @@ class UserInfoHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(reel.doctor?.name ?? '',
-                      style: const TextStyle(
-                          color: ColorRes.white,
-                          fontFamily: FontRes.extraBold,
-                          fontSize: 17),
+                      style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.extraBold, fontSize: 17),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis),
                   Text(reel.doctor?.designation ?? '',
-                      style: const TextStyle(
-                          color: ColorRes.white,
-                          fontFamily: FontRes.light,
-                          fontSize: 12),
+                      style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.light, fontSize: 12),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis),
                 ],
@@ -163,26 +151,18 @@ class UserDescription extends StatelessWidget {
         ? Column(
             children: [
               ConstrainedBox(
-                constraints:
-                    BoxConstraints(maxHeight: 150, maxWidth: Get.width - 70),
+                constraints: BoxConstraints(maxHeight: 150, maxWidth: Get.width - 70),
                 child: SingleChildScrollView(
                   child: DetectableText(
                       text: reel.description ?? '',
                       detectionRegExp: RegExp(r"\B#\w\w+"),
-                      basicStyle: TextStyle(
-                          color: ColorRes.white.withOpacity(.8), fontSize: 14),
+                      basicStyle: TextStyle(color: ColorRes.white.withOpacity(.8), fontSize: 14),
                       trimMode: TrimMode.Line,
                       trimLines: 3,
                       trimCollapsedText: ' more',
                       trimExpandedText: '   less',
-                      moreStyle: TextStyle(
-                          color: ColorRes.white.withOpacity(.8),
-                          fontSize: 14,
-                          fontFamily: FontRes.semiBold),
-                      lessStyle: TextStyle(
-                          color: ColorRes.white.withOpacity(.8),
-                          fontSize: 14,
-                          fontFamily: FontRes.semiBold)),
+                      moreStyle: TextStyle(color: ColorRes.white.withOpacity(.8), fontSize: 14, fontFamily: FontRes.semiBold),
+                      lessStyle: TextStyle(color: ColorRes.white.withOpacity(.8), fontSize: 14, fontFamily: FontRes.semiBold)),
                 ),
               ),
               const SizedBox(height: 10),
@@ -203,10 +183,8 @@ class UserStats extends StatelessWidget {
     return Row(
       children: [
         Text(
-          DateFormat('dd MMM yyyy')
-              .format(DateTime.parse(reel.createdAt ?? '')),
-          style: const TextStyle(
-              color: ColorRes.white, fontSize: 12, fontFamily: FontRes.light),
+          DateFormat('dd MMM yyyy').format(DateTime.parse(reel.createdAt ?? '')),
+          style: const TextStyle(color: ColorRes.white, fontSize: 12, fontFamily: FontRes.light),
         ),
         if ((reel.views ?? 0) > 0)
           Container(
@@ -219,10 +197,7 @@ class UserStats extends StatelessWidget {
           () => (controller.reel.value.views ?? 0) > 0
               ? Text(
                   '${(controller.reel.value.views ?? 0).formatCurrency} ${S.of(context).views}',
-                  style: const TextStyle(
-                      color: ColorRes.white,
-                      fontSize: 12,
-                      fontFamily: FontRes.light),
+                  style: const TextStyle(color: ColorRes.white, fontSize: 12, fontFamily: FontRes.light),
                 )
               : const SizedBox(),
         ),
@@ -257,9 +232,7 @@ class SideBarList extends StatelessWidget {
                   if (reelData.id == null) return;
                   controller.onLikeTap();
                 },
-                image: controller.reel.value.isLiked ?? false
-                    ? AssetRes.icFillHeart
-                    : AssetRes.icHeart,
+                image: controller.reel.value.isLiked ?? false ? AssetRes.icFillHeart : AssetRes.icHeart,
                 text: (controller.reel.value.likesCount ?? 0).formatCurrency,
               );
             }),
@@ -279,9 +252,7 @@ class SideBarList extends StatelessWidget {
                   if (reelData.id == null) return;
                   controller.onBookmarkTap();
                 },
-                image: controller.isSaved.value
-                    ? AssetRes.icFillBookmark
-                    : AssetRes.icBookmark,
+                image: controller.isSaved.value ? AssetRes.icFillBookmark : AssetRes.icBookmark,
                 text: '',
               ),
             ),
@@ -310,8 +281,7 @@ class IconWithLabel extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 7.5),
       child: Column(
         children: [
-          InkWell(
-              onTap: onTap, child: Image.asset(image, width: 34, height: 34)),
+          InkWell(onTap: onTap, child: Image.asset(image, width: 34, height: 34)),
           if (text.isNotEmpty)
             Text(
               text,
@@ -319,12 +289,7 @@ class IconWithLabel extends StatelessWidget {
                 fontFamily: FontRes.medium,
                 fontSize: 13,
                 color: ColorRes.white,
-                shadows: <Shadow>[
-                  Shadow(
-                      offset: Offset(0.0, 1.0),
-                      blurRadius: 3.0,
-                      color: ColorRes.smokeyGrey)
-                ],
+                shadows: <Shadow>[Shadow(offset: Offset(0.0, 1.0), blurRadius: 3.0, color: ColorRes.smokeyGrey)],
               ),
             ),
         ],

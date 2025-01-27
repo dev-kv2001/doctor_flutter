@@ -36,10 +36,7 @@ class ConfirmationDialog extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 10),
             decoration: ShapeDecoration(
-                color: ColorRes.white,
-                shape: SmoothRectangleBorder(
-                    borderRadius: SmoothBorderRadius(
-                        cornerRadius: 10, cornerSmoothing: 1))),
+                color: ColorRes.white, shape: SmoothRectangleBorder(borderRadius: SmoothBorderRadius(cornerRadius: 10, cornerSmoothing: 1))),
             child: Column(
               children: [
                 const Spacer(),
@@ -78,12 +75,8 @@ class ConfirmationDialog extends StatelessWidget {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(
-                                  color: Colors.grey[300]!, width: 0.5),
-                              right: isRTL
-                                  ? BorderSide.none
-                                  : BorderSide(
-                                      color: Colors.grey[300]!, width: 0.5),
+                              top: BorderSide(color: Colors.grey[300]!, width: 0.5),
+                              right: isRTL ? BorderSide.none : BorderSide(color: Colors.grey[300]!, width: 0.5),
                             ),
                           ),
                           child: Text(
@@ -108,12 +101,8 @@ class ConfirmationDialog extends StatelessWidget {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(
-                                  color: Colors.grey[300]!, width: 0.5),
-                              right: isRTL
-                                  ? BorderSide(
-                                      color: Colors.grey[300]!, width: 0.5)
-                                  : BorderSide.none,
+                              top: BorderSide(color: Colors.grey[300]!, width: 0.5),
+                              right: isRTL ? BorderSide(color: Colors.grey[300]!, width: 0.5) : BorderSide.none,
                             ),
                           ),
                           child: Text(

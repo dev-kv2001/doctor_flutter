@@ -60,11 +60,7 @@ class DoctorProfileTextField extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 title,
-                style: titleStyle ??
-                    const TextStyle(
-                        fontFamily: FontRes.semiBold,
-                        color: ColorRes.charcoalGrey,
-                        fontSize: 15),
+                style: titleStyle ?? const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey, fontSize: 15),
               ),
               Visibility(
                 visible: isExample,
@@ -102,10 +98,7 @@ class DoctorProfileTextField extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     dollar,
-                    style: const TextStyle(
-                        color: ColorRes.charcoalGrey,
-                        fontFamily: FontRes.semiBold,
-                        fontSize: 16),
+                    style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.semiBold, fontSize: 16),
                   ),
                 ),
               ),
@@ -117,12 +110,8 @@ class DoctorProfileTextField extends StatelessWidget {
                   expands: isExpand,
                   minLines: isExpand ? null : 1,
                   maxLines: isExpand ? null : 1,
-                  inputFormatters: [
-                    if (isDollar) ThousandsSeparatorInputFormatter()
-                  ],
-                  textAlignVertical: isExpand
-                      ? TextAlignVertical.top
-                      : TextAlignVertical.center,
+                  inputFormatters: [if (isDollar) ThousandsSeparatorInputFormatter()],
+                  textAlignVertical: isExpand ? TextAlignVertical.top : TextAlignVertical.center,
                   onChanged: onChange,
                   keyboardType: textInputType,
                   maxLength: maxLength,
@@ -148,8 +137,7 @@ class DoctorProfileTextField extends StatelessWidget {
                   cursorHeight: 15,
                   cursorColor: ColorRes.charcoalGrey,
                   textCapitalization: TextCapitalization.sentences,
-                  onTapOutside: (event) =>
-                      FocusManager.instance.primaryFocus?.unfocus(),
+                  onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
                 ),
               ),
             ],
@@ -164,8 +152,7 @@ class ThousandsSeparatorInputFormatter extends TextInputFormatter {
   static const separator = ','; // Change this to '.' for other locales
 
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     // Short-circuit if the new value is empty
     if (newValue.text.isEmpty) {
       return newValue.copyWith(text: '');
@@ -175,15 +162,13 @@ class ThousandsSeparatorInputFormatter extends TextInputFormatter {
     String oldValueText = oldValue.text.replaceAll(separator, '');
     String newValueText = newValue.text.replaceAll(separator, '');
 
-    if (oldValue.text.endsWith(separator) &&
-        oldValue.text.length == newValue.text.length + 1) {
+    if (oldValue.text.endsWith(separator) && oldValue.text.length == newValue.text.length + 1) {
       newValueText = newValueText.substring(0, newValueText.length - 1);
     }
 
     // Only process if the old value and new value are different
     if (oldValueText != newValueText) {
-      int selectionIndex =
-          newValue.text.length - newValue.selection.extentOffset;
+      int selectionIndex = newValue.text.length - newValue.selection.extentOffset;
       final chars = newValueText.split('');
 
       String newString = '';

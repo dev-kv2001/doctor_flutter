@@ -10,8 +10,7 @@ import 'package:get/get.dart';
 class VideoUploadDialog extends StatelessWidget {
   final VoidCallback selectAnother;
 
-  const VideoUploadDialog({Key? key, required this.selectAnother})
-      : super(key: key);
+  const VideoUploadDialog({Key? key, required this.selectAnother}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +26,7 @@ class VideoUploadDialog extends StatelessWidget {
               const Spacer(flex: 2),
               RichText(
                 text: TextSpan(
-                  style: const TextStyle(
-                      fontFamily: FontRes.semiBold, fontSize: 18),
+                  style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 18),
                   children: [
                     TextSpan(
                       text: S.current.tooLarge,
@@ -48,9 +46,7 @@ class VideoUploadDialog extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   S.current.thisVideoIsGreaterThan15MbEtc,
-                  style: const TextStyle(
-                      fontFamily: FontRes.semiBold,
-                      color: ColorRes.charcoalGrey),
+                  style: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -69,8 +65,7 @@ class VideoUploadDialog extends StatelessWidget {
                   ),
                   child: Text(
                     S.current.selectAnother,
-                    style: const TextStyle(
-                        color: ColorRes.white, fontFamily: FontRes.semiBold),
+                    style: const TextStyle(color: ColorRes.white, fontFamily: FontRes.semiBold),
                   ),
                 ),
               ),
@@ -90,9 +85,7 @@ class VideoUploadDialog extends StatelessWidget {
                   ),
                   child: Text(
                     S.current.cancel,
-                    style: const TextStyle(
-                        color: ColorRes.charcoalGrey,
-                        fontFamily: FontRes.semiBold),
+                    style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.semiBold),
                   ),
                 ),
               ),

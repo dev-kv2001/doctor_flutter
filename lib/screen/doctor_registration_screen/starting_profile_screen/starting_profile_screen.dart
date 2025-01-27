@@ -131,10 +131,8 @@ class StartingProfileScreen extends StatelessWidget {
               GetBuilder<StartingProfileScreenController>(
                 id: kSelectGender,
                 init: controller,
-                builder: (controller) => DropDownMenu(
-                    items: controller.genders,
-                    initialValue: controller.selectGender,
-                    onChange: controller.onGenderChange),
+                builder: (controller) =>
+                    DropDownMenu(items: controller.genders, initialValue: controller.selectGender, onChange: controller.onGenderChange),
               ),
             ],
           ),

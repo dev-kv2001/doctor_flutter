@@ -66,11 +66,11 @@ class DoctorProfileScreenThreeController extends GetxController {
     update();
     if (value?[0] != null) {
       CustomUi.snackBar(
-          message: S.current.locationFetchSuccessfully,
+        message: S.current.locationFetchSuccessfully,
       );
     } else {
       CustomUi.snackBar(
-          message: S.current.locationNotFetch,
+        message: S.current.locationNotFetch,
       );
     }
   }
@@ -118,10 +118,8 @@ class DoctorProfileScreenThreeController extends GetxController {
   void _prefData() async {
     await prefService.init();
     userData = prefService.getRegistrationData();
-    clinicNameController =
-        TextEditingController(text: userData?.clinicName ?? '');
-    clinicAddressController =
-        TextEditingController(text: userData?.clinicAddress ?? '');
+    clinicNameController = TextEditingController(text: userData?.clinicName ?? '');
+    clinicAddressController = TextEditingController(text: userData?.clinicAddress ?? '');
     if (userData?.onlineConsultation != null) {
       isOnline = userData?.onlineConsultation == 1 ? true : false;
     }

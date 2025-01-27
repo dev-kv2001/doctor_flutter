@@ -36,15 +36,9 @@ class AddBankDetailScreen extends StatelessWidget {
                           isExample: false,
                           title: S.current.bankName,
                           exampleTitle: "",
-                          errorColor: controller.isBankName
-                              ? ColorRes.bittersweet.withOpacity(0.2)
-                              : ColorRes.whiteSmoke,
-                          hintTextColor: controller.isBankName == true
-                              ? ColorRes.bittersweet
-                              : ColorRes.silverChalice,
-                          hintTitle: controller.isBankName == true
-                              ? S.current.enterBankName
-                              : S.current.enterHere,
+                          errorColor: controller.isBankName ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
+                          hintTextColor: controller.isBankName == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                          hintTitle: controller.isBankName == true ? S.current.enterBankName : S.current.enterHere,
                           controller: controller.bankNameController,
                         ),
                         DoctorProfileTextField(
@@ -52,59 +46,35 @@ class AddBankDetailScreen extends StatelessWidget {
                           title: S.current.accountNumber,
                           exampleTitle: "",
                           controller: controller.accountNumberController,
-                          errorColor: controller.isAccountNumber == true
-                              ? ColorRes.bittersweet.withOpacity(0.2)
-                              : ColorRes.whiteSmoke,
-                          hintTextColor: controller.isAccountNumber == true
-                              ? ColorRes.bittersweet
-                              : ColorRes.silverChalice,
-                          hintTitle: controller.isAccountNumber == true
-                              ? S.current.enterAccountName
-                              : S.current.enterHere,
+                          errorColor: controller.isAccountNumber == true ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
+                          hintTextColor: controller.isAccountNumber == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                          hintTitle: controller.isAccountNumber == true ? S.current.enterAccountName : S.current.enterHere,
                         ),
                         DoctorProfileTextField(
                           isExample: false,
                           title: S.current.reEnterAccountNumber,
                           exampleTitle: "",
-                          errorColor: controller.isReAccountNumber == true
-                              ? ColorRes.bittersweet.withOpacity(0.2)
-                              : ColorRes.whiteSmoke,
-                          hintTextColor: controller.isReAccountNumber == true
-                              ? ColorRes.bittersweet
-                              : ColorRes.silverChalice,
-                          hintTitle: controller.isReAccountNumber == true
-                              ? S.current.enterReAccountNumber
-                              : S.current.enterHere,
+                          errorColor: controller.isReAccountNumber == true ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
+                          hintTextColor: controller.isReAccountNumber == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                          hintTitle: controller.isReAccountNumber == true ? S.current.enterReAccountNumber : S.current.enterHere,
                           controller: controller.reAccountNumberController,
                         ),
                         DoctorProfileTextField(
                           isExample: false,
                           title: S.current.holdersName,
                           exampleTitle: "",
-                          errorColor: controller.isHolderName == true
-                              ? ColorRes.bittersweet.withOpacity(0.2)
-                              : ColorRes.whiteSmoke,
-                          hintTextColor: controller.isHolderName == true
-                              ? ColorRes.bittersweet
-                              : ColorRes.silverChalice,
-                          hintTitle: controller.isHolderName == true
-                              ? S.current.enterHolderName
-                              : S.current.enterHere,
+                          errorColor: controller.isHolderName == true ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
+                          hintTextColor: controller.isHolderName == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                          hintTitle: controller.isHolderName == true ? S.current.enterHolderName : S.current.enterHere,
                           controller: controller.holderNameController,
                         ),
                         DoctorProfileTextField(
                           isExample: false,
                           title: S.current.swiftCode,
                           exampleTitle: "",
-                          errorColor: controller.isSwiftCode == true
-                              ? ColorRes.bittersweet.withOpacity(0.2)
-                              : ColorRes.whiteSmoke,
-                          hintTextColor: controller.isSwiftCode == true
-                              ? ColorRes.bittersweet
-                              : ColorRes.silverChalice,
-                          hintTitle: controller.isSwiftCode == true
-                              ? S.current.swiftCode
-                              : S.current.enterHere,
+                          errorColor: controller.isSwiftCode == true ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
+                          hintTextColor: controller.isSwiftCode == true ? ColorRes.bittersweet : ColorRes.silverChalice,
+                          hintTitle: controller.isSwiftCode == true ? S.current.swiftCode : S.current.enterHere,
                           controller: controller.swiftCodeController,
                         ),
                         Container(
@@ -140,8 +110,7 @@ class AddBankDetailScreen extends StatelessWidget {
                                     child: controller.chequePhoto != null
                                         ? Image.file(
                                             File(controller.chequePhoto!.path),
-                                            errorBuilder:
-                                                (context, error, stackTrace) {
+                                            errorBuilder: (context, error, stackTrace) {
                                               return Container(
                                                 color: ColorRes.whiteSmoke,
                                               );
@@ -152,16 +121,12 @@ class AddBankDetailScreen extends StatelessWidget {
                                           )
                                         : controller.networkChequeImage != null
                                             ? CachedNetworkImage(
-                                                imageUrl:
-                                                    '${ConstRes.itemBaseURL}${controller.networkChequeImage}',
+                                                imageUrl: '${ConstRes.itemBaseURL}${controller.networkChequeImage}',
                                                 height: 100,
                                                 width: 100,
                                                 fit: BoxFit.cover,
-                                                errorWidget: (context, error,
-                                                    stackTrace) {
-                                                  return Container(
-                                                      color:
-                                                          ColorRes.whiteSmoke);
+                                                errorWidget: (context, error, stackTrace) {
+                                                  return Container(color: ColorRes.whiteSmoke);
                                                 },
                                               )
                                             : Container(
@@ -183,9 +148,7 @@ class AddBankDetailScreen extends StatelessWidget {
                   }),
             ),
           ),
-          DoctorRegButton(
-              onTap: controller.manageDrBankAccountApiCall,
-              title: S.current.add)
+          DoctorRegButton(onTap: controller.manageDrBankAccountApiCall, title: S.current.add)
         ],
       ),
     );

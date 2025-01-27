@@ -65,8 +65,7 @@ class ServicesScreen extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => controller.onServiceSheetOpen(
-            screenType: type, apiType: 1, isAdd: true),
+        onPressed: () => controller.onServiceSheetOpen(screenType: type, apiType: 1, isAdd: true),
         backgroundColor: ColorRes.tuftsBlue,
         child: const Icon(Icons.add_rounded, color: ColorRes.white, size: 30),
       ),

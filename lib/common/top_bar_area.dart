@@ -28,36 +28,24 @@ class TopBarArea extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Align(
-              alignment: Directionality.of(context) == TextDirection.rtl
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft,
+              alignment: Directionality.of(context) == TextDirection.rtl ? Alignment.centerRight : Alignment.centerLeft,
               child: InkWell(
                 onTap: () {
                   Get.back();
                 },
                 child: Container(
                     margin: EdgeInsets.only(
-                        left: Directionality.of(context) == TextDirection.rtl
-                            ? 0
-                            : 10,
-                        right: Directionality.of(context) == TextDirection.rtl
-                            ? 10
-                            : 0),
+                        left: Directionality.of(context) == TextDirection.rtl ? 0 : 10,
+                        right: Directionality.of(context) == TextDirection.rtl ? 10 : 0),
                     child: const Icon(Icons.arrow_back_rounded)),
               ),
             ),
             Text(
               title,
-              style: const TextStyle(
-                  color: ColorRes.charcoalGrey,
-                  fontFamily: FontRes.bold,
-                  fontSize: 18,
-                  overflow: TextOverflow.ellipsis),
+              style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.bold, fontSize: 18, overflow: TextOverflow.ellipsis),
             ),
             Align(
-              alignment: Directionality.of(context) == TextDirection.rtl
-                  ? Alignment.centerLeft
-                  : Alignment.centerRight,
+              alignment: Directionality.of(context) == TextDirection.rtl ? Alignment.centerLeft : Alignment.centerRight,
               child: Visibility(
                 visible: isMoreBtnVisible,
                 child: InkWell(
@@ -66,15 +54,9 @@ class TopBarArea extends StatelessWidget {
                     height: 36,
                     width: 36,
                     margin: EdgeInsets.only(
-                        right: Directionality.of(context) == TextDirection.rtl
-                            ? 0
-                            : 10,
-                        left: Directionality.of(context) == TextDirection.rtl
-                            ? 10
-                            : 0),
-                    decoration: const BoxDecoration(
-                        gradient: StyleRes.linearGradient,
-                        shape: BoxShape.circle),
+                        right: Directionality.of(context) == TextDirection.rtl ? 0 : 10,
+                        left: Directionality.of(context) == TextDirection.rtl ? 10 : 0),
+                    decoration: const BoxDecoration(gradient: StyleRes.linearGradient, shape: BoxShape.circle),
                     child: const Icon(
                       Icons.videocam_sharp,
                       color: ColorRes.white,

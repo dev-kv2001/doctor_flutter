@@ -44,9 +44,7 @@ class SettingScreen extends StatelessWidget {
                       () => SettingTopArea(
                           title: S.current.pushNotification,
                           title2: S.current.keepItOnIfYouWantEtc,
-                          alignment: controller.isNotification.value
-                              ? Alignment.centerRight
-                              : Alignment.centerLeft,
+                          alignment: controller.isNotification.value ? Alignment.centerRight : Alignment.centerLeft,
                           enable: controller.isNotification.value,
                           onTap: controller.onPushNotificationTap),
                     ),
@@ -55,9 +53,7 @@ class SettingScreen extends StatelessWidget {
                       () => SettingTopArea(
                         title: S.current.vacationMode,
                         title2: S.current.keepingItOffYourProfileEtc,
-                        alignment: controller.isVacationMode.value
-                            ? Alignment.centerRight
-                            : Alignment.centerLeft,
+                        alignment: controller.isVacationMode.value ? Alignment.centerRight : Alignment.centerLeft,
                         enable: controller.isVacationMode.value,
                         onTap: controller.onVacationModeTap,
                       ),

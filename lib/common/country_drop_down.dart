@@ -42,17 +42,13 @@ class CountryDropDown extends StatelessWidget {
         alignment: Alignment.center,
         onChanged: onChange,
         items: countries
-            ?.map<DropdownMenuItem<Country>>(
-                (Country value) => DropdownMenuItem<Country>(
-                      value: value,
-                      child: Text(
-                        value.countryName ?? '',
-                        style: TextStyle(
-                            fontFamily: fontFamily,
-                            color: textColor,
-                            fontSize: 15),
-                      ),
-                    ))
+            ?.map<DropdownMenuItem<Country>>((Country value) => DropdownMenuItem<Country>(
+                  value: value,
+                  child: Text(
+                    value.countryName ?? '',
+                    style: TextStyle(fontFamily: fontFamily, color: textColor, fontSize: 15),
+                  ),
+                ))
             .toList(),
         underline: const SizedBox(),
       ),

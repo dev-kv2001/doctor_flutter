@@ -6,9 +6,7 @@ class SettingsFiledTopBar extends StatelessWidget {
   final String title1;
   final String title2;
 
-  const SettingsFiledTopBar(
-      {Key? key, required this.title1, required this.title2})
-      : super(key: key);
+  const SettingsFiledTopBar({Key? key, required this.title1, required this.title2}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +17,7 @@ class SettingsFiledTopBar extends StatelessWidget {
         children: [
           Text(
             title1,
-            style: const TextStyle(
-                fontFamily: FontRes.semiBold,
-                color: ColorRes.charcoalGrey,
-                fontSize: 15),
+            style: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey, fontSize: 15),
           ),
           const SizedBox(
             height: 10,

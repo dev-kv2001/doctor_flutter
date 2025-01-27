@@ -16,12 +16,7 @@ class MessageCard extends StatelessWidget {
   final Function(Conversation? user) onLongPress;
   final DoctorData? doctorData;
 
-  const MessageCard(
-      {Key? key,
-      required this.userList,
-      required this.onLongPress,
-      this.doctorData})
-      : super(key: key);
+  const MessageCard({Key? key, required this.userList, required this.onLongPress, this.doctorData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +30,18 @@ class MessageCard extends StatelessWidget {
                 Conversation? user = userList[index];
                 return InkWell(
                   onTap: () {
-                    Get.to(() => MessageChatScreen(
-                        conversation: user, doctorData: doctorData));
+                    Get.to(() => MessageChatScreen(conversation: user, doctorData: doctorData));
                   },
                   onLongPress: () => onLongPress(user),
                   child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
                     margin: const EdgeInsets.symmetric(vertical: 3),
                     decoration: const BoxDecoration(
                       color: ColorRes.whiteSmoke,
                     ),
                     child: Row(
                       children: [
-                        ImageBuilderCustom(user?.user?.image,
-                            size: 70, name: user?.user?.username),
+                        ImageBuilderCustom(user?.user?.image, size: 70, name: user?.user?.username),
                         const SizedBox(
                           width: 10,
                         ),
@@ -60,18 +52,12 @@ class MessageCard extends StatelessWidget {
                               Text(
                                 user?.user?.username ?? S.current.unKnown,
                                 style: const TextStyle(
-                                    color: ColorRes.charcoalGrey,
-                                    fontFamily: FontRes.extraBold,
-                                    fontSize: 18,
-                                    overflow: TextOverflow.ellipsis),
+                                    color: ColorRes.charcoalGrey, fontFamily: FontRes.extraBold, fontSize: 18, overflow: TextOverflow.ellipsis),
                               ),
                               const SizedBox(height: 4),
                               Text(
                                 user?.lastMsg ?? '',
-                                style: const TextStyle(
-                                    color: ColorRes.battleshipGrey,
-                                    fontSize: 14,
-                                    overflow: TextOverflow.ellipsis),
+                                style: const TextStyle(color: ColorRes.battleshipGrey, fontSize: 14, overflow: TextOverflow.ellipsis),
                               ),
                             ],
                           ),
@@ -87,10 +73,7 @@ class MessageCard extends StatelessWidget {
                                   int.parse(user?.time ?? ''),
                                 ),
                               ),
-                              style: const TextStyle(
-                                  fontFamily: FontRes.medium,
-                                  fontSize: 12,
-                                  color: ColorRes.silverChalice),
+                              style: const TextStyle(fontFamily: FontRes.medium, fontSize: 12, color: ColorRes.silverChalice),
                             ),
                             const SizedBox(
                               height: 5,
@@ -103,16 +86,11 @@ class MessageCard extends StatelessWidget {
                                 : Container(
                                     height: 25,
                                     width: 25,
-                                    decoration: const BoxDecoration(
-                                        gradient: StyleRes.linearGradient,
-                                        shape: BoxShape.circle),
+                                    decoration: const BoxDecoration(gradient: StyleRes.linearGradient, shape: BoxShape.circle),
                                     alignment: Alignment.center,
                                     child: Text(
                                       user?.user?.msgCount.toString() ?? '',
-                                      style: const TextStyle(
-                                          fontFamily: FontRes.bold,
-                                          fontSize: 12,
-                                          color: ColorRes.white),
+                                      style: const TextStyle(fontFamily: FontRes.bold, fontSize: 12, color: ColorRes.white),
                                     ),
                                   )
                           ],

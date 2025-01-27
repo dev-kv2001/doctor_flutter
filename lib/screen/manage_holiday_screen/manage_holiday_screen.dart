@@ -21,16 +21,12 @@ class ManageHolidayScreen extends StatelessWidget {
       body: Column(
         children: [
           TopBarArea(title: S.current.manageHolidays),
-          SettingsFiledTopBar(
-              title1: S.current.addYourHolidaysHere,
-              title2: S.current.onThoseDaysPatientsEtc),
+          SettingsFiledTopBar(title1: S.current.addYourHolidaysHere, title2: S.current.onThoseDaysPatientsEtc),
           GetBuilder(
             init: controller,
             builder: (context) {
               return Expanded(
-                child: controller.isLoading
-                    ? CustomUi.loaderWidget()
-                    : _manageHolidays(controller),
+                child: controller.isLoading ? CustomUi.loaderWidget() : _manageHolidays(controller),
               );
             },
           ),
@@ -58,16 +54,13 @@ class ManageHolidayScreen extends StatelessWidget {
               Holidays? holidays = controller.holidays?[index];
               controller.holidays?.sort(
                 (a, b) {
-                  DateTime date1 =
-                      DateFormat(yyyyMmDd, 'en').parse(a.date ?? '');
-                  DateTime date2 =
-                      DateFormat(yyyyMmDd, 'en').parse(b.date ?? '');
+                  DateTime date1 = DateFormat(yyyyMmDd, 'en').parse(a.date ?? '');
+                  DateTime date2 = DateFormat(yyyyMmDd, 'en').parse(b.date ?? '');
                   return date1.compareTo(date2);
                 },
               );
               return Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
                 margin: const EdgeInsets.symmetric(vertical: 2),
                 color: ColorRes.whiteSmoke,
                 child: Row(

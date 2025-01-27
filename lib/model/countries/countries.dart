@@ -107,8 +107,7 @@ class Country {
         capitalName: capitalName ?? _capitalName,
         currencyCode: currencyCode ?? _currencyCode,
         phoneCode: phoneCode ?? _phoneCode,
-        threeLetterCountryCode:
-            threeLetterCountryCode ?? _threeLetterCountryCode,
+        threeLetterCountryCode: threeLetterCountryCode ?? _threeLetterCountryCode,
       );
 
   String? get continentName => _continentName;
@@ -147,13 +146,8 @@ class Country {
   }
 
   static String encode(List<Country> countries) => json.encode(
-        countries
-            .map<Map<String, dynamic>>((music) => Country().toJson())
-            .toList(),
+        countries.map<Map<String, dynamic>>((music) => Country().toJson()).toList(),
       );
 
-  static List<Country> decode(String countries) =>
-      (json.decode(countries) as List<dynamic>)
-          .map<Country>((item) => Country.fromJson(item))
-          .toList();
+  static List<Country> decode(String countries) => (json.decode(countries) as List<dynamic>).map<Country>((item) => Country.fromJson(item)).toList();
 }

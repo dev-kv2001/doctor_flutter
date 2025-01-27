@@ -39,8 +39,7 @@ class MessageCenterArea extends StatelessWidget {
             ChatMessage? chatData = chatList[index];
             return ChatMessageWidget(
               data: chatData,
-              isMe: chatData.senderUser?.userIdentity ==
-                  CommonFun.setDoctorId(doctorId: doctorData?.id),
+              isMe: chatData.senderUser?.userIdentity == CommonFun.setDoctorId(doctorId: doctorData?.id),
               timeStamp: timeStamp,
               onLongPress: onLongPress,
             );
@@ -73,20 +72,16 @@ class ChatMessageWidget extends StatelessWidget {
       onTap: () => timeStamp.isNotEmpty ? onLongPress(data) : () {},
       child: Container(
         foregroundDecoration: BoxDecoration(
-          color: selected
-              ? ColorRes.iceberg.withOpacity(0.5)
-              : ColorRes.transparent,
+          color: selected ? ColorRes.iceberg.withOpacity(0.5) : ColorRes.transparent,
         ),
         padding: const EdgeInsets.only(left: 10, right: 10, bottom: 2),
         child: Column(
-          crossAxisAlignment:
-              isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             data.msgType == FirebaseRes.text
                 ? ChatMsgTextCard(
                     msg: data.msg ?? '',
-                    cardColor:
-                        isMe ? ColorRes.havelockBlue : ColorRes.whiteSmoke,
+                    cardColor: isMe ? ColorRes.havelockBlue : ColorRes.whiteSmoke,
                     textColor: isMe ? ColorRes.white : ColorRes.davyGrey,
                   )
                 : data.msgType == FirebaseRes.image
@@ -94,18 +89,12 @@ class ChatMessageWidget extends StatelessWidget {
                         imageUrl: data.image,
                         time: data.id,
                         msg: data.msg,
-                        imageCardColor:
-                            isMe ? ColorRes.havelockBlue : ColorRes.whiteSmoke,
+                        imageCardColor: isMe ? ColorRes.havelockBlue : ColorRes.whiteSmoke,
                         margin: EdgeInsets.only(
-                          left: isMe
-                              ? MediaQuery.of(context).size.width / 2.3
-                              : 0,
-                          right: isMe
-                              ? 0
-                              : MediaQuery.of(context).size.width / 2.3,
+                          left: isMe ? MediaQuery.of(context).size.width / 2.3 : 0,
+                          right: isMe ? 0 : MediaQuery.of(context).size.width / 2.3,
                         ),
-                        imageTextColor:
-                            isMe ? ColorRes.white : ColorRes.davyGrey,
+                        imageTextColor: isMe ? ColorRes.white : ColorRes.davyGrey,
                       )
                     : ChatVideoCard(
                         imageUrl: data.image,
@@ -113,17 +102,11 @@ class ChatMessageWidget extends StatelessWidget {
                         msg: data.msg,
                         videoUrl: data.video,
                         margin: EdgeInsets.only(
-                          left: isMe
-                              ? MediaQuery.of(context).size.width / 2.3
-                              : 0,
-                          right: isMe
-                              ? 0
-                              : MediaQuery.of(context).size.width / 2.3,
+                          left: isMe ? MediaQuery.of(context).size.width / 2.3 : 0,
+                          right: isMe ? 0 : MediaQuery.of(context).size.width / 2.3,
                         ),
-                        imageCardColor:
-                            isMe ? ColorRes.havelockBlue : ColorRes.whiteSmoke,
-                        imageTextColor:
-                            isMe ? ColorRes.white : ColorRes.davyGrey,
+                        imageCardColor: isMe ? ColorRes.havelockBlue : ColorRes.whiteSmoke,
+                        imageTextColor: isMe ? ColorRes.white : ColorRes.davyGrey,
                       ),
             ChatDateFormat(time: data.id ?? ''),
           ],

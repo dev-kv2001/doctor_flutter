@@ -10,20 +10,14 @@ class DeleteAccountSheet extends StatelessWidget {
   final String title;
   final String description;
 
-  const DeleteAccountSheet(
-      {Key? key,
-      required this.onDeleteContinueTap,
-      required this.title,
-      required this.description})
-      : super(key: key);
+  const DeleteAccountSheet({Key? key, required this.onDeleteContinueTap, required this.title, required this.description}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Wrap(
       children: [
         Container(
-          padding:
-              const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 10),
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 10),
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.vertical(
@@ -38,10 +32,7 @@ class DeleteAccountSheet extends StatelessWidget {
                   Expanded(
                     child: Text(
                       title,
-                      style: const TextStyle(
-                          color: ColorRes.charcoalGrey,
-                          fontSize: 20,
-                          fontFamily: FontRes.extraBold),
+                      style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 20, fontFamily: FontRes.extraBold),
                     ),
                   ),
                   InkWell(
@@ -51,9 +42,7 @@ class DeleteAccountSheet extends StatelessWidget {
                     child: Container(
                       height: 37,
                       width: 37,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: ColorRes.havelockBlue.withOpacity(0.1)),
+                      decoration: BoxDecoration(shape: BoxShape.circle, color: ColorRes.havelockBlue.withOpacity(0.1)),
                       child: const Icon(
                         Icons.close_rounded,
                         color: ColorRes.charcoalGrey,
@@ -68,10 +57,7 @@ class DeleteAccountSheet extends StatelessWidget {
               ),
               Text(
                 description,
-                style: const TextStyle(
-                    fontFamily: FontRes.light,
-                    fontSize: 16,
-                    color: ColorRes.davyGrey),
+                style: const TextStyle(fontFamily: FontRes.light, fontSize: 16, color: ColorRes.davyGrey),
               ),
               const SizedBox(
                 height: 50,

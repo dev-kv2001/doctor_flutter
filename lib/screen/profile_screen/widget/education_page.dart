@@ -15,10 +15,7 @@ class EducationPage extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       child: Text(
         controller?.doctorData.value?.educationalJourney ?? S.current.noData,
-        style: const TextStyle(
-            fontSize: 15,
-            color: ColorRes.mediumGrey,
-            fontFamily: FontRes.regular),
+        style: const TextStyle(fontSize: 15, color: ColorRes.mediumGrey, fontFamily: FontRes.regular),
       ),
     );
   }

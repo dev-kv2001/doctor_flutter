@@ -23,11 +23,7 @@ class Languages extends StatelessWidget {
           const SizedBox(height: 5),
           Text(
             S.current.languages.toUpperCase(),
-            style: const TextStyle(
-                fontSize: 14,
-                fontFamily: FontRes.semiBold,
-                color: ColorRes.charcoalGrey,
-                letterSpacing: 1),
+            style: const TextStyle(fontSize: 14, fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey, letterSpacing: 1),
           ),
           const SizedBox(height: 10),
           GetBuilder(
@@ -35,10 +31,7 @@ class Languages extends StatelessWidget {
             builder: (context) {
               return Wrap(
                 children: List.generate(
-                  controller.doctorData.value?.languagesSpoken
-                          ?.split(',')
-                          .length ??
-                      0,
+                  controller.doctorData.value?.languagesSpoken?.split(',').length ?? 0,
                   (index) {
                     return FittedBox(
                       child: Container(
@@ -46,18 +39,10 @@ class Languages extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         alignment: Alignment.center,
                         margin: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                            color: ColorRes.softPeach,
-                            borderRadius: BorderRadius.circular(30)),
+                        decoration: BoxDecoration(color: ColorRes.softPeach, borderRadius: BorderRadius.circular(30)),
                         child: Text(
-                          controller.doctorData.value?.languagesSpoken
-                                  ?.split(',')[index]
-                                  .toString() ??
-                              '',
-                          style: const TextStyle(
-                              fontSize: 15,
-                              color: ColorRes.tuftsBlue,
-                              fontFamily: FontRes.semiBold),
+                          controller.doctorData.value?.languagesSpoken?.split(',')[index].toString() ?? '',
+                          style: const TextStyle(fontSize: 15, color: ColorRes.tuftsBlue, fontFamily: FontRes.semiBold),
                         ),
                       ),
                     );

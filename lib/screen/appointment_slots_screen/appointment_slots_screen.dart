@@ -26,9 +26,7 @@ class AppointmentSlotsScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SettingsFiledTopBar(
-                      title1: S.current.addAppointmentSlotsByWeekDays,
-                      title2: S.current.ifYouHaveAddedOnlyEtc),
+                  SettingsFiledTopBar(title1: S.current.addAppointmentSlotsByWeekDays, title2: S.current.ifYouHaveAddedOnlyEtc),
                   _slotCard(controller),
                 ],
               ),
@@ -78,8 +76,7 @@ class AppointmentSlotsScreen extends StatelessWidget {
                               ),
                               const Spacer(),
                               InkWell(
-                                onTap: () =>
-                                    controller.addBtnTap(weekIndex + 1),
+                                onTap: () => controller.addBtnTap(weekIndex + 1),
                                 child: Text(
                                   S.current.add,
                                   style: const TextStyle(
@@ -92,17 +89,13 @@ class AppointmentSlotsScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(
-                            height: controller
-                                    .appointmentSlot[weekIndex].time.isEmpty
-                                ? 5
-                                : 10,
+                            height: controller.appointmentSlot[weekIndex].time.isEmpty ? 5 : 10,
                           ),
                           GetBuilder(
                             id: kAppointmentDelete,
                             init: controller,
                             builder: (controller) {
-                              List<Slots?> time =
-                                  controller.appointmentSlot[weekIndex].time;
+                              List<Slots?> time = controller.appointmentSlot[weekIndex].time;
                               time.sort(
                                 (a, b) {
                                   return a!.time!.compareTo('${b?.time}');
@@ -121,23 +114,17 @@ class AppointmentSlotsScreen extends StatelessWidget {
                                           Container(
                                             width: double.infinity,
                                             margin: const EdgeInsets.all(7),
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 10),
+                                            padding: const EdgeInsets.symmetric(horizontal: 10),
                                             decoration: BoxDecoration(
                                               color: ColorRes.seashell,
-                                              borderRadius:
-                                                  BorderRadius.circular(7),
+                                              borderRadius: BorderRadius.circular(7),
                                             ),
                                             child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  CommonFun
-                                                      .convert24HoursInto12Hours(
-                                                          time[index]?.time),
+                                                  CommonFun.convert24HoursInto12Hours(time[index]?.time),
                                                   style: const TextStyle(
                                                     color: ColorRes.tuftsBlue,
                                                     fontFamily: FontRes.bold,
@@ -159,14 +146,11 @@ class AppointmentSlotsScreen extends StatelessWidget {
                                             ),
                                           ),
                                           InkWell(
-                                            onTap: () => controller
-                                                .deleteSlot(time[index]),
+                                            onTap: () => controller.deleteSlot(time[index]),
                                             child: Container(
                                               width: 25,
                                               height: 25,
-                                              decoration: const BoxDecoration(
-                                                  color: ColorRes.charcoalGrey,
-                                                  shape: BoxShape.circle),
+                                              decoration: const BoxDecoration(color: ColorRes.charcoalGrey, shape: BoxShape.circle),
                                               child: const Icon(
                                                 Icons.close_rounded,
                                                 color: ColorRes.white,

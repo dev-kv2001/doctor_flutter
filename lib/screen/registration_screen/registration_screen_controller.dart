@@ -67,10 +67,8 @@ class RegistrationScreenController extends GetxController {
       CustomUi.snackBar(message: S.current.pleaseEnterValidEmail);
       return;
     }
-    if (passwordController.text.trim() !=
-        reTypePasswordController.text.trim()) {
-      CustomUi.snackBar(
-          message: S.current.passwordDosentMatchEnterSamePassword);
+    if (passwordController.text.trim() != reTypePasswordController.text.trim()) {
+      CustomUi.snackBar(message: S.current.passwordDosentMatchEnterSamePassword);
       return;
     }
 
@@ -80,28 +78,21 @@ class RegistrationScreenController extends GetxController {
   Future<void> createUserWithEmailAndPassword() async {
     CustomUi.loader();
     try {
-      final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: emailController.text.trim(),
-              password: passwordController.text.trim());
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
 
       if (credential.user == null) return;
       FirebaseNotificationManager.shared.getNotificationToken(
         (token) async {
           deviceToken = token;
           Registration registration = await ApiService.instance
-              .doctorRegistration(
-                  identity: emailController.text.trim(),
-                  name: fullNameController.text.trim(),
-                  deviceToken: deviceToken,
-                  isLogin: 0);
+              .doctorRegistration(identity: emailController.text.trim(), name: fullNameController.text.trim(), deviceToken: deviceToken, isLogin: 0);
           await credential.user?.sendEmailVerification();
           doctorData = registration.data;
           Get.back();
           if (registration.status == true) {
             Get.back();
-            return CustomUi.snackBar(
-                message: S.current.verifyTheLinkSentToYourEmailThenCompleteThe);
+            return CustomUi.snackBar(message: S.current.verifyTheLinkSentToYourEmailThenCompleteThe);
           } else {
             return CustomUi.snackBar(message: registration.message);
           }

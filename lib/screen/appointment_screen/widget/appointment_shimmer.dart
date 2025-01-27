@@ -14,9 +14,7 @@ class AppointmentShimmer extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) => Container(
         margin: const EdgeInsets.symmetric(vertical: 5),
-        decoration: BoxDecoration(
-            color: ColorRes.whiteSmoke,
-            borderRadius: BorderRadius.circular(15)),
+        decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(15)),
         padding: const EdgeInsets.all(7),
         child: Row(
           children: [
@@ -36,8 +34,7 @@ class AppointmentShimmer extends StatelessWidget {
                 ShimmerScreen.rectangular(
                   height: 20,
                   width: Get.width / 2.7,
-                  shapeBorder: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                  shapeBorder: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                 ),
                 const SizedBox(
                   height: 10,
@@ -45,17 +42,12 @@ class AppointmentShimmer extends StatelessWidget {
                 ShimmerScreen.rectangular(
                   height: 20,
                   width: Get.width / 2.7,
-                  shapeBorder: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                  shapeBorder: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                 ),
               ],
             ),
             const Spacer(),
-            ShimmerScreen.rectangular(
-                height: 30,
-                width: 70,
-                shapeBorder: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)))
+            ShimmerScreen.rectangular(height: 30, width: 70, shapeBorder: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))
           ],
         ),
       ),

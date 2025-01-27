@@ -102,13 +102,7 @@ class VideoCall {
   String? _channelId;
   String? _token;
 
-  VideoCall(
-      {String? time,
-      bool? isStarted,
-      String? patientName,
-      String? patientImage,
-      String? channelId,
-      String? token}) {
+  VideoCall({String? time, bool? isStarted, String? patientName, String? patientImage, String? channelId, String? token}) {
     if (time != null) {
       _time = time;
     }

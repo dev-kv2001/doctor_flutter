@@ -8,7 +8,8 @@ class ConstRes {
   static const String itemBaseURL = '${base}public/storage/';
   static const String privacyPolicy = '${base}privacypolicy';
   static const String termsOfUser = '${base}termsOfUse';
-  static const String apiKey = '123';
+  // static const String apiKey = '123';
+  static const String apiKey = 'ypTHf0sslNzFOr2qDNUg3zO9jqprIco0';
 
   ///------------------------ Notification token ------------------------///
 

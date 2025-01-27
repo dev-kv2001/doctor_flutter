@@ -66,10 +66,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                     children: [
                       Text(
                         S.of(context).selectMonth,
-                        style: const TextStyle(
-                            color: ColorRes.tuftsBlue,
-                            fontSize: 18,
-                            fontFamily: FontRes.semiBold),
+                        style: const TextStyle(color: ColorRes.tuftsBlue, fontSize: 18, fontFamily: FontRes.semiBold),
                       ),
                       const Spacer(),
                       InkWell(
@@ -82,9 +79,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                           }
                         },
                         child: Icon(
-                          Directionality.of(context) == TextDirection.rtl
-                              ? Icons.keyboard_arrow_right_rounded
-                              : Icons.keyboard_arrow_left_rounded,
+                          Directionality.of(context) == TextDirection.rtl ? Icons.keyboard_arrow_right_rounded : Icons.keyboard_arrow_left_rounded,
                           color: ColorRes.tuftsBlue,
                           size: 20,
                         ),
@@ -110,9 +105,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                         child: RotatedBox(
                           quarterTurns: 2,
                           child: Icon(
-                            Directionality.of(context) == TextDirection.rtl
-                                ? Icons.keyboard_arrow_right_rounded
-                                : Icons.keyboard_arrow_left_rounded,
+                            Directionality.of(context) == TextDirection.rtl ? Icons.keyboard_arrow_right_rounded : Icons.keyboard_arrow_left_rounded,
                             color: ColorRes.tuftsBlue,
                             size: 22,
                           ),
@@ -124,8 +117,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                     height: 15,
                   ),
                   GridView(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 6,
                       childAspectRatio: 1 / .6,
                     ),
@@ -139,9 +131,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: selectedIndex == index
-                                ? ColorRes.tuftsBlue
-                                : Colors.white,
+                            color: selectedIndex == index ? ColorRes.tuftsBlue : Colors.white,
                             borderRadius: BorderRadius.circular(5),
                           ),
                           margin: const EdgeInsets.symmetric(
@@ -152,9 +142,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                             child: Text(
                               months[index],
                               style: TextStyle(
-                                color: selectedIndex == index
-                                    ? ColorRes.white
-                                    : ColorRes.grey,
+                                color: selectedIndex == index ? ColorRes.white : ColorRes.grey,
                                 fontFamily: FontRes.medium,
                                 fontSize: 16,
                               ),
@@ -185,10 +173,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                           ),
                           child: Text(
                             S.of(context).cancel,
-                            style: const TextStyle(
-                                color: ColorRes.battleshipGrey,
-                                fontSize: 16,
-                                fontFamily: FontRes.semiBold),
+                            style: const TextStyle(color: ColorRes.battleshipGrey, fontSize: 16, fontFamily: FontRes.semiBold),
                           ),
                         ),
                       ),
@@ -211,10 +196,7 @@ class _SelectMonthDialogState extends State<SelectMonthDialog> {
                           ),
                           child: Text(
                             S.of(context).done,
-                            style: const TextStyle(
-                                color: ColorRes.white,
-                                fontSize: 16,
-                                fontFamily: FontRes.semiBold),
+                            style: const TextStyle(color: ColorRes.white, fontSize: 16, fontFamily: FontRes.semiBold),
                           ),
                         ),
                       ),

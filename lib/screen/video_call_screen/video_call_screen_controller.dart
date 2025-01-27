@@ -33,8 +33,7 @@ class VideoCallScreenController extends GetxController {
     await [Permission.microphone, Permission.camera].request();
     CustomUi.loader();
     agoraEngine = createAgoraRtcEngine();
-    await agoraEngine
-        .initialize(const RtcEngineContext(appId: ConstRes.agoraAppId));
+    await agoraEngine.initialize(const RtcEngineContext(appId: ConstRes.agoraAppId));
     await agoraEngine.enableVideo();
     agoraEngine.registerEventHandler(
       RtcEngineEventHandler(
@@ -47,8 +46,7 @@ class VideoCallScreenController extends GetxController {
           type = 0;
           update();
         },
-        onUserOffline: (RtcConnection connection, int remoteUid,
-            UserOfflineReasonType reason) {
+        onUserOffline: (RtcConnection connection, int remoteUid, UserOfflineReasonType reason) {
           log('🔙 $remoteUid');
           type = 1;
           update();

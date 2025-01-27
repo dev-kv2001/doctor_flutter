@@ -84,13 +84,7 @@ class SplashScreenController extends GetxController {
       _navigateTo(StartingProfileScreen(doctorData: data));
     } else if (data.categoryId == null) {
       _navigateTo(const SelectCategoryScreen(screenType: 0));
-    } else if ([
-      data.image,
-      data.designation,
-      data.degrees,
-      data.experienceYear,
-      data.consultationFee
-    ].any((element) => element == null)) {
+    } else if ([data.image, data.designation, data.degrees, data.experienceYear, data.consultationFee].any((element) => element == null)) {
       _navigateTo(const DoctorProfileScreenOne());
     } else if (data.aboutYouself == null || data.educationalJourney == null) {
       _navigateTo(const DoctorProfileScreenTwo());
@@ -106,10 +100,7 @@ class SplashScreenController extends GetxController {
   }
 
   void viewSnackBar({String? message}) {
-    CustomUi.snackBar(
-        message: message,
-        textColor: ColorRes.havelockBlue,
-        bgColor: ColorRes.white);
+    CustomUi.snackBar(message: message, textColor: ColorRes.havelockBlue, bgColor: ColorRes.white);
   }
 
   void _navigateTo(Widget screen) {

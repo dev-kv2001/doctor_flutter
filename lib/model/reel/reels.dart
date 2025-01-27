@@ -86,8 +86,7 @@ class Reel {
     _commentsCount = json['comments_count'];
     _likesCount = json['likes_count'];
     _isLiked = json['is_liked'];
-    _doctor =
-        json['doctor'] != null ? DoctorData.fromJson(json['doctor']) : null;
+    _doctor = json['doctor'] != null ? DoctorData.fromJson(json['doctor']) : null;
   }
 
   num? _id;
@@ -149,12 +148,7 @@ class Reel {
 
   Future<bool> isSaved() async {
     await prefService.init();
-    return (prefService
-            .getRegistrationData()
-            ?.savedReels
-            ?.split(',')
-            .contains('$id') ??
-        false);
+    return (prefService.getRegistrationData()?.savedReels?.split(',').contains('$id') ?? false);
   }
 
   DoctorData? get doctor => _doctor;

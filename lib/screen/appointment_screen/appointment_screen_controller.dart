@@ -70,18 +70,14 @@ class AppointmentScreenController extends GetxController {
       selectedDay.value = dateTime;
       fetchAcceptedAppointsByDateApiCall(date: selectedDay.value);
       if (dateController.offset < dateController.position.maxScrollExtent) {
-        dateController.animateTo(index * (63 + 8),
-            duration: const Duration(milliseconds: 300), curve: Curves.linear);
+        dateController.animateTo(index * (63 + 8), duration: const Duration(milliseconds: 300), curve: Curves.linear);
       }
     });
   }
 
   void fetchAcceptedAppointsByDateApiCall({required DateTime date}) async {
     isLoading.value = true;
-    ApiService.instance
-        .fetchAcceptedAppointsByDate(
-            date: DateFormat(yyyyMmDd, 'en').format(date))
-        .then((value) {
+    ApiService.instance.fetchAcceptedAppointsByDate(date: DateFormat(yyyyMmDd, 'en').format(date)).then((value) {
       acceptAppointment.value = value.data ?? [];
       filterAppointment.value = value.data ?? [];
       isLoading.value = false;
@@ -93,10 +89,8 @@ class AppointmentScreenController extends GetxController {
     if (searchController.text.isEmpty) {
       filterAppointment = acceptAppointment;
     } else {
-      filterAppointment.value = acceptAppointment
-          .where((element) => (element.user?.fullname ?? '')
-              .isCaseInsensitiveContains(searchController.text))
-          .toList();
+      filterAppointment.value =
+          acceptAppointment.where((element) => (element.user?.fullname ?? '').isCaseInsensitiveContains(searchController.text)).toList();
     }
     update();
   }

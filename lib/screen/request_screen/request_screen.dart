@@ -32,10 +32,7 @@ class RequestScreen extends StatelessWidget {
                           AppointmentData? data = controller.appointment[index];
                           return InkWell(
                             onTap: () => controller.onViewTap(data),
-                            child: UserCard(
-                                isViewVisible: true,
-                                appointmentData: data,
-                                onViewTap: () => controller.onViewTap(data)),
+                            child: UserCard(isViewVisible: true, appointmentData: data, onViewTap: () => controller.onViewTap(data)),
                           );
                         },
                       ),

@@ -33,8 +33,7 @@ class NotificationScreenController extends GetxController {
   void fetchNotificationData() {
     notificationController.addListener(
       () {
-        if (notificationController.offset ==
-            notificationController.position.maxScrollExtent) {
+        if (notificationController.offset == notificationController.position.maxScrollExtent) {
           if (!isLoading) {
             notificationApiCall();
           }

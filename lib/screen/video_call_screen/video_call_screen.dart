@@ -78,12 +78,10 @@ class VideoCallScreen extends StatelessWidget {
                                   height: 10,
                                 ),
                                 controller.type == 1
-                                    ? BlurTextCard(
-                                        name: '${appointmentChat.videoCall?.patientName ?? ''} Left the meeting')
+                                    ? BlurTextCard(name: '${appointmentChat.videoCall?.patientName ?? ''} Left the meeting')
                                     : !controller.isRemoteMutedAudio
                                         ? const SizedBox()
-                                        : BlurTextCard(
-                                            name: '${appointmentChat.videoCall?.patientName ?? ''} Mute the Audio'),
+                                        : BlurTextCard(name: '${appointmentChat.videoCall?.patientName ?? ''} Mute the Audio'),
                               ],
                             )
                           ],
@@ -124,8 +122,7 @@ class VideoCallScreen extends StatelessWidget {
                                         )
                                       : LocalPlaceHolder(
                                           image: '${appointmentChat.senderUser?.image}',
-                                          name:
-                                              appointmentChat.senderUser?.name?.replaceAll('Dr.', '').trim()[0] ?? ''),
+                                          name: appointmentChat.senderUser?.name?.replaceAll('Dr.', '').trim()[0] ?? ''),
                                 )
 
                               /// I am not enter the meeting ///

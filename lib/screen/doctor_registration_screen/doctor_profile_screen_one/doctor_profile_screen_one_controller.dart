@@ -66,8 +66,7 @@ class DoctorProfileScreenOneController extends GetxController {
 
   void pickImage() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(
-        source: ImageSource.gallery, imageQuality: imageQuality, maxHeight: maxHeight, maxWidth: maxWidth);
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery, imageQuality: imageQuality, maxHeight: maxHeight, maxWidth: maxWidth);
     if (image != null) {
       profileImage = File(image.path);
     }

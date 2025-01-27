@@ -30,15 +30,11 @@ class MedicalPrescriptionScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _simpleText(
-                      title: S.current.createPrescriptionFor,
-                      fontFamily: FontRes.regular),
+                  _simpleText(title: S.current.createPrescriptionFor, fontFamily: FontRes.regular),
                   Container(
                     margin: const EdgeInsets.all(10),
                     padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                        color: ColorRes.whiteSmoke,
-                        borderRadius: BorderRadius.circular(15)),
+                    decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(15)),
                     child: GetBuilder(
                         init: controller,
                         builder: (context) {
@@ -53,11 +49,7 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                                   width: 70,
                                   fit: BoxFit.cover,
                                   errorWidget: (context, error, stackTrace) {
-                                    return CustomUi.userPlaceHolder(
-                                        male: controller.appointmentData?.user
-                                                ?.gender ??
-                                            0,
-                                        height: 70);
+                                    return CustomUi.userPlaceHolder(male: controller.appointmentData?.user?.gender ?? 0, height: 70);
                                   },
                                 ),
                               ),
@@ -69,12 +61,9 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      (controller.appointmentData?.patientId ==
-                                                  null
-                                              ? controller.appointmentData?.user
-                                                  ?.fullname
-                                              : controller.appointmentData
-                                                  ?.patient?.fullname) ??
+                                      (controller.appointmentData?.patientId == null
+                                              ? controller.appointmentData?.user?.fullname
+                                              : controller.appointmentData?.patient?.fullname) ??
                                           S.current.unKnown,
                                       style: const TextStyle(
                                         color: ColorRes.charcoalGrey,
@@ -88,8 +77,7 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                                       height: 5,
                                     ),
                                     Text(
-                                      ageAndGenderFormat(
-                                          controller.appointmentData),
+                                      ageAndGenderFormat(controller.appointmentData),
                                       style: const TextStyle(
                                         color: ColorRes.battleshipGrey,
                                         fontFamily: FontRes.medium,
@@ -119,65 +107,43 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                               shrinkWrap: true,
                               padding: EdgeInsets.zero,
                               itemBuilder: (context, index) {
-                                AddMedicine addMedicine =
-                                    controller.medicines[index];
+                                AddMedicine addMedicine = controller.medicines[index];
                                 return Container(
                                   padding: const EdgeInsets.all(10),
-                                  color: index % 2 == 0
-                                      ? ColorRes.whiteSmoke
-                                      : ColorRes.snowDrift,
+                                  color: index % 2 == 0 ? ColorRes.whiteSmoke : ColorRes.snowDrift,
                                   child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Expanded(
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               addMedicine.title ?? '',
-                                              style: const TextStyle(
-                                                  fontFamily: FontRes.semiBold,
-                                                  color: ColorRes.charcoalGrey,
-                                                  fontSize: 15),
+                                              style: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey, fontSize: 15),
                                             ),
                                             const SizedBox(
                                               height: 3,
                                             ),
                                             Text(
-                                              addMedicine.mealTime == 0
-                                                  ? S.current.afterMeal
-                                                  : S.current.beforeMeal,
-                                              style: const TextStyle(
-                                                  fontFamily: FontRes.semiBold,
-                                                  color:
-                                                      ColorRes.battleshipGrey,
-                                                  fontSize: 13),
+                                              addMedicine.mealTime == 0 ? S.current.afterMeal : S.current.beforeMeal,
+                                              style: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.battleshipGrey, fontSize: 13),
                                             ),
                                             const SizedBox(
                                               height: 3,
                                             ),
                                             Text(
                                               addMedicine.dosage ?? '',
-                                              style: const TextStyle(
-                                                  color:
-                                                      ColorRes.battleshipGrey,
-                                                  fontSize: 13),
+                                              style: const TextStyle(color: ColorRes.battleshipGrey, fontSize: 13),
                                             ),
                                             const SizedBox(
                                               height: 7,
                                             ),
                                             Visibility(
-                                              visible:
-                                                  addMedicine.notes!.isEmpty
-                                                      ? false
-                                                      : true,
+                                              visible: addMedicine.notes!.isEmpty ? false : true,
                                               child: Text(
                                                 '${S.current.notes} :- ${addMedicine.notes ?? ''}',
-                                                style: const TextStyle(
-                                                    color: ColorRes.tuftsBlue,
-                                                    fontSize: 13),
+                                                style: const TextStyle(color: ColorRes.tuftsBlue, fontSize: 13),
                                               ),
                                             )
                                           ],
@@ -190,17 +156,13 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                                         children: [
                                           Text(
                                             '${addMedicine.quantity ?? ''}',
-                                            style: const TextStyle(
-                                                fontFamily: FontRes.bold,
-                                                color: ColorRes.charcoalGrey,
-                                                fontSize: 24),
+                                            style: const TextStyle(fontFamily: FontRes.bold, color: ColorRes.charcoalGrey, fontSize: 24),
                                           ),
                                           const SizedBox(
                                             width: 15,
                                           ),
                                           PopupMenuButton(
-                                            initialValue:
-                                                controller.initialValue,
+                                            initialValue: controller.initialValue,
                                             padding: const EdgeInsets.all(0),
                                             icon: Image.asset(
                                               AssetRes.icMore,
@@ -209,47 +171,31 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                                             ),
                                             onSelected: (value) {
                                               if (value == 0) {
-                                                controller.onMedicineEdit(
-                                                    addMedicine, controller);
+                                                controller.onMedicineEdit(addMedicine, controller);
                                               } else {
-                                                controller
-                                                    .onDeleteTap(addMedicine);
+                                                controller.onDeleteTap(addMedicine);
                                               }
                                             },
-                                            itemBuilder:
-                                                (BuildContext context) =>
-                                                    <PopupMenuEntry>[
+                                            itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                                               PopupMenuItem(
                                                 value: 0,
                                                 child: Text(
                                                   S.current.edit,
-                                                  style: const TextStyle(
-                                                      fontFamily:
-                                                          FontRes.medium,
-                                                      color: ColorRes
-                                                          .battleshipGrey),
+                                                  style: const TextStyle(fontFamily: FontRes.medium, color: ColorRes.battleshipGrey),
                                                 ),
                                               ),
                                               PopupMenuItem(
                                                 value: 1,
                                                 child: Text(
                                                   S.current.delete,
-                                                  style: const TextStyle(
-                                                      fontFamily:
-                                                          FontRes.medium,
-                                                      color: ColorRes
-                                                          .battleshipGrey),
+                                                  style: const TextStyle(fontFamily: FontRes.medium, color: ColorRes.battleshipGrey),
                                                 ),
                                               ),
                                             ],
                                             color: ColorRes.whiteSmoke,
                                             shape: const RoundedRectangleBorder(
                                               borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(15),
-                                                  bottomLeft:
-                                                      Radius.circular(15),
-                                                  bottomRight:
-                                                      Radius.circular(15)),
+                                                  topLeft: Radius.circular(15), bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
                                             ),
                                           ),
                                         ],
@@ -270,17 +216,11 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         S.current.addMedicine,
-                        style: const TextStyle(
-                            color: ColorRes.tuftsBlue,
-                            fontSize: 14,
-                            fontFamily: FontRes.semiBold),
+                        style: const TextStyle(color: ColorRes.tuftsBlue, fontSize: 14, fontFamily: FontRes.semiBold),
                       ),
                     ),
                   ),
-                  _simpleText(
-                      title: S.current.notes,
-                      fontFamily: FontRes.semiBold,
-                      color: ColorRes.charcoalGrey),
+                  _simpleText(title: S.current.notes, fontFamily: FontRes.semiBold, color: ColorRes.charcoalGrey),
                   const SizedBox(
                     height: 8,
                   ),
@@ -300,10 +240,7 @@ class MedicalPrescriptionScreen extends StatelessWidget {
                           color: ColorRes.nobel,
                         ),
                       ),
-                      style: const TextStyle(
-                          fontSize: 15,
-                          color: ColorRes.davyGrey,
-                          fontFamily: FontRes.medium),
+                      style: const TextStyle(fontSize: 15, color: ColorRes.davyGrey, fontFamily: FontRes.medium),
                       expands: true,
                       minLines: null,
                       maxLines: null,
@@ -317,11 +254,8 @@ class MedicalPrescriptionScreen extends StatelessWidget {
             ),
           ),
           DoctorRegButton(
-              onTap: () => controller.onContinueTap(
-                  controller.appointmentData?.prescription == null ? 0 : 1),
-              title: controller.appointmentData?.prescription == null
-                  ? S.current.continueText
-                  : S.current.edit)
+              onTap: () => controller.onContinueTap(controller.appointmentData?.prescription == null ? 0 : 1),
+              title: controller.appointmentData?.prescription == null ? S.current.continueText : S.current.edit)
         ],
       ),
     );
@@ -335,10 +269,7 @@ class MedicalPrescriptionScreen extends StatelessWidget {
     }
   }
 
-  Widget _simpleText(
-      {required String title,
-      required String fontFamily,
-      Color color = ColorRes.battleshipGrey}) {
+  Widget _simpleText({required String title, required String fontFamily, Color color = ColorRes.battleshipGrey}) {
     return Container(
       padding: EdgeInsets.only(
         top: 10,

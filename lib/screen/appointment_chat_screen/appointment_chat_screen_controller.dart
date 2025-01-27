@@ -46,10 +46,7 @@ class AppointmentChatScreenController extends GetxController {
   }
 
   void initFirebase() async {
-    collection = db
-        .collection(FirebaseRes.appointmentChat)
-        .doc(appointmentData?.appointmentNumber ?? '')
-        .collection(FirebaseRes.chat);
+    collection = db.collection(FirebaseRes.appointmentChat).doc(appointmentData?.appointmentNumber ?? '').collection(FirebaseRes.chat);
     getChat();
     scrollToFetchData();
   }
@@ -61,8 +58,7 @@ class AppointmentChatScreenController extends GetxController {
     }
   }
 
-  Future<void> sendChatMessage(
-      {String? msg, required String msgType, String? image, String? videoCallTime, String? video}) async {
+  Future<void> sendChatMessage({String? msg, required String msgType, String? image, String? videoCallTime, String? video}) async {
     String time = DateTime.now().millisecondsSinceEpoch.toString();
     await collection?.doc(time).set(
           AppointmentChat(
@@ -138,8 +134,7 @@ class AppointmentChatScreenController extends GetxController {
 
   void onImageTap({required ImageSource source}) async {
     key.currentState?.animate();
-    final XFile? galleryImage =
-        await _picker.pickImage(source: source, imageQuality: imageQuality, maxHeight: maxHeight, maxWidth: maxWidth);
+    final XFile? galleryImage = await _picker.pickImage(source: source, imageQuality: imageQuality, maxHeight: maxHeight, maxWidth: maxWidth);
     if (galleryImage != null) {
       ApiService.instance.uploadFileGivePath(File(galleryImage.path)).then((value) {
         imageUrl = value.path;
@@ -177,8 +172,7 @@ class AppointmentChatScreenController extends GetxController {
           Get.bottomSheet(
                   ImageSendSheet(
                     image: value ?? '',
-                    onSendMediaTap: (String image) =>
-                        onSendMediaTap(image: value ?? '', type: 1, video: videoFile.path),
+                    onSendMediaTap: (String image) => onSendMediaTap(image: value ?? '', type: 1, video: videoFile.path),
                     sendMediaController: sendMediaController,
                   ),
                   isScrollControlled: true)

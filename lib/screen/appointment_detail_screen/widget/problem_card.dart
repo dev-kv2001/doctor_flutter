@@ -6,8 +6,7 @@ class ProblemCard extends StatelessWidget {
   final String title;
   final String description;
 
-  const ProblemCard({Key? key, required this.title, required this.description})
-      : super(key: key);
+  const ProblemCard({Key? key, required this.title, required this.description}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +17,7 @@ class ProblemCard extends StatelessWidget {
           padding: const EdgeInsets.all(15),
           child: Text(
             title,
-            style:
-                const TextStyle(color: ColorRes.battleshipGrey, fontSize: 15),
+            style: const TextStyle(color: ColorRes.battleshipGrey, fontSize: 15),
           ),
         ),
         Container(
@@ -28,10 +26,7 @@ class ProblemCard extends StatelessWidget {
           padding: const EdgeInsets.all(15),
           child: Text(
             description,
-            style: const TextStyle(
-                color: ColorRes.mediumGrey,
-                fontSize: 15,
-                fontFamily: FontRes.medium),
+            style: const TextStyle(color: ColorRes.mediumGrey, fontSize: 15, fontFamily: FontRes.medium),
           ),
         ),
       ],

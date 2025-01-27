@@ -11,8 +11,7 @@ import 'package:flutter/material.dart';
 class AppointmentDetailList extends StatelessWidget {
   final AppointmentData? appointmentData;
 
-  const AppointmentDetailList({Key? key, this.appointmentData})
-      : super(key: key);
+  const AppointmentDetailList({Key? key, this.appointmentData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +23,7 @@ class AppointmentDetailList extends StatelessWidget {
         child: ExpansionTile(
           title: Text(
             S.current.appointmentDetails,
-            style: const TextStyle(
-                color: ColorRes.charcoalGrey,
-                fontSize: 14,
-                fontFamily: FontRes.medium),
+            style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 14, fontFamily: FontRes.medium),
           ),
           collapsedBackgroundColor: ColorRes.whiteSmoke,
           iconColor: ColorRes.davyGrey,
@@ -45,25 +41,13 @@ class AppointmentDetailList extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     margin: const EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                        color: ColorRes.whiteSmoke,
-                        borderRadius: BorderRadius.circular(10)),
+                    decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(10)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        AppointmentCardFiled(
-                            title: S.current.date,
-                            desc:
-                                CommonFun.dateFormat(appointmentData?.date, 2)),
-                        AppointmentCardFiled(
-                            title: S.current.time,
-                            desc: CommonFun.convert24HoursInto12Hours(
-                                appointmentData?.time)),
-                        AppointmentCardFiled(
-                            title: S.current.type,
-                            desc: appointmentData?.type == 0
-                                ? S.current.online
-                                : S.current.atClinic),
+                        AppointmentCardFiled(title: S.current.date, desc: CommonFun.dateFormat(appointmentData?.date, 2)),
+                        AppointmentCardFiled(title: S.current.time, desc: CommonFun.convert24HoursInto12Hours(appointmentData?.time)),
+                        AppointmentCardFiled(title: S.current.type, desc: appointmentData?.type == 0 ? S.current.online : S.current.atClinic),
                       ],
                     ),
                   ),

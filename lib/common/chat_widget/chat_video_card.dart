@@ -16,14 +16,7 @@ class ChatVideoCard extends StatelessWidget {
   final Color imageTextColor;
 
   const ChatVideoCard(
-      {Key? key,
-      this.imageUrl,
-      this.time,
-      this.msg,
-      this.videoUrl,
-      required this.margin,
-      required this.imageCardColor,
-      required this.imageTextColor})
+      {Key? key, this.imageUrl, this.time, this.msg, this.videoUrl, required this.margin, required this.imageCardColor, required this.imageTextColor})
       : super(key: key);
 
   @override
@@ -80,10 +73,7 @@ class ChatVideoCard extends StatelessWidget {
               ),
               child: Text(
                 msg ?? '',
-                style: TextStyle(
-                    fontFamily: FontRes.regular,
-                    fontSize: 14,
-                    color: imageTextColor),
+                style: TextStyle(fontFamily: FontRes.regular, fontSize: 14, color: imageTextColor),
               ),
             ),
           )

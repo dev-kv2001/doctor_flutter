@@ -8,12 +8,7 @@ class PreviousAppointment extends StatelessWidget {
   final bool isDescription;
   final VoidCallback onTap;
 
-  const PreviousAppointment(
-      {Key? key,
-      required this.title,
-      required this.description,
-      this.isDescription = false,
-      required this.onTap})
+  const PreviousAppointment({Key? key, required this.title, required this.description, this.isDescription = false, required this.onTap})
       : super(key: key);
 
   @override
@@ -36,19 +31,13 @@ class PreviousAppointment extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: const TextStyle(
-                            color: ColorRes.charcoalGrey,
-                            fontFamily: FontRes.semiBold,
-                            fontSize: 15),
+                        style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.semiBold, fontSize: 15),
                       ),
                       Visibility(
                         visible: isDescription,
                         child: Text(
                           description,
-                          style: const TextStyle(
-                              fontFamily: FontRes.regular,
-                              fontSize: 12,
-                              color: ColorRes.battleshipGrey),
+                          style: const TextStyle(fontFamily: FontRes.regular, fontSize: 12, color: ColorRes.battleshipGrey),
                         ),
                       ),
                     ],

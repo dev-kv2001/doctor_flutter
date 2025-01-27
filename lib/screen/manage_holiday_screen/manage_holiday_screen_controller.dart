@@ -21,8 +21,7 @@ class ManageHolidayScreenController extends GetxController {
       context: Get.context!,
       initialDate: DateTime.now(),
       firstDate: DateTime.now(),
-      lastDate:
-          DateTime.utc(DateTime.now().year + 3, DateTime.now().month).subtract(
+      lastDate: DateTime.utc(DateTime.now().year + 3, DateTime.now().month).subtract(
         const Duration(days: 1),
       ),
     );

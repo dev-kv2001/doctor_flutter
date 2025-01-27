@@ -30,8 +30,7 @@ class SuggestUsSheet extends StatelessWidget {
             children: [
               Text(
                 S.current.suggestCategory,
-                style: const TextStyle(
-                    fontFamily: FontRes.extraBold, fontSize: 20),
+                style: const TextStyle(fontFamily: FontRes.extraBold, fontSize: 20),
               ),
               const Spacer(),
               InkWell(
@@ -67,16 +66,11 @@ class SuggestUsSheet extends StatelessWidget {
                 init: controller,
                 builder: (context) => Column(
                   children: [
-                    _textField(
-                        controller: controller.titleController,
-                        focusNode: controller.titleFocusNode),
+                    _textField(controller: controller.titleController, focusNode: controller.titleFocusNode),
                     const SizedBox(
                       height: 20,
                     ),
-                    _textField(
-                        expand: true,
-                        controller: controller.aboutController,
-                        focusNode: controller.aboutFocusNode),
+                    _textField(expand: true, controller: controller.aboutController, focusNode: controller.aboutFocusNode),
                   ],
                 ),
               ),
@@ -101,10 +95,7 @@ class SuggestUsSheet extends StatelessWidget {
     );
   }
 
-  Widget _textField(
-      {bool expand = false,
-      required TextEditingController controller,
-      required FocusNode focusNode}) {
+  Widget _textField({bool expand = false, required TextEditingController controller, required FocusNode focusNode}) {
     return Container(
       height: expand ? 200 : 50,
       decoration: BoxDecoration(
@@ -119,17 +110,13 @@ class SuggestUsSheet extends StatelessWidget {
         minLines: expand ? null : 1,
         maxLines: expand ? null : 1,
         textCapitalization: TextCapitalization.sentences,
-        textAlignVertical:
-            expand ? TextAlignVertical.top : TextAlignVertical.center,
+        textAlignVertical: expand ? TextAlignVertical.top : TextAlignVertical.center,
         decoration: InputDecoration(
           isDense: true,
-          contentPadding:
-              EdgeInsets.symmetric(horizontal: 20, vertical: expand ? 15 : 0),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: expand ? 15 : 0),
           border: InputBorder.none,
-          hintText:
-              expand ? S.current.explainUsAboutIt : S.current.enterCategoryName,
-          hintStyle: const TextStyle(
-              fontFamily: FontRes.semiBold, color: ColorRes.silverChalice),
+          hintText: expand ? S.current.explainUsAboutIt : S.current.enterCategoryName,
+          hintStyle: const TextStyle(fontFamily: FontRes.semiBold, color: ColorRes.silverChalice),
         ),
         style: TextStyle(
           fontFamily: expand ? FontRes.medium : FontRes.semiBold,

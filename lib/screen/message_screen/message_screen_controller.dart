@@ -37,9 +37,7 @@ class MessageScreenController extends GetxController {
         .collection(FirebaseRes.userList)
         .orderBy(FirebaseRes.time, descending: true)
         .where(FirebaseRes.isDeleted, isEqualTo: false)
-        .withConverter(
-            fromFirestore: Conversation.fromFirestore,
-            toFirestore: (Conversation value, options) => value.toFirestore())
+        .withConverter(fromFirestore: Conversation.fromFirestore, toFirestore: (Conversation value, options) => value.toFirestore())
         .snapshots()
         .listen((element) {
       userList = [];

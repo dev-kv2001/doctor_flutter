@@ -18,11 +18,9 @@ class CenterArea extends StatelessWidget {
         return Expanded(
           child: ListView.builder(
             padding: EdgeInsets.zero,
-            itemCount:
-                controller.faqData?[controller.selectedCategory].faqs?.length,
+            itemCount: controller.faqData?[controller.selectedCategory].faqs?.length,
             itemBuilder: (context, index) {
-              Faqs? data =
-                  controller.faqData?[controller.selectedCategory].faqs?[index];
+              Faqs? data = controller.faqData?[controller.selectedCategory].faqs?[index];
               return Container(
                 color: ColorRes.whiteSmoke,
                 margin: const EdgeInsets.symmetric(vertical: 5),
@@ -32,20 +30,14 @@ class CenterArea extends StatelessWidget {
                   children: [
                     Text(
                       data?.question ?? '',
-                      style: const TextStyle(
-                          fontSize: 15,
-                          color: ColorRes.charcoalGrey,
-                          fontFamily: FontRes.bold),
+                      style: const TextStyle(fontSize: 15, color: ColorRes.charcoalGrey, fontFamily: FontRes.bold),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
                       data?.answer ?? '',
-                      style: const TextStyle(
-                          fontSize: 15,
-                          color: ColorRes.mediumGrey,
-                          fontFamily: FontRes.light),
+                      style: const TextStyle(fontSize: 15, color: ColorRes.mediumGrey, fontFamily: FontRes.light),
                     ),
                   ],
                 ),

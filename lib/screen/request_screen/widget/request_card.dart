@@ -12,20 +12,14 @@ class UserCard extends StatelessWidget {
   final AppointmentData? appointmentData;
   final VoidCallback onViewTap;
 
-  const UserCard(
-      {Key? key,
-      this.isViewVisible = false,
-      this.appointmentData,
-      required this.onViewTap})
-      : super(key: key);
+  const UserCard({Key? key, this.isViewVisible = false, this.appointmentData, required this.onViewTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-      decoration: BoxDecoration(
-          color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(16)),
+      decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(16)),
       child: Row(
         children: [
           ImageBuilderCustom(
@@ -66,22 +60,14 @@ class UserCard extends StatelessWidget {
               children: [
                 Text(
                   appointmentData?.user?.fullname ?? S.current.unKnown,
-                  style: const TextStyle(
-                      color: ColorRes.charcoalGrey,
-                      fontFamily: FontRes.extraBold,
-                      fontSize: 18,
-                      overflow: TextOverflow.ellipsis),
+                  style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.extraBold, fontSize: 18, overflow: TextOverflow.ellipsis),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
                   "${appointmentData?.user?.dob == null ? '0' : CommonFun.calculateAge(appointmentData?.user?.dob ?? '')} ${S.current.years}: ${appointmentData?.user?.gender == 1 ? S.current.male : S.current.feMale}",
-                  style: const TextStyle(
-                      fontFamily: FontRes.medium,
-                      color: ColorRes.battleshipGrey,
-                      fontSize: 13,
-                      overflow: TextOverflow.ellipsis),
+                  style: const TextStyle(fontFamily: FontRes.medium, color: ColorRes.battleshipGrey, fontSize: 13, overflow: TextOverflow.ellipsis),
                 ),
                 const SizedBox(
                   height: 5,
@@ -90,11 +76,7 @@ class UserCard extends StatelessWidget {
                   // (appointmentData?.createdAt ?? createdDate)
                   //     .dateParse(ddMmmYyyyEeeHhMmA),
                   '${(appointmentData?.date ?? '').appointmentDate} ${(appointmentData?.time ?? '').appointmentTime}',
-                  style: const TextStyle(
-                      fontFamily: FontRes.medium,
-                      color: ColorRes.battleshipGrey,
-                      fontSize: 13,
-                      overflow: TextOverflow.ellipsis),
+                  style: const TextStyle(fontFamily: FontRes.medium, color: ColorRes.battleshipGrey, fontSize: 13, overflow: TextOverflow.ellipsis),
                 )
               ],
             ),
@@ -104,11 +86,8 @@ class UserCard extends StatelessWidget {
             child: InkWell(
               onTap: onViewTap,
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
-                decoration: BoxDecoration(
-                    color: ColorRes.greenWhite,
-                    borderRadius: BorderRadius.circular(30)),
+                padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
+                decoration: BoxDecoration(color: ColorRes.greenWhite, borderRadius: BorderRadius.circular(30)),
                 child: Text(
                   S.current.view,
                   style: const TextStyle(

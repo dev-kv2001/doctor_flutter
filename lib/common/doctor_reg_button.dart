@@ -6,8 +6,7 @@ class DoctorRegButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
 
-  const DoctorRegButton({Key? key, required this.onTap, required this.title})
-      : super(key: key);
+  const DoctorRegButton({Key? key, required this.onTap, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -8,8 +8,7 @@ class CustomRoundBtn extends StatelessWidget {
   final Color? iconColor;
   final Color? bgColor;
 
-  const CustomRoundBtn(
-      {super.key, this.iconSize, this.iconColor, this.bgColor});
+  const CustomRoundBtn({super.key, this.iconSize, this.iconColor, this.bgColor});
 
   @override
   Widget build(BuildContext context) {

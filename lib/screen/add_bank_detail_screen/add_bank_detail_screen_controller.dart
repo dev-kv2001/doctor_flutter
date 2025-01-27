@@ -113,8 +113,7 @@ class AddBankDetailScreenController extends GetxController {
 
   void onChequePhotoTap() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(
-        source: ImageSource.gallery, imageQuality: imageQuality, maxHeight: maxHeight, maxWidth: maxWidth);
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery, imageQuality: imageQuality, maxHeight: maxHeight, maxWidth: maxWidth);
     if (image != null) {
       chequePhoto = File(image.path);
     }

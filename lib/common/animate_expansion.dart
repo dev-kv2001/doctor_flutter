@@ -4,15 +4,13 @@ class AnimatedExpansion extends StatefulWidget {
   final Widget child;
   final bool expand;
 
-  const AnimatedExpansion(
-      {super.key, this.expand = false, required this.child});
+  const AnimatedExpansion({super.key, this.expand = false, required this.child});
 
   @override
   State<AnimatedExpansion> createState() => _AnimatedExpansionState();
 }
 
-class _AnimatedExpansionState extends State<AnimatedExpansion>
-    with SingleTickerProviderStateMixin {
+class _AnimatedExpansionState extends State<AnimatedExpansion> with SingleTickerProviderStateMixin {
   AnimationController? expandController;
   Animation<double>? animation;
 
@@ -57,7 +55,6 @@ class _AnimatedExpansionState extends State<AnimatedExpansion>
 
   @override
   Widget build(BuildContext context) {
-    return SizeTransition(
-        axisAlignment: 1.0, sizeFactor: animation!, child: widget.child);
+    return SizeTransition(axisAlignment: 1.0, sizeFactor: animation!, child: widget.child);
   }
 }

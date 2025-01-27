@@ -230,14 +230,7 @@ class ChatMessage {
   ChatUser? _senderUser;
   List<String>? _notDeletedIdentities;
 
-  ChatMessage(
-      {String? id,
-      String? image,
-      String? video,
-      String? msg,
-      String? msgType,
-      ChatUser? senderUser,
-      List<String>? notDeletedIdentities}) {
+  ChatMessage({String? id, String? image, String? video, String? msg, String? msgType, ChatUser? senderUser, List<String>? notDeletedIdentities}) {
     _id = id;
     _image = image;
     _video = video;

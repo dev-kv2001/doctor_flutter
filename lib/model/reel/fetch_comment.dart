@@ -80,8 +80,7 @@ class Comment {
     _updatedAt = json['updated_at'];
 
     _user = json['user'] != null ? User.fromJson(json['user']) : null;
-    _doctor =
-        json['doctor'] != null ? DoctorData.fromJson(json['doctor']) : null;
+    _doctor = json['doctor'] != null ? DoctorData.fromJson(json['doctor']) : null;
   }
 
   num? _id;

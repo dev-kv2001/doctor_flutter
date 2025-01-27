@@ -15,8 +15,7 @@ import 'package:get/get.dart';
 class PreviousAppointmentScreen extends StatelessWidget {
   final AppointmentData? appointmentData;
 
-  const PreviousAppointmentScreen({Key? key, this.appointmentData})
-      : super(key: key);
+  const PreviousAppointmentScreen({Key? key, this.appointmentData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +31,16 @@ class PreviousAppointmentScreen extends StatelessWidget {
             height: 5,
           ),
           Expanded(
-            child: appointmentData?.previousAppointments == null ||
-                    appointmentData!.previousAppointments!.isEmpty
+            child: appointmentData?.previousAppointments == null || appointmentData!.previousAppointments!.isEmpty
                 ? CustomUi.noData(message: S.current.noPreviousAppointment)
                 : ListView.builder(
                     padding: EdgeInsets.zero,
-                    itemCount:
-                        appointmentData?.previousAppointments?.length ?? 0,
+                    itemCount: appointmentData?.previousAppointments?.length ?? 0,
                     itemBuilder: (context, index) {
-                      AppointmentData? data =
-                          appointmentData?.previousAppointments?[index];
+                      AppointmentData? data = appointmentData?.previousAppointments?[index];
                       return Container(
                         margin: const EdgeInsets.symmetric(vertical: 2),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 15, vertical: 12),
+                        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
                         color: ColorRes.whiteSmoke,
                         child: Row(
                           children: [
@@ -67,8 +62,7 @@ class PreviousAppointmentScreen extends StatelessWidget {
                                     height: 5,
                                   ),
                                   Text(
-                                    (data?.createdAt ?? createdDate)
-                                        .dateParse(ddMmmYyyyEeeHhMmA),
+                                    (data?.createdAt ?? createdDate).dateParse(ddMmmYyyyEeeHhMmA),
                                     style: const TextStyle(
                                       fontSize: 14,
                                       color: ColorRes.davyGrey,

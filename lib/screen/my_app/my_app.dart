@@ -27,13 +27,8 @@ class MyApp extends StatelessWidget {
       ],
       locale: Locale(LanguagesScreenController.selectedLanguage),
       supportedLocales: S.delegate.supportedLocales,
-      theme: ThemeData(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          fontFamily: FontRes.regular,
-          useMaterial3: false),
+      theme: ThemeData(splashColor: Colors.transparent, highlightColor: Colors.transparent, fontFamily: FontRes.regular, useMaterial3: false),
       home: const SplashScreen(),
     );
   }
 }
-

@@ -31,24 +31,19 @@ class AppointmentCard extends StatelessWidget {
                     itemCount: controller.filterAppointment.length,
                     padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
-                      AppointmentData? appointmentData =
-                          controller.filterAppointment[index];
+                      AppointmentData? appointmentData = controller.filterAppointment[index];
                       return InkWell(
                         onTap: () {
                           CommonFun.doctorBanned(() {
-                            Get.to(() => const AppointmentDetailScreen(),
-                                arguments: appointmentData);
+                            Get.to(() => const AppointmentDetailScreen(), arguments: appointmentData);
                           });
                         },
                         child: AspectRatio(
                           aspectRatio: 1 / 0.27,
                           child: Container(
-                            padding: const EdgeInsets.only(
-                                top: 5, left: 8, right: 8, bottom: 7),
+                            padding: const EdgeInsets.only(top: 5, left: 8, right: 8, bottom: 7),
                             margin: const EdgeInsets.symmetric(vertical: 3),
-                            decoration: BoxDecoration(
-                                color: ColorRes.whiteSmoke,
-                                borderRadius: BorderRadius.circular(15)),
+                            decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(15)),
                             child: Row(
                               children: [
                                 AspectRatio(
@@ -60,33 +55,19 @@ class AppointmentCard extends StatelessWidget {
                                       children: [
                                         AspectRatio(
                                           aspectRatio: .95,
-                                          child: ImageBuilderCustom(
-                                              appointmentData
-                                                  .user?.profileImage,
-                                              size: 95,
-                                              radius: 15,
-                                              name: appointmentData
-                                                  .user?.fullname),
+                                          child: ImageBuilderCustom(appointmentData.user?.profileImage,
+                                              size: 95, radius: 15, name: appointmentData.user?.fullname),
                                         ),
                                         ClipRect(
                                           child: BackdropFilter(
-                                            filter: ImageFilter.blur(
-                                                sigmaY: 10, sigmaX: 10),
+                                            filter: ImageFilter.blur(sigmaY: 10, sigmaX: 10),
                                             child: Container(
                                               height: 28,
                                               alignment: Alignment.center,
-                                              color: ColorRes.black
-                                                  .withOpacity(0.3),
-                                              child: Text(
-                                                  CommonFun
-                                                      .convert24HoursInto12Hours(
-                                                          appointmentData.time),
+                                              color: ColorRes.black.withOpacity(0.3),
+                                              child: Text(CommonFun.convert24HoursInto12Hours(appointmentData.time),
                                                   style: const TextStyle(
-                                                      color: ColorRes.white,
-                                                      fontFamily:
-                                                          FontRes.semiBold,
-                                                      overflow: TextOverflow
-                                                          .ellipsis),
+                                                      color: ColorRes.white, fontFamily: FontRes.semiBold, overflow: TextOverflow.ellipsis),
                                                   maxLines: 1),
                                             ),
                                           ),
@@ -100,13 +81,11 @@ class AppointmentCard extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        appointmentData.user?.fullname ??
-                                            S.current.unKnown,
+                                        appointmentData.user?.fullname ?? S.current.unKnown,
                                         style: const TextStyle(
                                             color: ColorRes.charcoalGrey,
                                             fontFamily: FontRes.extraBold,
@@ -131,13 +110,11 @@ class AppointmentCard extends StatelessWidget {
                                 InkWell(
                                   onTap: () {
                                     CommonFun.doctorBanned(() {
-                                      launchUrl(Uri.parse(
-                                          'tel:${appointmentData.user?.identity}'));
+                                      launchUrl(Uri.parse('tel:${appointmentData.user?.identity}'));
                                     });
                                   },
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 8, horizontal: 12),
+                                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                                     decoration: BoxDecoration(
                                       color: ColorRes.greenWhite,
                                       borderRadius: BorderRadius.circular(30),

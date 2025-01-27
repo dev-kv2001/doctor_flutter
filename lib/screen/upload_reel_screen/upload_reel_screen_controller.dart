@@ -32,16 +32,11 @@ class UploadReelScreenController extends GetxController {
   }
 
   void initVideo() {
-    videoPlayerController = VideoPlayerController.file(File(videoUrl.value))
-      ..initialize();
+    videoPlayerController = VideoPlayerController.file(File(videoUrl.value))..initialize();
   }
 
   void onChangeCover() async {
-    XFile? file = await picker.pickImage(
-        source: ImageSource.gallery,
-        maxWidth: maxWidth,
-        imageQuality: imageQuality,
-        maxHeight: maxHeight);
+    XFile? file = await picker.pickImage(source: ImageSource.gallery, maxWidth: maxWidth, imageQuality: imageQuality, maxHeight: maxHeight);
     if (file != null) {
       thumbnail.value = file.path;
     }
@@ -69,31 +64,24 @@ class UploadReelScreenController extends GetxController {
           CustomUi.snackBar(message: status.message);
         }
       },
-      param: {
-        pDoctorId: PrefService.id,
-        pDescription: captionController.value.text.trim()
-      },
+      param: {pDoctorId: PrefService.id, pDescription: captionController.value.text.trim()},
     );
   }
 
   void onPreviewTap() {
     Reel reel = Reel(
-      thumb: thumbnail.value,
-      video: videoUrl.value,
-      description: captionController.value.text.trim(),
-      isLiked: false,
-      commentsCount: 1,
-      views: 1,
-      likesCount: 1,
-      doctor: doctorData,
+        thumb: thumbnail.value,
+        video: videoUrl.value,
+        description: captionController.value.text.trim(),
+        isLiked: false,
+        commentsCount: 1,
+        views: 1,
+        likesCount: 1,
+        doctor: doctorData,
         createdAt: DateTime.now().toIso8601String());
     videoPlayerController.play();
     videoPlayerController.setLooping(true);
-    Get.bottomSheet(
-            PreviewReel(
-                videoPlayerController: videoPlayerController, reel: reel),
-            isScrollControlled: true)
-        .then(
+    Get.bottomSheet(PreviewReel(videoPlayerController: videoPlayerController, reel: reel), isScrollControlled: true).then(
       (value) {
         videoPlayerController.pause();
       },

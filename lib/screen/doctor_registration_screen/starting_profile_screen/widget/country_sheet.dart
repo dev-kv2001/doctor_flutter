@@ -30,19 +30,14 @@ class CountrySheet extends StatelessWidget {
         aspectRatio: 0.8,
         child: Container(
           margin: EdgeInsets.only(top: AppBar().preferredSize.height),
-          decoration: const BoxDecoration(
-              color: ColorRes.white,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
+          decoration: const BoxDecoration(color: ColorRes.white, borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
           padding: const EdgeInsets.all(15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 S.current.selectCountry,
-                style: const TextStyle(
-                    color: ColorRes.charcoalGrey,
-                    fontSize: 19,
-                    fontFamily: FontRes.bold),
+                style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 19, fontFamily: FontRes.bold),
               ),
               const SizedBox(
                 height: 10,
@@ -61,14 +56,8 @@ class CountrySheet extends StatelessWidget {
                         horizontal: 20,
                       ),
                       hintText: S.of(context).searchCountryName,
-                      hintStyle: const TextStyle(
-                          fontSize: 14,
-                          color: ColorRes.nobel,
-                          fontFamily: FontRes.semiBold)),
-                  style: const TextStyle(
-                      fontSize: 14,
-                      color: ColorRes.charcoalGrey,
-                      fontFamily: FontRes.medium),
+                      hintStyle: const TextStyle(fontSize: 14, color: ColorRes.nobel, fontFamily: FontRes.semiBold)),
+                  style: const TextStyle(fontSize: 14, color: ColorRes.charcoalGrey, fontFamily: FontRes.medium),
                   onChanged: onCountryChange,
                 ),
               ),
@@ -86,8 +75,7 @@ class CountrySheet extends StatelessWidget {
                     return InkWell(
                       onTap: () => onCountryTap(c),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
                         child: Text(
                           c.countryName ?? '',
                           style: const TextStyle(

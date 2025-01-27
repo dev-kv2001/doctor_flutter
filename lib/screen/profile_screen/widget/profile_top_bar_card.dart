@@ -10,8 +10,7 @@ import 'package:get/get.dart';
 class ProfileTopBarCard extends StatelessWidget {
   final Rx<DoctorData?> doctorData;
 
-  const ProfileTopBarCard({Key? key, required this.doctorData})
-      : super(key: key);
+  const ProfileTopBarCard({Key? key, required this.doctorData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +45,7 @@ class ProfileTopBarCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 5),
-                if (doctorData.value?.rating != null &&
-                    doctorData.value?.rating?.toInt() != 0)
+                if (doctorData.value?.rating != null && doctorData.value?.rating?.toInt() != 0)
                   const DoctorRatingBadge(
                     rating: 5,
                   ),
@@ -60,10 +58,8 @@ class ProfileTopBarCard extends StatelessWidget {
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    doctorData.value?.designation ??
-                        S.current.addYourDesignation,
-                    style: const TextStyle(
-                        color: ColorRes.havelockBlue, fontSize: 15),
+                    doctorData.value?.designation ?? S.current.addYourDesignation,
+                    style: const TextStyle(color: ColorRes.havelockBlue, fontSize: 15),
                   ),
                 )
               ],
@@ -75,19 +71,16 @@ class ProfileTopBarCard extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 13.0),
-              child:
-                  Divider(thickness: 1, height: 1, color: ColorRes.softPeach),
+              child: Divider(thickness: 1, height: 1, color: ColorRes.softPeach),
             ),
             Row(
               children: [
-                const Icon(Icons.location_on,
-                    color: ColorRes.havelockBlue, size: 20),
+                const Icon(Icons.location_on, color: ColorRes.havelockBlue, size: 20),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
                     doctorData.value?.clinicAddress ?? S.current.noAddressFound,
-                    style: const TextStyle(
-                        fontSize: 14, color: ColorRes.mediumGrey),
+                    style: const TextStyle(fontSize: 14, color: ColorRes.mediumGrey),
                   ),
                 ),
               ],
@@ -102,8 +95,7 @@ class ProfileTopBarCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 PortfolioCard(
-                  title1: (doctorData.value?.totalPatientsCured ?? 0)
-                      .formatCurrency,
+                  title1: (doctorData.value?.totalPatientsCured ?? 0).formatCurrency,
                   title2: "",
                   category: S.current.happyPatients,
                 )
@@ -121,30 +113,21 @@ class PortfolioCard extends StatelessWidget {
   final String title2;
   final String category;
 
-  const PortfolioCard(
-      {super.key,
-      required this.title1,
-      required this.title2,
-      required this.category});
+  const PortfolioCard({super.key, required this.title1, required this.title2, required this.category});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: ColorRes.whiteSmoke.withOpacity(0.7)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: ColorRes.whiteSmoke.withOpacity(0.7)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RichText(
               text: TextSpan(
                 text: title1,
-                style: const TextStyle(
-                    color: ColorRes.charcoalGrey,
-                    fontFamily: FontRes.bold,
-                    fontSize: 17),
+                style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.bold, fontSize: 17),
                 children: [
                   TextSpan(
                     text: " $title2",
@@ -161,11 +144,7 @@ class PortfolioCard extends StatelessWidget {
             Text(
               category.toUpperCase(),
               style: const TextStyle(
-                  color: ColorRes.havelockBlue,
-                  fontSize: 12,
-                  fontFamily: FontRes.medium,
-                  overflow: TextOverflow.ellipsis,
-                  letterSpacing: 0.5),
+                  color: ColorRes.havelockBlue, fontSize: 12, fontFamily: FontRes.medium, overflow: TextOverflow.ellipsis, letterSpacing: 0.5),
             )
           ],
         ),
@@ -192,10 +171,7 @@ class DoctorRatingBadge extends StatelessWidget {
         children: [
           Text(
             rating.toStringAsFixed(1).replaceAll('0.0', '0'),
-            style: const TextStyle(
-                color: ColorRes.mangoOrange,
-                fontSize: 18,
-                fontFamily: FontRes.semiBold),
+            style: const TextStyle(color: ColorRes.mangoOrange, fontSize: 18, fontFamily: FontRes.semiBold),
           ),
           const SizedBox(width: 5),
           const Icon(

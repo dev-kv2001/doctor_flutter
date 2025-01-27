@@ -17,8 +17,7 @@ class MobileNumberBox extends StatefulWidget {
   final Country? selectedCountry;
   final bool isRadius;
 
-  const MobileNumberBox({Key? key, required this.onSelectedCountry, this.selectedCountry, this.isRadius = true})
-      : super(key: key);
+  const MobileNumberBox({Key? key, required this.onSelectedCountry, this.selectedCountry, this.isRadius = true}) : super(key: key);
 
   @override
   State<MobileNumberBox> createState() => _MobileNumberBoxState();
@@ -135,9 +134,8 @@ class _CountrySheetState extends State<CountrySheet> {
 
   void _filterCountries() {
     setState(() {
-      filterCountries = (countries?.country ?? [])
-          .where((country) => country.countryName!.toLowerCase().contains(controller.text.trim().toLowerCase()))
-          .toList();
+      filterCountries =
+          (countries?.country ?? []).where((country) => country.countryName!.toLowerCase().contains(controller.text.trim().toLowerCase())).toList();
     });
   }
 
@@ -228,8 +226,7 @@ class _CountrySheetState extends State<CountrySheet> {
                               children: [
                                 Text(
                                   filterCountries[index].countryName ?? countryName,
-                                  style: const TextStyle(
-                                      color: ColorRes.havelockBlue, fontFamily: FontRes.medium, fontSize: 15),
+                                  style: const TextStyle(color: ColorRes.havelockBlue, fontFamily: FontRes.medium, fontSize: 15),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                 ),

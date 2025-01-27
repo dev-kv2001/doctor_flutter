@@ -35,49 +35,29 @@ class SplashScreen extends StatelessWidget {
                       Container(
                         width: Get.width / 2,
                         height: Get.width / 2,
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                              color: ColorRes.white.withOpacity(.1),
-                              blurRadius: 70)
-                        ]),
+                        decoration: BoxDecoration(boxShadow: [BoxShadow(color: ColorRes.white.withOpacity(.1), blurRadius: 70)]),
                       ),
                       Image.asset(AssetRes.icSplash, width: 220, height: 269),
                     ],
                   ),
                 ),
                 const SizedBox(height: 40),
-                const Text(appName,
-                    style: TextStyle(
-                        fontFamily: FontRes.black,
-                        fontSize: 25,
-                        color: ColorRes.white)),
+                const Text(appName, style: TextStyle(fontFamily: FontRes.black, fontSize: 25, color: ColorRes.white)),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   decoration: const BoxDecoration(
                     color: ColorRes.white,
                   ),
-                  child: const Text(subAppName,
-                      style: TextStyle(
-                          fontFamily: FontRes.semiBold,
-                          fontSize: 16,
-                          color: ColorRes.havelockBlue)),
+                  child: const Text(subAppName, style: TextStyle(fontFamily: FontRes.semiBold, fontSize: 16, color: ColorRes.havelockBlue)),
                 ),
                 Text(
-                  S
-                      .of(context)
-                      .manageYourAppointmentsWithPrecisionTransformingTheWayYouConnect,
-                  style: const TextStyle(
-                      fontFamily: FontRes.light,
-                      color: ColorRes.white,
-                      fontSize: 16),
+                  S.of(context).manageYourAppointmentsWithPrecisionTransformingTheWayYouConnect,
+                  style: const TextStyle(fontFamily: FontRes.light, color: ColorRes.white, fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: AppBar().preferredSize.height / 1.8),
-                SafeArea(
-                    top: false,
-                    child: CustomUi.loaderWidget(color: ColorRes.white)),
+                SafeArea(top: false, child: CustomUi.loaderWidget(color: ColorRes.white)),
                 SizedBox(height: AppBar().preferredSize.height / 1.8),
               ],
             ),

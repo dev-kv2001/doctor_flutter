@@ -27,8 +27,7 @@ class AppointmentDetailScreen extends StatelessWidget {
       backgroundColor: ColorRes.white,
       body: GetBuilder(
         init: controller,
-        tag: (Get.arguments ?? controller.appointmentData)?.appointmentNumber ??
-            '',
+        tag: (Get.arguments ?? controller.appointmentData)?.appointmentNumber ?? '',
         builder: (context) {
           AppointmentData? aData = Get.arguments ?? controller.appointmentData;
           return SafeArea(
@@ -45,39 +44,29 @@ class AppointmentDetailScreen extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  UserCard(
-                                      appointmentData: aData, onViewTap: () {}),
+                                  UserCard(appointmentData: aData, onViewTap: () {}),
                                   AppointmentDetailCard(
                                     data: aData,
                                     isExpand: controller.isExpanded,
                                     onExpandTap: controller.onExpandTap,
                                   ),
                                   PreviousAppointment(
-                                      onTap:
-                                          controller.onPreviousAppointmentTap,
+                                      onTap: controller.onPreviousAppointmentTap,
                                       title: S.current.previousAppointments,
-                                      description:
-                                          S.current.clickToSeePreviousEtc,
+                                      description: S.current.clickToSeePreviousEtc,
                                       isDescription: true),
-                                  ProblemCard(
-                                      title: S.current.problem,
-                                      description: aData?.problem ?? ''),
+                                  ProblemCard(title: S.current.problem, description: aData?.problem ?? ''),
                                   AttachmentCard(doc: aData?.documents),
                                   _acceptRejectButton(controller),
                                   _bottomButton(controller),
                                   Visibility(
                                     visible: aData?.status == 2,
-                                    child: ProblemCard(
-                                        title: S.current.diagnosedWith,
-                                        description: controller.appointmentData
-                                                ?.diagnosedWith ??
-                                            ''),
+                                    child: ProblemCard(title: S.current.diagnosedWith, description: controller.appointmentData?.diagnosedWith ?? ''),
                                   ),
                                   Visibility(
                                     visible: aData?.status == 2,
                                     child: PreviousAppointment(
-                                      onTap:
-                                          controller.onMedicalPrescriptionTap,
+                                      onTap: controller.onMedicalPrescriptionTap,
                                       title: S.current.medicalPrescription,
                                       description: '',
                                     ),
@@ -122,8 +111,7 @@ class AppointmentDetailScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: TextButtonCustom(
-                    onPressed: () =>
-                        controller.onAcceptBtnTap(controller.appointmentData),
+                    onPressed: () => controller.onAcceptBtnTap(controller.appointmentData),
                     title: S.current.accept,
                     titleColor: ColorRes.irishGreen,
                     backgroundColor: ColorRes.irishGreen.withOpacity(0.12),
@@ -146,10 +134,7 @@ class AppointmentDetailScreen extends StatelessWidget {
             height: 10,
           ),
           TextButtonCustom(
-              onPressed: controller.onMessageBtnTap,
-              title: S.current.messages,
-              titleColor: ColorRes.white,
-              backgroundColor: ColorRes.havelockBlue),
+              onPressed: controller.onMessageBtnTap, title: S.current.messages, titleColor: ColorRes.white, backgroundColor: ColorRes.havelockBlue),
           const SizedBox(
             height: 10,
           ),
@@ -185,10 +170,7 @@ class AppointmentDetailScreen extends StatelessWidget {
           children: [
             Text(
               controller.appointmentData?.user?.fullname ?? S.current.unKnown,
-              style: const TextStyle(
-                  color: ColorRes.charcoalGrey,
-                  fontSize: 16,
-                  fontFamily: FontRes.bold),
+              style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 16, fontFamily: FontRes.bold),
             ),
             const SizedBox(
               height: 5,
@@ -196,8 +178,7 @@ class AppointmentDetailScreen extends StatelessWidget {
             RatingBarIndicator(
               itemCount: 5,
               itemSize: 21,
-              rating:
-                  controller.appointmentData?.rating?.rating?.toDouble() ?? 0,
+              rating: controller.appointmentData?.rating?.rating?.toDouble() ?? 0,
               itemBuilder: (context, index) {
                 return const Icon(
                   Icons.star_rate_rounded,

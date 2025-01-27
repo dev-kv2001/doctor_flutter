@@ -17,20 +17,14 @@ class NotificationCard extends StatelessWidget {
         children: [
           Text(
             data?.title ?? '',
-            style: const TextStyle(
-                fontFamily: FontRes.medium,
-                fontSize: 15,
-                color: ColorRes.darkJungleGreen),
+            style: const TextStyle(fontFamily: FontRes.medium, fontSize: 15, color: ColorRes.darkJungleGreen),
           ),
           const SizedBox(
             height: 10,
           ),
           Text(
             data?.description ?? '',
-            style: const TextStyle(
-                fontFamily: FontRes.light,
-                fontSize: 13,
-                color: ColorRes.davyGrey),
+            style: const TextStyle(fontFamily: FontRes.light, fontSize: 13, color: ColorRes.davyGrey),
           ),
           const SizedBox(
             height: 15,

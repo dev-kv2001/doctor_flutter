@@ -12,13 +12,7 @@ class ListTileWithMoreButton extends StatelessWidget {
   final int screenType;
   final String noData;
 
-  const ListTileWithMoreButton(
-      {Key? key,
-      this.data,
-      required this.controller,
-      required this.screenType,
-      required this.noData})
-      : super(key: key);
+  const ListTileWithMoreButton({Key? key, this.data, required this.controller, required this.screenType, required this.noData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,22 +28,17 @@ class ListTileWithMoreButton extends StatelessWidget {
                 Services? services = data?[index];
                 return Container(
                   color: ColorRes.whiteSmoke,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                   margin: const EdgeInsets.symmetric(vertical: 2),
                   child: Row(
                     children: [
                       Expanded(
                         child: Text(
                           services?.title ?? '',
-                          style: const TextStyle(
-                              fontSize: 14, color: ColorRes.davyGrey),
+                          style: const TextStyle(fontSize: 14, color: ColorRes.davyGrey),
                         ),
                       ),
-                      PopUpMenuCustom(
-                          services: services,
-                          controller: controller,
-                          screenType: screenType)
+                      PopUpMenuCustom(services: services, controller: controller, screenType: screenType)
                     ],
                   ),
                 );
@@ -64,22 +53,14 @@ class PopUpMenuCustom extends StatelessWidget {
   final ServicesScreenController controller;
   final int screenType;
 
-  const PopUpMenuCustom(
-      {Key? key,
-      this.services,
-      required this.controller,
-      required this.screenType})
-      : super(key: key);
+  const PopUpMenuCustom({Key? key, this.services, required this.controller, required this.screenType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
       color: ColorRes.whiteSmoke,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            bottomLeft: Radius.circular(15),
-            bottomRight: Radius.circular(15)),
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(15), bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
       ),
       child: Image.asset(
         AssetRes.icMore,
@@ -87,17 +68,11 @@ class PopUpMenuCustom extends StatelessWidget {
         color: ColorRes.tuftsBlue,
       ),
       onSelected: (value) {
-        controller.serviceController =
-            TextEditingController(text: services?.title ?? '');
+        controller.serviceController = TextEditingController(text: services?.title ?? '');
         if (value == 0) {
-          controller.onServiceSheetOpen(
-              apiType: 2,
-              id: services?.id,
-              isAdd: false,
-              screenType: screenType);
+          controller.onServiceSheetOpen(apiType: 2, id: services?.id, isAdd: false, screenType: screenType);
         } else {
-          controller.onAddBtnTap(
-              apiType: 3, id: services?.id, screenType: screenType);
+          controller.onAddBtnTap(apiType: 3, id: services?.id, screenType: screenType);
         }
       },
       itemBuilder: (context) => [

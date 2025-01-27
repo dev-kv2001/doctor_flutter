@@ -10,8 +10,7 @@ import 'package:get/get.dart';
 class EarningReportList extends StatelessWidget {
   final EarningReportScreenController controller;
 
-  const EarningReportList({Key? key, required this.controller})
-      : super(key: key);
+  const EarningReportList({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +37,14 @@ class EarningReportList extends StatelessWidget {
                           children: [
                             Text(
                               data?.earningNumber ?? '',
-                              style: const TextStyle(
-                                  color: ColorRes.davyGrey,
-                                  fontSize: 14,
-                                  fontFamily: FontRes.semiBold),
+                              style: const TextStyle(color: ColorRes.davyGrey, fontSize: 14, fontFamily: FontRes.semiBold),
                             ),
                             const SizedBox(
                               height: 2,
                             ),
                             Text(
-                              (data?.createdAt ?? createdDate)
-                                  .dateParse(eeeDdMmmYyyyHhMmA),
-                              style: const TextStyle(
-                                  color: ColorRes.davyGrey, fontSize: 13),
+                              (data?.createdAt ?? createdDate).dateParse(eeeDdMmmYyyyHhMmA),
+                              style: const TextStyle(color: ColorRes.davyGrey, fontSize: 13),
                             ),
                           ],
                         ),
@@ -60,10 +54,7 @@ class EarningReportList extends StatelessWidget {
                       ),
                       Text(
                         "$dollar${data?.amount ?? 0}",
-                        style: const TextStyle(
-                            fontFamily: FontRes.bold,
-                            fontSize: 20,
-                            color: ColorRes.davyGrey),
+                        style: const TextStyle(fontFamily: FontRes.bold, fontSize: 20, color: ColorRes.davyGrey),
                       )
                     ],
                   ),

@@ -140,9 +140,7 @@ class DoctorData {
     _id = json['id'];
     _identity = json['identity'];
     _status = json['status'];
-    _deviceType = json['device_type'] is String
-        ? int.parse(json['device_type'])
-        : json['device_type'];
+    _deviceType = json['device_type'] is String ? int.parse(json['device_type']) : json['device_type'];
     _rating = json['rating'].toDouble();
     _onVacation = json['on_vacation'];
     _doctorNumber = json['doctor_number'];
@@ -215,9 +213,7 @@ class DoctorData {
         _holidays?.add(Holidays.fromJson(v));
       });
     }
-    _bankAccount = json['bank_account'] != null
-        ? BankAccount.fromJson(json['bank_account'])
-        : null;
+    _bankAccount = json['bank_account'] != null ? BankAccount.fromJson(json['bank_account']) : null;
   }
 
   int? _id;
@@ -481,8 +477,7 @@ class DoctorData {
       map['expertise'] = _expertise?.map((v) => v.toJson()).toList();
     }
     if (_serviceLocations != null) {
-      map['service_locations'] =
-          _serviceLocations?.map((v) => v.toJson()).toList();
+      map['service_locations'] = _serviceLocations?.map((v) => v.toJson()).toList();
     }
     if (_awards != null) {
       map['awards'] = _awards?.map((v) => v.toJson()).toList();

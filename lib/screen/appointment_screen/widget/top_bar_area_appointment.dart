@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 class TopBarAreaAppointment extends StatelessWidget {
   final AppointmentScreenController controller;
 
-  const TopBarAreaAppointment({Key? key, required this.controller})
-      : super(key: key);
+  const TopBarAreaAppointment({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +20,7 @@ class TopBarAreaAppointment extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: Text(S.current.appointments.toUpperCase(),
-                  style: const TextStyle(
-                      color: ColorRes.charcoalGrey, fontSize: 17)),
+              child: Text(S.current.appointments.toUpperCase(), style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 17)),
             ),
           ],
         ),

@@ -12,8 +12,7 @@ class GlobalSetting {
   GlobalSetting.fromJson(dynamic json) {
     _status = json['status'];
     _message = json['message'];
-    _data =
-        json['data'] != null ? GlobalSettingData.fromJson(json['data']) : null;
+    _data = json['data'] != null ? GlobalSettingData.fromJson(json['data']) : null;
   }
   bool? _status;
   String? _message;

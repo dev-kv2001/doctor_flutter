@@ -14,13 +14,7 @@ class ChatImageCard extends StatelessWidget {
   final Color imageTextColor;
 
   const ChatImageCard(
-      {Key? key,
-      this.imageUrl,
-      this.time,
-      this.msg,
-      required this.margin,
-      required this.imageCardColor,
-      required this.imageTextColor})
+      {Key? key, this.imageUrl, this.time, this.msg, required this.margin, required this.imageCardColor, required this.imageTextColor})
       : super(key: key);
 
   @override
@@ -66,10 +60,7 @@ class ChatImageCard extends StatelessWidget {
               ),
               child: Text(
                 msg ?? '',
-                style: TextStyle(
-                    fontFamily: FontRes.regular,
-                    fontSize: 14,
-                    color: imageTextColor),
+                style: TextStyle(fontFamily: FontRes.regular, fontSize: 14, color: imageTextColor),
               ),
             ),
           )

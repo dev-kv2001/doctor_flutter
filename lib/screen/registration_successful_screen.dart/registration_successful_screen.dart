@@ -13,12 +13,10 @@ class RegistrationSuccessfulScreen extends StatefulWidget {
   const RegistrationSuccessfulScreen({Key? key}) : super(key: key);
 
   @override
-  State<RegistrationSuccessfulScreen> createState() =>
-      _RegistrationSuccessfulScreenState();
+  State<RegistrationSuccessfulScreen> createState() => _RegistrationSuccessfulScreenState();
 }
 
-class _RegistrationSuccessfulScreenState
-    extends State<RegistrationSuccessfulScreen> {
+class _RegistrationSuccessfulScreenState extends State<RegistrationSuccessfulScreen> {
   PrefService prefService = PrefService();
   DoctorData? data;
   GlobalSettingData? settings;
@@ -43,7 +41,7 @@ class _RegistrationSuccessfulScreenState
         onTap: () async {
           if (data?.status == 0) {
             CustomUi.snackBar(
-                message: S.current.yourProfileIsPending,
+              message: S.current.yourProfileIsPending,
             );
           }
         },
@@ -70,16 +68,11 @@ class _RegistrationSuccessfulScreenState
                     RichText(
                       text: TextSpan(
                         text: S.current.doctor,
-                        style: const TextStyle(
-                            color: ColorRes.havelockBlue,
-                            fontSize: 24,
-                            fontFamily: FontRes.extraBold),
+                        style: const TextStyle(color: ColorRes.havelockBlue, fontSize: 24, fontFamily: FontRes.extraBold),
                         children: [
                           TextSpan(
                             text: " ${S.current.registration}",
-                            style: const TextStyle(
-                                color: ColorRes.havelockBlue,
-                                fontFamily: FontRes.medium),
+                            style: const TextStyle(color: ColorRes.havelockBlue, fontFamily: FontRes.medium),
                           )
                         ],
                       ),
@@ -89,10 +82,7 @@ class _RegistrationSuccessfulScreenState
                     ),
                     Text(
                       S.current.submissionSuccessful,
-                      style: const TextStyle(
-                          color: ColorRes.davyGrey,
-                          fontFamily: FontRes.medium,
-                          fontSize: 17),
+                      style: const TextStyle(color: ColorRes.davyGrey, fontFamily: FontRes.medium, fontSize: 17),
                     ),
                     const SizedBox(
                       height: 10,
@@ -144,10 +134,7 @@ class _RegistrationSuccessfulScreenState
                   ),
                   Text(
                     settings?.supportEmail ?? '',
-                    style: const TextStyle(
-                        color: ColorRes.charcoalGrey,
-                        fontSize: 16,
-                        fontFamily: FontRes.semiBold),
+                    style: const TextStyle(color: ColorRes.charcoalGrey, fontSize: 16, fontFamily: FontRes.semiBold),
                   ),
                 ],
               ),

@@ -29,42 +29,30 @@ class AppointmentHistoryScreen extends StatelessWidget {
                 builder: (context) {
                   return controller.isLoading
                       ? CustomUi.loaderWidget()
-                      : controller.appointmentData == null ||
-                              controller.appointmentData!.isEmpty
-                          ? CustomUi.noData(
-                              message:
-                                  '${S.current.no} ${S.current.appointmentHistory}')
+                      : controller.appointmentData == null || controller.appointmentData!.isEmpty
+                          ? CustomUi.noData(message: '${S.current.no} ${S.current.appointmentHistory}')
                           : ListView.builder(
                               controller: controller.scrollController,
-                              itemCount:
-                                  controller.appointmentData?.length ?? 0,
+                              itemCount: controller.appointmentData?.length ?? 0,
                               padding: EdgeInsets.zero,
                               itemBuilder: (context, index) {
-                                AppointmentData? appointmentData =
-                                    controller.appointmentData?[index];
+                                AppointmentData? appointmentData = controller.appointmentData?[index];
                                 return Column(
                                   children: [
                                     InkWell(
-                                      onTap: () =>
-                                          controller.onAppointmentCardTap(
-                                              appointmentData),
+                                      onTap: () => controller.onAppointmentCardTap(appointmentData),
                                       child: Container(
                                         padding: const EdgeInsets.all(7),
-                                        margin: const EdgeInsets.only(
-                                            top: 5, left: 15, right: 15),
+                                        margin: const EdgeInsets.only(top: 5, left: 15, right: 15),
                                         decoration: const BoxDecoration(
-                                            color: ColorRes.whiteSmoke,
-                                            borderRadius: BorderRadius.vertical(
-                                                top: Radius.circular(15))),
+                                            color: ColorRes.whiteSmoke, borderRadius: BorderRadius.vertical(top: Radius.circular(15))),
                                         child: Row(
                                           children: [
                                             ImageBuilderCustom(
-                                              appointmentData
-                                                  ?.user?.profileImage,
+                                              appointmentData?.user?.profileImage,
                                               size: 70,
                                               radius: 15,
-                                              name: appointmentData
-                                                  ?.user?.fullname,
+                                              name: appointmentData?.user?.fullname,
                                             ),
                                             // ClipRRect(
                                             //   borderRadius:
@@ -104,23 +92,16 @@ class AppointmentHistoryScreen extends StatelessWidget {
                                             ),
                                             Expanded(
                                               child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    appointmentData
-                                                            ?.user?.fullname ??
-                                                        S.current.unKnown,
+                                                    appointmentData?.user?.fullname ?? S.current.unKnown,
                                                     style: const TextStyle(
-                                                        color: ColorRes
-                                                            .charcoalGrey,
-                                                        fontFamily:
-                                                            FontRes.extraBold,
+                                                        color: ColorRes.charcoalGrey,
+                                                        fontFamily: FontRes.extraBold,
                                                         fontSize: 18,
-                                                        overflow: TextOverflow
-                                                            .ellipsis),
+                                                        overflow: TextOverflow.ellipsis),
                                                   ),
                                                   const SizedBox(
                                                     height: 5,
@@ -128,13 +109,10 @@ class AppointmentHistoryScreen extends StatelessWidget {
                                                   Text(
                                                     "${appointmentData?.user?.dob == null ? '0' : CommonFun.calculateAge(appointmentData?.user?.dob ?? '')} ${S.current.years}: ${appointmentData?.user?.gender == 1 ? S.current.male : S.current.feMale}",
                                                     style: const TextStyle(
-                                                        fontFamily:
-                                                            FontRes.medium,
-                                                        color: ColorRes
-                                                            .battleshipGrey,
+                                                        fontFamily: FontRes.medium,
+                                                        color: ColorRes.battleshipGrey,
                                                         fontSize: 13,
-                                                        overflow: TextOverflow
-                                                            .ellipsis),
+                                                        overflow: TextOverflow.ellipsis),
                                                   ),
                                                   const SizedBox(
                                                     height: 5,
@@ -148,13 +126,10 @@ class AppointmentHistoryScreen extends StatelessWidget {
 
                                                     '${(appointmentData?.date ?? '').appointmentDate} ${(appointmentData?.time ?? '').appointmentTime}',
                                                     style: const TextStyle(
-                                                        fontFamily:
-                                                            FontRes.medium,
-                                                        color: ColorRes
-                                                            .battleshipGrey,
+                                                        fontFamily: FontRes.medium,
+                                                        color: ColorRes.battleshipGrey,
                                                         fontSize: 13,
-                                                        overflow: TextOverflow
-                                                            .ellipsis),
+                                                        overflow: TextOverflow.ellipsis),
                                                   )
                                                 ],
                                               ),
@@ -171,18 +146,13 @@ class AppointmentHistoryScreen extends StatelessWidget {
                                                 ? ColorRes.havelockBlue
                                                 : appointmentData?.status == 1
                                                     ? ColorRes.mangoOrange
-                                                    : appointmentData?.status ==
-                                                            2
+                                                    : appointmentData?.status == 2
                                                         ? ColorRes.mediumGreen
-                                                        : appointmentData
-                                                                    ?.status ==
-                                                                3
-                                                            ? ColorRes
-                                                                .charcoalGrey
+                                                        : appointmentData?.status == 3
+                                                            ? ColorRes.charcoalGrey
                                                             : ColorRes.lightRed)
                                             .withOpacity(0.2),
-                                        borderRadius:
-                                            const BorderRadius.vertical(
+                                        borderRadius: const BorderRadius.vertical(
                                           bottom: Radius.circular(15),
                                         ),
                                       ),
@@ -200,8 +170,7 @@ class AppointmentHistoryScreen extends StatelessWidget {
                                                 ? S.current.accepted
                                                 : appointmentData?.status == 2
                                                     ? S.current.completed
-                                                    : appointmentData?.status ==
-                                                            3
+                                                    : appointmentData?.status == 3
                                                         ? S.current.declined
                                                         : S.current.cancelled,
                                         style: TextStyle(
@@ -211,11 +180,8 @@ class AppointmentHistoryScreen extends StatelessWidget {
                                                   ? ColorRes.mangoOrange
                                                   : appointmentData?.status == 2
                                                       ? ColorRes.mediumGreen
-                                                      : appointmentData
-                                                                  ?.status ==
-                                                              3
-                                                          ? ColorRes
-                                                              .charcoalGrey
+                                                      : appointmentData?.status == 3
+                                                          ? ColorRes.charcoalGrey
                                                           : ColorRes.lightRed,
                                           fontSize: 15,
                                           fontFamily: FontRes.medium,

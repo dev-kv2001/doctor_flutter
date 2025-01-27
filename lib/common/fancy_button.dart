@@ -36,8 +36,7 @@ class FancyButtonState extends State<FancyButton> with SingleTickerProviderState
   initState() {
     isOpened = widget.isOpen;
     setState(() {});
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 250))
+    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 250))
       ..addListener(() {
         setState(() {});
       });

@@ -51,9 +51,7 @@ class MapScreenController extends GetxController {
 
   Future<Position> getUserCurrentLocation() async {
     try {
-      await Geolocator.requestPermission()
-          .then((value) {})
-          .onError((error, stackTrace) async {
+      await Geolocator.requestPermission().then((value) {}).onError((error, stackTrace) async {
         await Geolocator.requestPermission();
       });
     } catch (e) {

@@ -67,9 +67,7 @@ class PersonalInformationScreenController extends GetxController {
       yearController = TextEditingController(text: doctorData?.experienceYear.toString() ?? '');
       feesController = TextEditingController(text: NumberFormat(numberFormat).format(doctorData?.consultationFee));
 
-      if (doctorData?.mobileNumber != null &&
-          doctorData?.mobileNumber != 'null' &&
-          (doctorData?.mobileNumber?.isNotEmpty ?? false)) {
+      if (doctorData?.mobileNumber != null && doctorData?.mobileNumber != 'null' && (doctorData?.mobileNumber?.isNotEmpty ?? false)) {
         phoneNumberEditController = TextEditingController(text: doctorData?.mobileNumber?.split(' ')[0]);
       }
       selectCategory = categoryData?.firstWhere((element) {
@@ -177,9 +175,7 @@ class PersonalInformationScreenController extends GetxController {
     ApiService.instance
         .updateDoctorDetails(
       image: profileImage,
-      mobileNumber: phoneNumberEditController.text.trim().isEmpty
-          ? null
-          : '${phoneNumberEditController.text.trim()} ${selectCountry?.countryCode}',
+      mobileNumber: phoneNumberEditController.text.trim().isEmpty ? null : '${phoneNumberEditController.text.trim()} ${selectCountry?.countryCode}',
       countryCode: selectCountry?.phoneCode,
       name: nameController.text,
       designation: designationController.text,
@@ -204,8 +200,7 @@ class PersonalInformationScreenController extends GetxController {
 
   void onImagePick() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(
-        source: ImageSource.gallery, imageQuality: imageQuality, maxWidth: maxWidth, maxHeight: maxHeight);
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery, imageQuality: imageQuality, maxWidth: maxWidth, maxHeight: maxHeight);
     if (image != null) {
       profileImage = File(image.path);
     }

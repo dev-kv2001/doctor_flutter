@@ -42,8 +42,7 @@ class SettingScreenController extends GetxController {
 
       if (_debounce?.isActive ?? false) _debounce?.cancel();
       _debounce = Timer(const Duration(milliseconds: 500), () async {
-        Registration value = await ApiService.instance
-            .updateDoctorDetails(notification: isNotification.value ? 1 : 0);
+        Registration value = await ApiService.instance.updateDoctorDetails(notification: isNotification.value ? 1 : 0);
         CustomUi.snackBar(message: value.message);
         if (value.status == false) {
           isNotification.value = isNotification.value ? false : true;
@@ -60,17 +59,14 @@ class SettingScreenController extends GetxController {
 
       if (_debounce?.isActive ?? false) _debounce?.cancel();
       _debounce = Timer(const Duration(milliseconds: 500), () async {
-        Registration value = await ApiService.instance
-            .updateDoctorDetails(notification: isVacationMode.value ? 1 : 0);
+        Registration value = await ApiService.instance.updateDoctorDetails(notification: isVacationMode.value ? 1 : 0);
         CustomUi.snackBar(message: value.message);
         if (value.status == false) {
           isVacationMode.value = isVacationMode.value ? false : true;
         } else {
           doctorData = value.data;
           if (isVacationMode.value) {
-            updateFirebaseProfile(
-                isDeleted: true,
-                deletedId: '${DateTime.now().millisecondsSinceEpoch}');
+            updateFirebaseProfile(isDeleted: true, deletedId: '${DateTime.now().millisecondsSinceEpoch}');
           } else {
             updateFirebaseProfile(isDeleted: false, deletedId: '0');
           }
@@ -79,8 +75,7 @@ class SettingScreenController extends GetxController {
     });
   }
 
-  void updateFirebaseProfile(
-      {required bool isDeleted, required String deletedId}) async {
+  void updateFirebaseProfile({required bool isDeleted, required String deletedId}) async {
     FirebaseFirestore db = FirebaseFirestore.instance;
     await prefService.init();
     DoctorData? doctorData = prefService.getRegistrationData();
@@ -116,10 +111,7 @@ class SettingScreenController extends GetxController {
               .doc(element.id)
               .collection(FirebaseRes.userList)
               .doc(doctorIdentity)
-              .update({
-            FirebaseRes.isDeleted: isDeleted,
-            FirebaseRes.deletedId: deletedId
-          });
+              .update({FirebaseRes.isDeleted: isDeleted, FirebaseRes.deletedId: deletedId});
         });
       }
     });
@@ -186,28 +178,13 @@ class SettingScreenController extends GetxController {
   Future<void> deleteFirebaseUser() async {
     String doctorIdentity = CommonFun.setDoctorId(doctorId: doctorData?.id);
     String time = DateTime.now().millisecondsSinceEpoch.toString();
-    await db
-        .collection(FirebaseRes.userChatList)
-        .doc(doctorIdentity)
-        .collection(FirebaseRes.userList)
-        .get()
-        .then((value) {
+    await db.collection(FirebaseRes.userChatList).doc(doctorIdentity).collection(FirebaseRes.userList).get().then((value) {
       for (var element in value.docs) {
-        db
-            .collection(FirebaseRes.userChatList)
-            .doc(element.id)
-            .collection(FirebaseRes.userList)
-            .doc(doctorIdentity)
-            .update({
+        db.collection(FirebaseRes.userChatList).doc(element.id).collection(FirebaseRes.userList).doc(doctorIdentity).update({
           FirebaseRes.isDeleted: true,
           FirebaseRes.deletedId: time,
         });
-        db
-            .collection(FirebaseRes.userChatList)
-            .doc(doctorIdentity)
-            .collection(FirebaseRes.userList)
-            .doc(element.id)
-            .update({
+        db.collection(FirebaseRes.userChatList).doc(doctorIdentity).collection(FirebaseRes.userList).doc(element.id).update({
           FirebaseRes.isDeleted: true,
           FirebaseRes.deletedId: time,
         });

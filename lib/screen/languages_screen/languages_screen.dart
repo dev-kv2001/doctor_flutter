@@ -27,34 +27,22 @@ class LanguagesScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       children: [
                         Align(
-                          alignment: Directionality.of(Get.context!) ==
-                                  TextDirection.rtl
-                              ? Alignment.centerRight
-                              : Alignment.centerLeft,
+                          alignment: Directionality.of(Get.context!) == TextDirection.rtl ? Alignment.centerRight : Alignment.centerLeft,
                           child: InkWell(
                             onTap: () {
                               Get.back();
                             },
                             child: Container(
                                 margin: EdgeInsets.only(
-                                    left: Directionality.of(Get.context!) ==
-                                            TextDirection.rtl
-                                        ? 0
-                                        : 10,
-                                    right: Directionality.of(Get.context!) ==
-                                            TextDirection.rtl
-                                        ? 10
-                                        : 0),
+                                    left: Directionality.of(Get.context!) == TextDirection.rtl ? 0 : 10,
+                                    right: Directionality.of(Get.context!) == TextDirection.rtl ? 10 : 0),
                                 child: const Icon(Icons.arrow_back_rounded)),
                           ),
                         ),
                         Text(
                           S.current.languages,
-                          style: const TextStyle(
-                              color: ColorRes.charcoalGrey,
-                              fontFamily: FontRes.bold,
-                              fontSize: 18,
-                              overflow: TextOverflow.ellipsis),
+                          style:
+                              const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.bold, fontSize: 18, overflow: TextOverflow.ellipsis),
                         ),
                       ],
                     ),
@@ -72,10 +60,7 @@ class LanguagesScreen extends StatelessWidget {
                           dense: true,
                           onChanged: controller.onLanguageChange,
                           title: Text(controller.languages[index],
-                              style: const TextStyle(
-                                  color: ColorRes.charcoalGrey,
-                                  fontFamily: FontRes.semiBold,
-                                  fontSize: 15)),
+                              style: const TextStyle(color: ColorRes.charcoalGrey, fontFamily: FontRes.semiBold, fontSize: 15)),
                           subtitle: Text(controller.subLanguage[index],
                               style: const TextStyle(
                                 color: ColorRes.battleshipGrey,

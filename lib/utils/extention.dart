@@ -15,10 +15,8 @@ extension B on num {
 }
 
 extension C on String {
-
   String dateMilliFormat(String formatKey) {
-    return DateFormat(formatKey, 'en')
-        .format(DateTime.fromMillisecondsSinceEpoch(int.parse(this)).toLocal());
+    return DateFormat(formatKey, 'en').format(DateTime.fromMillisecondsSinceEpoch(int.parse(this)).toLocal());
   }
 
   String dateParse(String formatKey) {

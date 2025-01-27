@@ -31,8 +31,7 @@ class AddMedicine {
   int? mealTime;
   String? notes;
 
-  AddMedicine(
-      {this.title, this.quantity, this.dosage, this.mealTime, this.notes});
+  AddMedicine({this.title, this.quantity, this.dosage, this.mealTime, this.notes});
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

@@ -29,24 +29,18 @@ class EarningReportScreenController extends GetxController {
 
   void fetchEarningReport({required int year, required int month}) async {
     await ApiService.instance
-        .fetchDoctorEarningHistory(
-            month: DateFormat(mm, 'en').format(DateTime(year, month)),
-            year: DateFormat(yyyy, 'en').format(DateTime(year)))
+        .fetchDoctorEarningHistory(month: DateFormat(mm, 'en').format(DateTime(year, month)), year: DateFormat(yyyy, 'en').format(DateTime(year)))
         .then((value) {
       chartData = [];
       thisMonthEarning = 0;
       var dates = days(year, month);
       earningData = value.data;
       Map<String, List<EarningHistoryData>>? groupData =
-          groupBy<EarningHistoryData, String>(earningData?.toList() ?? [],
-              (p0) => p0.createdAt?.substring(0, 10) ?? '');
+          groupBy<EarningHistoryData, String>(earningData?.toList() ?? [], (p0) => p0.createdAt?.substring(0, 10) ?? '');
       Map<int, num> finalMap = {};
       groupData.forEach((key, value) {
         var date = DateTime.parse(key).day;
-        var amounts = value
-            .map((e) => e.amount ?? 0)
-            .toList()
-            .reduce((value, element) => value + element);
+        var amounts = value.map((e) => e.amount ?? 0).toList().reduce((value, element) => value + element);
         var map = {date: amounts};
         thisMonthEarning = thisMonthEarning + amounts;
         finalMap.addAll(map);
@@ -65,10 +59,7 @@ class EarningReportScreenController extends GetxController {
 
   int days(int year, int month) {
     var date = DateTime(year, month, 01);
-    int daysInMonth =
-        DateTimeRange(start: date, end: DateTime(date.year, date.month + 1))
-            .duration
-            .inDays;
+    int daysInMonth = DateTimeRange(start: date, end: DateTime(date.year, date.month + 1)).duration.inDays;
     return daysInMonth;
   }
 

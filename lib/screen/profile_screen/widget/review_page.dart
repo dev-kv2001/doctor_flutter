@@ -31,10 +31,7 @@ class ReviewPage extends StatelessWidget {
                   children: [
                     Text(
                       '${doctorData?.rating?.toStringAsFixed(1).toString().replaceAll('0.0', '0')}',
-                      style: const TextStyle(
-                          fontSize: 29,
-                          color: ColorRes.davyGrey,
-                          fontFamily: FontRes.light),
+                      style: const TextStyle(fontSize: 29, color: ColorRes.davyGrey, fontFamily: FontRes.light),
                     ),
                     const SizedBox(height: 5),
                     RatingBarIndicator(
@@ -52,10 +49,7 @@ class ReviewPage extends StatelessWidget {
                     ),
                     Text(
                       '${controller?.reviewData.length ?? 0} ${S.current.ratings}',
-                      style: const TextStyle(
-                          fontSize: 14,
-                          color: ColorRes.davyGrey,
-                          fontFamily: FontRes.light),
+                      style: const TextStyle(fontSize: 14, color: ColorRes.davyGrey, fontFamily: FontRes.light),
                     ),
                   ],
                 ),
@@ -78,15 +72,12 @@ class ReviewPage extends StatelessWidget {
                           children: [
                             ClipOval(
                               child: CachedNetworkImage(
-                                imageUrl:
-                                    '${ConstRes.itemBaseURL}${data?.user?.profileImage}',
+                                imageUrl: '${ConstRes.itemBaseURL}${data?.user?.profileImage}',
                                 width: 55,
                                 height: 55,
                                 fit: BoxFit.cover,
                                 errorWidget: (context, error, stackTrace) {
-                                  return CustomUi.userPlaceHolder(
-                                      height: 55,
-                                      male: data?.user?.gender ?? 0);
+                                  return CustomUi.userPlaceHolder(height: 55, male: data?.user?.gender ?? 0);
                                 },
                               ),
                             ),
@@ -101,8 +92,7 @@ class ReviewPage extends StatelessWidget {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          data?.user?.fullname ??
-                                              S.current.unKnown,
+                                          data?.user?.fullname ?? S.current.unKnown,
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(
@@ -113,13 +103,8 @@ class ReviewPage extends StatelessWidget {
                                         ),
                                       ),
                                       Text(
-                                        CommonFun.timeAgo(DateTime.parse(
-                                                data?.createdAt ?? '2023-03-01')
-                                            .toLocal()),
-                                        style: const TextStyle(
-                                            fontSize: 13,
-                                            color: ColorRes.silverChalice,
-                                            fontFamily: FontRes.medium),
+                                        CommonFun.timeAgo(DateTime.parse(data?.createdAt ?? '2023-03-01').toLocal()),
+                                        style: const TextStyle(fontSize: 13, color: ColorRes.silverChalice, fontFamily: FontRes.medium),
                                       )
                                     ],
                                   ),
@@ -141,10 +126,7 @@ class ReviewPage extends StatelessWidget {
                                   ),
                                   Text(
                                     data?.comment ?? '',
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        color: ColorRes.mediumGrey,
-                                        fontFamily: FontRes.regular),
+                                    style: const TextStyle(fontSize: 14, color: ColorRes.mediumGrey, fontFamily: FontRes.regular),
                                   )
                                 ],
                               ),

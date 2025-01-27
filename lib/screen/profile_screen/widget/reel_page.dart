@@ -31,10 +31,7 @@ class ReelPage extends StatelessWidget {
                   itemCount: controller.reels.length,
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 5,
-                      mainAxisSpacing: 5,
-                      mainAxisExtent: 180),
+                      crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5, mainAxisExtent: 180),
                   itemBuilder: (context, index) {
                     Reel reel = controller.reels[index];
                     return ReelCard(
@@ -55,12 +52,7 @@ class ReelCard extends StatelessWidget {
   final Function(Reel reel)? onDeleteReel;
   final Reel reel;
 
-  const ReelCard(
-      {super.key,
-      required this.reels,
-      required this.index,
-      this.onDeleteReel,
-      required this.reel});
+  const ReelCard({super.key, required this.reels, required this.index, this.onDeleteReel, required this.reel});
 
   @override
   Widget build(BuildContext context) {
@@ -68,17 +60,13 @@ class ReelCard extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            Get.to(() => ReelsScreen(
-                reels: reels,
-                initialIndex: index,
-                profileType: ProfileType.profile));
+            Get.to(() => ReelsScreen(reels: reels, initialIndex: index, profileType: ProfileType.profile));
           },
           child: ClipRRect(
               borderRadius: SmoothBorderRadius(cornerRadius: 10),
               child: Stack(
                 children: [
-                  ImageBuilderCustom(reel.thumb,
-                      name: reel.doctor?.name, radius: 10, size: Get.height),
+                  ImageBuilderCustom(reel.thumb, name: reel.doctor?.name, radius: 10, size: Get.height),
                   Align(
                     alignment: AlignmentDirectional.bottomEnd,
                     child: Padding(
@@ -87,11 +75,7 @@ class ReelCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Container(
-                            decoration: BoxDecoration(boxShadow: [
-                              BoxShadow(
-                                  color: ColorRes.white.withOpacity(.2),
-                                  blurRadius: 10)
-                            ]),
+                            decoration: BoxDecoration(boxShadow: [BoxShadow(color: ColorRes.white.withOpacity(.2), blurRadius: 10)]),
                             child: Image.asset(
                               AssetRes.icPlay,
                               height: 15,
@@ -106,9 +90,7 @@ class ReelCard extends StatelessWidget {
                               color: ColorRes.white,
                               fontFamily: FontRes.medium,
                               fontSize: 12,
-                              shadows: [
-                                Shadow(color: ColorRes.white, blurRadius: 10)
-                              ],
+                              shadows: [Shadow(color: ColorRes.white, blurRadius: 10)],
                             ),
                           ),
                         ],
@@ -125,10 +107,7 @@ class ReelCard extends StatelessWidget {
               onTap: onDeleteReel != null ? () => onDeleteReel!(reel) : () {},
               child: Container(
                 padding: const EdgeInsets.all(3.0),
-                decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
-                      color: ColorRes.white.withOpacity(.2), blurRadius: 10)
-                ]),
+                decoration: BoxDecoration(boxShadow: [BoxShadow(color: ColorRes.white.withOpacity(.2), blurRadius: 10)]),
                 child: Image.asset(
                   AssetRes.icDelete,
                   height: 25,

@@ -69,8 +69,7 @@ class ProfileScreenController extends GetxController {
     if (doctorData.value == null) {
       isLoading.value = true;
     }
-    Registration data = await ApiService.instance
-        .fetchMyDoctorProfile(doctorId: doctorData.value?.id ?? PrefService.id);
+    Registration data = await ApiService.instance.fetchMyDoctorProfile(doctorId: doctorData.value?.id ?? PrefService.id);
     if (data.status == true) {
       doctorData.value = data.data;
     }
@@ -127,9 +126,7 @@ class ProfileScreenController extends GetxController {
   void fetchDoctorReview() {
     if (hasNoMoreReview) return;
     isReviewLoading.value = true;
-    ApiService.instance
-        .fetchDoctorReviews(start: reviewData.length)
-        .then((value) {
+    ApiService.instance.fetchDoctorReviews(start: reviewData.length).then((value) {
       if (value.status == true) {
         reviewData.addAll(value.data ?? []);
       }
@@ -148,18 +145,10 @@ class ProfileScreenController extends GetxController {
   }
 
   void onAddReel() {
-    picker
-        .pickVideo(
-            source: ImageSource.gallery,
-            maxDuration: const Duration(seconds: 60))
-        .then((value) async {
+    picker.pickVideo(source: ImageSource.gallery, maxDuration: const Duration(seconds: 60)).then((value) async {
       if (value != null) {
-        String? videoThumbnail =
-            await VideoThumbnail.thumbnailFile(video: value.path);
-        Get.to<Reel>(() => UploadReelScreen(
-            thumbnail: videoThumbnail ?? '',
-            videoUrl: value.path,
-            doctorData: doctorData.value))?.then(
+        String? videoThumbnail = await VideoThumbnail.thumbnailFile(video: value.path);
+        Get.to<Reel>(() => UploadReelScreen(thumbnail: videoThumbnail ?? '', videoUrl: value.path, doctorData: doctorData.value))?.then(
           (value) {
             if (value != null) {
               reels.insert(0, value);
@@ -185,25 +174,17 @@ class ProfileScreenController extends GetxController {
           }
           isReelLoading.value = false;
         },
-        param: {
-          pDoctorId: PrefService.id,
-          pStart: reels.length,
-          pCount: paginationLimit
-        });
+        param: {pDoctorId: PrefService.id, pStart: reels.length, pCount: paginationLimit});
   }
 
   void loadMoreReel() {
-    if (scrollController.hasClients &&
-        scrollController.offset == scrollController.position.maxScrollExtent &&
-        !isReelLoading.value) {
+    if (scrollController.hasClients && scrollController.offset == scrollController.position.maxScrollExtent && !isReelLoading.value) {
       fetchDoctorReels();
     }
   }
 
   void _loadMoreReview() {
-    if (scrollController.hasClients &&
-        scrollController.offset == scrollController.position.maxScrollExtent &&
-        !isReviewLoading.value) {
+    if (scrollController.hasClients && scrollController.offset == scrollController.position.maxScrollExtent && !isReviewLoading.value) {
       fetchDoctorReview();
     }
   }
@@ -218,8 +199,7 @@ class ProfileScreenController extends GetxController {
           completion: (response) {
             ApiStatus data = ApiStatus.fromJson(response);
             if (data.status == true) {
-              reels.removeWhere(
-                  (element) => element.id?.toInt() == reel.id?.toInt());
+              reels.removeWhere((element) => element.id?.toInt() == reel.id?.toInt());
             }
           },
         );

@@ -43,8 +43,7 @@ class WalletScreenController extends GetxController {
   void fetchScrollData() {
     scrollController.addListener(
       () {
-        if (scrollController.offset ==
-            scrollController.position.maxScrollExtent) {
+        if (scrollController.offset == scrollController.position.maxScrollExtent) {
           if (!isLoading) {
             fetchDoctorWalletStatementApiCall();
           }
@@ -63,7 +62,7 @@ class WalletScreenController extends GetxController {
   void onWithdrawTap() {
     if (doctorData?.bankAccount == null) {
       CustomUi.snackBar(
-          message: S.current.pleaseAddYourBankEtc,
+        message: S.current.pleaseAddYourBankEtc,
       );
       return;
     }
@@ -71,7 +70,7 @@ class WalletScreenController extends GetxController {
       ApiService.instance.submitDoctorWithdrawRequest().then((value) {
         if (value.status == true) {
           CustomUi.snackBar(
-              message: value.message,
+            message: value.message,
           );
           ApiService.instance.fetchMyDoctorProfile().then((value) {
             doctorData = value.data;
@@ -85,8 +84,7 @@ class WalletScreenController extends GetxController {
       });
     } else {
       CustomUi.snackBar(
-          message:
-              '${S.current.minimumAmountToWithdraw} ${settings?.minAmountPayoutDoctor}',
+        message: '${S.current.minimumAmountToWithdraw} ${settings?.minAmountPayoutDoctor}',
       );
     }
   }

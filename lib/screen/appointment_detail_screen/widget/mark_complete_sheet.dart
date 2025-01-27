@@ -71,8 +71,7 @@ class MarkCompleteSheet extends StatelessWidget {
                         hintTitle: S.current.writeHere,
                         controller: controller.diagnosedController,
                         textFieldHeight: 150,
-                        errorColor:
-                            controller.isDiagnosed ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
+                        errorColor: controller.isDiagnosed ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
                         hintTextColor: controller.isDiagnosed ? ColorRes.bittersweet : ColorRes.silverChalice,
                       );
                     }),
@@ -88,8 +87,7 @@ class MarkCompleteSheet extends StatelessWidget {
                         textInputType: TextInputType.number,
                         maxLength: 4,
                         textAlign: TextAlign.left,
-                        errorColor:
-                            controller.isCompletionOtp ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
+                        errorColor: controller.isCompletionOtp ? ColorRes.bittersweet.withOpacity(0.2) : ColorRes.whiteSmoke,
                         hintTextColor: controller.isCompletionOtp ? ColorRes.bittersweet : ColorRes.silverChalice,
                       );
                     }),

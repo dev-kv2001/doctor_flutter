@@ -16,8 +16,7 @@ class AddSlotDialog extends StatefulWidget {
   final int daysIndex;
   final List<AppointmentSlot> appointmentSlot;
 
-  const AddSlotDialog(
-      {super.key, required this.daysIndex, required this.appointmentSlot});
+  const AddSlotDialog({super.key, required this.daysIndex, required this.appointmentSlot});
 
   @override
   State<AddSlotDialog> createState() => _AddSlotDialogState();
@@ -70,18 +69,8 @@ class _AddSlotDialogState extends State<AddSlotDialog> {
                   ).then((value) {
                     if (value != null) {
                       DateTime now = DateTime.now();
-                      time = DateFormat('hh:mm a', 'en').format(DateTime(
-                          now.year,
-                          now.month,
-                          now.day,
-                          value.hour,
-                          value.minute));
-                      slotTime = DateFormat('HHmm', 'en').format(DateTime(
-                          now.year,
-                          now.month,
-                          now.day,
-                          value.hour,
-                          value.minute));
+                      time = DateFormat('hh:mm a', 'en').format(DateTime(now.year, now.month, now.day, value.hour, value.minute));
+                      slotTime = DateFormat('HHmm', 'en').format(DateTime(now.year, now.month, now.day, value.hour, value.minute));
                       setState(() {});
                     }
                   });
@@ -90,9 +79,7 @@ class _AddSlotDialogState extends State<AddSlotDialog> {
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   height: 45,
                   width: 150,
-                  decoration: BoxDecoration(
-                      color: ColorRes.silverChalice.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(5)),
+                  decoration: BoxDecoration(color: ColorRes.silverChalice.withOpacity(0.2), borderRadius: BorderRadius.circular(5)),
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Row(
@@ -107,10 +94,7 @@ class _AddSlotDialogState extends State<AddSlotDialog> {
                         ),
                         Text(
                           time,
-                          style: const TextStyle(
-                              fontFamily: FontRes.semiBold,
-                              fontSize: 15,
-                              color: ColorRes.smokeyGrey),
+                          style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 15, color: ColorRes.smokeyGrey),
                         )
                       ],
                     ),
@@ -132,9 +116,7 @@ class _AddSlotDialogState extends State<AddSlotDialog> {
               Container(
                 height: 50,
                 width: 150,
-                decoration: BoxDecoration(
-                    color: ColorRes.silverChalice.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(5)),
+                decoration: BoxDecoration(color: ColorRes.silverChalice.withOpacity(0.2), borderRadius: BorderRadius.circular(5)),
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.center,
                 child: DropdownButton<String>(
@@ -145,26 +127,19 @@ class _AddSlotDialogState extends State<AddSlotDialog> {
                   elevation: 16,
                   borderRadius: BorderRadius.circular(10),
                   alignment: Alignment.center,
-                  style: const TextStyle(
-                      fontFamily: FontRes.semiBold,
-                      fontSize: 15,
-                      color: ColorRes.smokeyGrey),
+                  style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 15, color: ColorRes.smokeyGrey),
                   underline: const SizedBox(),
                   onChanged: (String? value) {
                     slotLimit = value ?? '1';
                     setState(() {});
                   },
-                  items: CommonFun.getSlotsBookingLimit
-                      .map<DropdownMenuItem<String>>((String value) {
+                  items: CommonFun.getSlotsBookingLimit.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       alignment: Alignment.center,
                       child: Text(
                         value,
-                        style: const TextStyle(
-                            fontFamily: FontRes.semiBold,
-                            fontSize: 15,
-                            color: ColorRes.smokeyGrey),
+                        style: const TextStyle(fontFamily: FontRes.semiBold, fontSize: 15, color: ColorRes.smokeyGrey),
                         textAlign: TextAlign.center,
                       ),
                     );
@@ -175,12 +150,7 @@ class _AddSlotDialogState extends State<AddSlotDialog> {
               TextButtonCustom(
                 onPressed: () {
                   CustomUi.loader();
-                  ApiService.instance
-                      .addAppointmentSlots(
-                          time: slotTime,
-                          weekday: widget.daysIndex,
-                          bookingLimit: slotLimit)
-                      .then((value) {
+                  ApiService.instance.addAppointmentSlots(time: slotTime, weekday: widget.daysIndex, bookingLimit: slotLimit).then((value) {
                     Get.back();
                     Get.back();
                     if (value.status == true) {

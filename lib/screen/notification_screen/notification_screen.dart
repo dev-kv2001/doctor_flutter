@@ -22,15 +22,13 @@ class NotificationScreen extends StatelessWidget {
             builder: (context) {
               return controller.isLoading
                   ? CustomUi.loaderWidget()
-                  : controller.notifications == null ||
-                          controller.notifications!.isEmpty
+                  : controller.notifications == null || controller.notifications!.isEmpty
                       ? CustomUi.noDataImage()
                       : ListView.builder(
                           controller: controller.notificationController,
                           itemCount: controller.notifications?.length,
                           padding: EdgeInsets.zero,
-                          itemBuilder: (context, index) => NotificationCard(
-                              data: controller.notifications?[index]),
+                          itemBuilder: (context, index) => NotificationCard(data: controller.notifications?[index]),
                         );
             },
           ),

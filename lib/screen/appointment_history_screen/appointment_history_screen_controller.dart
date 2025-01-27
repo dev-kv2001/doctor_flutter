@@ -33,8 +33,7 @@ class AppointmentHistoryScreenController extends GetxController {
 
   void fetchScrollData() {
     scrollController.addListener(() {
-      if (scrollController.offset ==
-          scrollController.position.maxScrollExtent) {
+      if (scrollController.offset == scrollController.position.maxScrollExtent) {
         if (!isLoading) {
           fetchAppointmentHistoryApiCall();
         }
@@ -43,8 +42,7 @@ class AppointmentHistoryScreenController extends GetxController {
   }
 
   void onAppointmentCardTap(AppointmentData? appointmentData) {
-    Get.to(() => const AppointmentDetailScreen(), arguments: appointmentData)
-        ?.then((value) {
+    Get.to(() => const AppointmentDetailScreen(), arguments: appointmentData)?.then((value) {
       start == 0;
       fetchAppointmentHistoryApiCall();
     });

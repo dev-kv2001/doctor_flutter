@@ -29,14 +29,11 @@ class ListOfCategory extends StatelessWidget {
                   controller.onCategoryChange(index);
                 },
                 child: Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 1.5, vertical: 5),
+                  margin: const EdgeInsets.symmetric(horizontal: 1.5, vertical: 5),
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    gradient: controller.selectedCategory == index
-                        ? StyleRes.linearGradient
-                        : StyleRes.linearGreyGradient,
+                    gradient: controller.selectedCategory == index ? StyleRes.linearGradient : StyleRes.linearGreyGradient,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Text(
@@ -44,9 +41,7 @@ class ListOfCategory extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       fontFamily: FontRes.semiBold,
-                      color: controller.selectedCategory == index
-                          ? ColorRes.white
-                          : ColorRes.starDust,
+                      color: controller.selectedCategory == index ? ColorRes.white : ColorRes.starDust,
                     ),
                   ),
                 ),

@@ -3,91 +3,55 @@ import 'package:doctor_flutter/utils/const_res.dart';
 class Urls {
   ///------------------------ Urls ------------------------///
 
-  static const String doctorRegistration =
-      '${ConstRes.baseURL}doctorRegistration';
-  static const String updateDoctorDetails =
-      '${ConstRes.baseURL}updateDoctorDetails';
-  static const String fetchDoctorCategories =
-      '${ConstRes.baseURL}fetchDoctorCategories';
-  static const String suggestDoctorCategory =
-      '${ConstRes.baseURL}suggestDoctorCategory';
-  static const String fetchDoctorNotifications =
-      '${ConstRes.baseURL}fetchDoctorNotifications';
+  static const String doctorRegistration = '${ConstRes.baseURL}doctorRegistration';
+  static const String updateDoctorDetails = '${ConstRes.baseURL}updateDoctorDetails';
+  static const String fetchDoctorCategories = '${ConstRes.baseURL}fetchDoctorCategories';
+  static const String suggestDoctorCategory = '${ConstRes.baseURL}suggestDoctorCategory';
+  static const String fetchDoctorNotifications = '${ConstRes.baseURL}fetchDoctorNotifications';
   static const String addEditService = '${ConstRes.baseURL}addEditService';
   static const String addEditExpertise = '${ConstRes.baseURL}addEditExpertise';
-  static const String addEditExperience =
-      '${ConstRes.baseURL}addEditExperience';
+  static const String addEditExperience = '${ConstRes.baseURL}addEditExperience';
   static const String addEditAwards = '${ConstRes.baseURL}addEditAwards';
   static const String addHoliday = '${ConstRes.baseURL}addHoliday';
   static const String deleteHoliday = '${ConstRes.baseURL}deleteHoliday';
-  static const String addEditServiceLocations =
-      '${ConstRes.baseURL}addEditServiceLocations';
-  static const String addAppointmentSlots =
-      '${ConstRes.baseURL}addAppointmentSlots';
-  static const String deleteAppointmentSlot =
-      '${ConstRes.baseURL}deleteAppointmentSlot';
-  static const String manageDrBankAccount =
-      '${ConstRes.baseURL}manageDrBankAccount';
-  static const String acceptAppointment =
-      '${ConstRes.baseURL}acceptAppointment';
-  static const String declineAppointment =
-      '${ConstRes.baseURL}declineAppointment';
-  static const String fetchAppointmentRequests =
-      '${ConstRes.baseURL}fetchAppointmentRequests';
-  static const String fetchAppointmentDetails =
-      '${ConstRes.baseURL}fetchAppointmentDetails';
-  static const String fetchAcceptedAppointsByDate =
-      '${ConstRes.baseURL}fetchAcceptedAppointsByDate';
-  static const String fetchAppointmentHistory =
-      '${ConstRes.baseURL}fetchAppointmentHistory';
+  static const String addEditServiceLocations = '${ConstRes.baseURL}addEditServiceLocations';
+  static const String addAppointmentSlots = '${ConstRes.baseURL}addAppointmentSlots';
+  static const String deleteAppointmentSlot = '${ConstRes.baseURL}deleteAppointmentSlot';
+  static const String manageDrBankAccount = '${ConstRes.baseURL}manageDrBankAccount';
+  static const String acceptAppointment = '${ConstRes.baseURL}acceptAppointment';
+  static const String declineAppointment = '${ConstRes.baseURL}declineAppointment';
+  static const String fetchAppointmentRequests = '${ConstRes.baseURL}fetchAppointmentRequests';
+  static const String fetchAppointmentDetails = '${ConstRes.baseURL}fetchAppointmentDetails';
+  static const String fetchAcceptedAppointsByDate = '${ConstRes.baseURL}fetchAcceptedAppointsByDate';
+  static const String fetchAppointmentHistory = '${ConstRes.baseURL}fetchAppointmentHistory';
   static const String addPrescription = '${ConstRes.baseURL}addPrescription';
   static const String editPrescription = '${ConstRes.baseURL}editPrescription';
-  static const String completeAppointment =
-      '${ConstRes.baseURL}completeAppointment';
-  static const String fetchDoctorWalletStatement =
-      '${ConstRes.baseURL}fetchDoctorWalletStatement';
-  static const String submitDoctorWithdrawRequest =
-      '${ConstRes.baseURL}submitDoctorWithdrawRequest';
-  static const String fetchDoctorReviews =
-      '${ConstRes.baseURL}fetchDoctorReviews';
-  static const String fetchDoctorEarningHistory =
-      '${ConstRes.baseURL}fetchDoctorEarningHistory';
-  static const String fetchDoctorPayoutHistory =
-      '${ConstRes.baseURL}fetchDoctorPayoutHistory';
-  static const String checkMobileNumberExists =
-      '${ConstRes.baseURL}checkMobileNumberExists';
+  static const String completeAppointment = '${ConstRes.baseURL}completeAppointment';
+  static const String fetchDoctorWalletStatement = '${ConstRes.baseURL}fetchDoctorWalletStatement';
+  static const String submitDoctorWithdrawRequest = '${ConstRes.baseURL}submitDoctorWithdrawRequest';
+  static const String fetchDoctorReviews = '${ConstRes.baseURL}fetchDoctorReviews';
+  static const String fetchDoctorEarningHistory = '${ConstRes.baseURL}fetchDoctorEarningHistory';
+  static const String fetchDoctorPayoutHistory = '${ConstRes.baseURL}fetchDoctorPayoutHistory';
+  static const String checkMobileNumberExists = '${ConstRes.baseURL}checkMobileNumberExists';
   static const String fetchFaqCats = '${ConstRes.baseURL}fetchFaqCats';
-  static const String fetchGlobalSettings =
-      '${ConstRes.base}api/fetchGlobalSettings';
+  static const String fetchGlobalSettings = '${ConstRes.base}api/fetchGlobalSettings';
   static const String logOutDoctor = '${ConstRes.baseURL}logOutDoctor';
-  static const String deleteDoctorAccount =
-      '${ConstRes.baseURL}deleteDoctorAccount';
-  static const String uploadFileGivePath =
-      '${ConstRes.base}api/uploadFileGivePath';
-  static const String generateAgoraToken =
-      '${ConstRes.base}api/generateAgoraToken';
+  static const String deleteDoctorAccount = '${ConstRes.baseURL}deleteDoctorAccount';
+  static const String uploadFileGivePath = '${ConstRes.base}api/uploadFileGivePath';
+  static const String generateAgoraToken = '${ConstRes.base}api/generateAgoraToken';
   static const String reportReel = '${ConstRes.base}api/reportReel';
   static const String fetchUserDetails = '${ConstRes.baseURL}fetchUserDetails';
-  static const String pushNotificationToSingleUser =
-      '${ConstRes.baseURL}pushNotificationToSingleUser';
+  static const String pushNotificationToSingleUser = '${ConstRes.baseURL}pushNotificationToSingleUser';
   static const String fetchSavedReels = '${ConstRes.baseURL}fetchSavedReels';
-  static const String uploadReelByDoctor =
-      '${ConstRes.baseURL}uploadReelByDoctor';
-  static const String fetchMyReelsDoctorApp =
-      '${ConstRes.baseURL}fetchMyReels_DoctorApp';
-  static const String addCommentOnReelDoctorApp =
-      '${ConstRes.baseURL}addCommentOnReelDoctorApp';
-  static const String increaseReelViewCount =
-      '${ConstRes.baseURL}increaseReelViewCount';
-  static const String likeReelDoctorApp =
-      '${ConstRes.baseURL}likeReelDoctorApp';
+  static const String uploadReelByDoctor = '${ConstRes.baseURL}uploadReelByDoctor';
+  static const String fetchMyReelsDoctorApp = '${ConstRes.baseURL}fetchMyReels_DoctorApp';
+  static const String addCommentOnReelDoctorApp = '${ConstRes.baseURL}addCommentOnReelDoctorApp';
+  static const String increaseReelViewCount = '${ConstRes.baseURL}increaseReelViewCount';
+  static const String likeReelDoctorApp = '${ConstRes.baseURL}likeReelDoctorApp';
   static const String deleteReel = '${ConstRes.baseURL}deleteReel';
-  static const String fetchReelsDoctorApp =
-      '${ConstRes.baseURL}fetchReelsDoctorApp';
-  static const String fetchReelComments =
-      '${ConstRes.baseURL}fetchReelComments';
-  static const String fetchReelByIdDoctor =
-      '${ConstRes.baseURL}fetchReelByIdDoctor';
+  static const String fetchReelsDoctorApp = '${ConstRes.baseURL}fetchReelsDoctorApp';
+  static const String fetchReelComments = '${ConstRes.baseURL}fetchReelComments';
+  static const String fetchReelByIdDoctor = '${ConstRes.baseURL}fetchReelByIdDoctor';
 
   static String fetchMyDoctorProfile(int? id) {
     return '${ConstRes.baseURL}fetchMyDoctorProfile?doctor_id=$id';

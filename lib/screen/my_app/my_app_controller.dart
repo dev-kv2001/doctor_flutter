@@ -11,8 +11,7 @@ import 'package:get/get.dart';
 
 class MyAppController extends GetxController {
   FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
   PrefService prefService = PrefService();
   String languageCode = Platform.localeName.split('_')[0];
 
@@ -26,9 +25,7 @@ class MyAppController extends GetxController {
 
   void fetchSettingData() {
     ApiService.instance.fetchGlobalSettings().then((value) {
-      dollar = value.data?.currency == null || value.data!.currency!.isEmpty
-          ? '\$'
-          : (value.data?.currency ?? '\$');
+      dollar = value.data?.currency == null || value.data!.currency!.isEmpty ? '\$' : (value.data?.currency ?? '\$');
     });
   }
 }

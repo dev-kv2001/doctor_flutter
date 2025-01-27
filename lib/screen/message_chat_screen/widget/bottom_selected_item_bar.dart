@@ -9,12 +9,7 @@ class BottomSelectedItemBar extends StatelessWidget {
   final int selectedItemCount;
   final VoidCallback onItemDelete;
 
-  const BottomSelectedItemBar(
-      {Key? key,
-      required this.onBackTap,
-      required this.selectedItemCount,
-      required this.onItemDelete})
-      : super(key: key);
+  const BottomSelectedItemBar({Key? key, required this.onBackTap, required this.selectedItemCount, required this.onItemDelete}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +24,7 @@ class BottomSelectedItemBar extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Align(
-              alignment: Directionality.of(context) == TextDirection.rtl
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft,
+              alignment: Directionality.of(context) == TextDirection.rtl ? Alignment.centerRight : Alignment.centerLeft,
               child: InkWell(
                 onTap: onBackTap,
                 child: const Icon(
@@ -45,8 +38,7 @@ class BottomSelectedItemBar extends StatelessWidget {
               children: [
                 AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
-                  transitionBuilder:
-                      (Widget child, Animation<double> animation) {
+                  transitionBuilder: (Widget child, Animation<double> animation) {
                     return ScaleTransition(scale: animation, child: child);
                   },
                   child: Text(
@@ -61,17 +53,12 @@ class BottomSelectedItemBar extends StatelessWidget {
                 ),
                 Text(
                   S.current.selectMsg,
-                  style: const TextStyle(
-                      fontSize: 15,
-                      color: ColorRes.grey,
-                      fontFamily: FontRes.semiBold),
+                  style: const TextStyle(fontSize: 15, color: ColorRes.grey, fontFamily: FontRes.semiBold),
                 ),
               ],
             ),
             Align(
-              alignment: Directionality.of(context) == TextDirection.rtl
-                  ? Alignment.centerLeft
-                  : Alignment.centerRight,
+              alignment: Directionality.of(context) == TextDirection.rtl ? Alignment.centerLeft : Alignment.centerRight,
               child: InkWell(
                 onTap: onItemDelete,
                 child: const Icon(

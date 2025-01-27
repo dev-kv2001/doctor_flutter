@@ -44,12 +44,10 @@ class ProfileScreen extends StatelessWidget {
                             SliverToBoxAdapter(
                               child: Column(
                                 children: [
-                                  ProfileTopBarCard(
-                                      doctorData: controller.doctorData),
+                                  ProfileTopBarCard(doctorData: controller.doctorData),
                                   ProfileCategory(controller: controller),
                                   _buildSelectedPage(controller),
-                                  SizedBox(
-                                      height: AppBar().preferredSize.height),
+                                  SizedBox(height: AppBar().preferredSize.height),
                                 ],
                               ),
                             ),
@@ -64,8 +62,7 @@ class ProfileScreen extends StatelessWidget {
                     ? FloatingActionButton(
                         onPressed: controller.onAddReel,
                         backgroundColor: ColorRes.havelockBlue,
-                        child: Image.asset(AssetRes.icReel,
-                            height: 30, width: 30, color: ColorRes.white))
+                        child: Image.asset(AssetRes.icReel, height: 30, width: 30, color: ColorRes.white))
                     : const SizedBox();
               },
             ));
@@ -99,19 +96,14 @@ class ProfileScreen extends StatelessWidget {
       stretch: true,
       shadowColor: Colors.transparent,
       leadingWidth: 0,
-      titleTextStyle: const TextStyle(
-          fontFamily: FontRes.extraBold,
-          color: ColorRes.charcoalGrey,
-          fontSize: 23),
+      titleTextStyle: const TextStyle(fontFamily: FontRes.extraBold, color: ColorRes.charcoalGrey, fontSize: 23),
       centerTitle: false,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: Text(
-              controller.opacity.value == 0
-                  ? controller.doctorData.value?.name ?? S.current.unKnown
-                  : '',
+              controller.opacity.value == 0 ? controller.doctorData.value?.name ?? S.current.unKnown : '',
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),
@@ -133,16 +125,14 @@ class ProfileScreen extends StatelessWidget {
 
   // Build SliverAppBar background image
   Widget _buildSliverAppBarBackground(ProfileScreenController controller) {
-    return ImageBuilderCustom(controller.doctorData.value?.image,
-        name: controller.doctorData.value?.name, size: 200, radius: 0);
+    return ImageBuilderCustom(controller.doctorData.value?.image, name: controller.doctorData.value?.name, size: 200, radius: 0);
   }
 }
 
 class DoctorSettingBtn extends StatelessWidget {
   final ProfileScreenController controller;
 
-  const DoctorSettingBtn({Key? key, required this.controller})
-      : super(key: key);
+  const DoctorSettingBtn({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -159,10 +149,7 @@ class DoctorSettingBtn extends StatelessWidget {
                 child: InkWell(
                   onTap: controller.onSettingTap,
                   child: Obx(
-                    () => Image.asset(AssetRes.icSetting,
-                        color: controller.opacity.value > 0.01
-                            ? Colors.white
-                            : Colors.black),
+                    () => Image.asset(AssetRes.icSetting, color: controller.opacity.value > 0.01 ? Colors.white : Colors.black),
                   ),
                 ),
               ),

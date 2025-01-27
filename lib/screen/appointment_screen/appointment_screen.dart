@@ -37,9 +37,7 @@ class AppointmentScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   _AppointmentCount(controller: controller),
                   const SizedBox(height: 10),
-                  SearchTextField(
-                      controller: controller.searchController,
-                      onChanged: controller.onSearchChanged),
+                  SearchTextField(controller: controller.searchController, onChanged: controller.onSearchChanged),
                   const SizedBox(height: 10),
                   AppointmentCard(controller: controller),
                 ],
@@ -65,8 +63,7 @@ class AppointmentScreen extends StatelessWidget {
 class _AppointmentHeader extends StatelessWidget {
   final AppointmentScreenController controller;
 
-  const _AppointmentHeader({Key? key, required this.controller})
-      : super(key: key);
+  const _AppointmentHeader({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,10 +88,7 @@ class _AppointmentHeader extends StatelessWidget {
                 Obx(
                   () => Text(
                     "${DateFormat.MMMM().format(controller.selectedDay.value)} ${controller.selectedDay.value.year}",
-                    style: const TextStyle(
-                        fontSize: 15,
-                        fontFamily: FontRes.semiBold,
-                        color: ColorRes.tuftsBlue),
+                    style: const TextStyle(fontSize: 15, fontFamily: FontRes.semiBold, color: ColorRes.tuftsBlue),
                   ),
                 ),
                 const SizedBox(width: 5),
@@ -131,11 +125,9 @@ class _DateSelector extends StatelessWidget {
                 return DateView(
                     key: dateKey,
                     onTap: () {
-                      controller.onSelectedDateClick(
-                          dateTime: time, index: index);
+                      controller.onSelectedDateClick(dateTime: time, index: index);
                     },
-                    isSelected: controller.selectedDay.value
-                        .isSameDate(controller.days[index]),
+                    isSelected: controller.selectedDay.value.isSameDate(controller.days[index]),
                     time: time);
               },
             );
@@ -150,8 +142,7 @@ class _DateSelector extends StatelessWidget {
 class _AppointmentCount extends StatelessWidget {
   final AppointmentScreenController controller;
 
-  const _AppointmentCount({Key? key, required this.controller})
-      : super(key: key);
+  const _AppointmentCount({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -176,11 +167,7 @@ class DateView extends StatelessWidget {
   final bool isSelected;
   final DateTime time;
 
-  const DateView(
-      {super.key,
-      required this.onTap,
-      required this.isSelected,
-      required this.time});
+  const DateView({super.key, required this.onTap, required this.isSelected, required this.time});
 
   @override
   Widget build(BuildContext context) {
@@ -191,15 +178,8 @@ class DateView extends StatelessWidget {
         width: 63,
         margin: const EdgeInsets.symmetric(horizontal: 4),
         decoration: ShapeDecoration(
-            shape: SmoothRectangleBorder(
-                borderRadius:
-                    SmoothBorderRadius(cornerRadius: 10, cornerSmoothing: 1)),
-            shadows: !isSelected
-                ? null
-                : [
-                    BoxShadow(
-                        color: Colors.black.withOpacity(.15), blurRadius: 5.0)
-                  ],
+            shape: SmoothRectangleBorder(borderRadius: SmoothBorderRadius(cornerRadius: 10, cornerSmoothing: 1)),
+            shadows: !isSelected ? null : [BoxShadow(color: Colors.black.withOpacity(.15), blurRadius: 5.0)],
             color: isSelected ? ColorRes.havelockBlue : ColorRes.softPeach),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -207,10 +187,7 @@ class DateView extends StatelessWidget {
           children: [
             Text(
               DateFormat.E().format(time).toUpperCase(),
-              style: TextStyle(
-                  color: isSelected ? ColorRes.white : ColorRes.charcoalGrey,
-                  fontSize: 12,
-                  fontFamily: FontRes.medium),
+              style: TextStyle(color: isSelected ? ColorRes.white : ColorRes.charcoalGrey, fontSize: 12, fontFamily: FontRes.medium),
             ),
             const SizedBox(height: 1),
             Text(
@@ -232,22 +209,19 @@ class SearchTextField extends StatelessWidget {
   final TextEditingController controller;
   final Function(String value) onChanged;
 
-  const SearchTextField(
-      {super.key, required this.controller, required this.onChanged});
+  const SearchTextField({super.key, required this.controller, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 45,
       margin: const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-          color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(30)),
+      decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(30)),
       alignment: Alignment.center,
       child: TextField(
           controller: controller,
           onChanged: onChanged,
-          onTapOutside: (event) =>
-              FocusManager.instance.primaryFocus?.unfocus(),
+          onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
           decoration: InputDecoration(
             isDense: true,
             border: InputBorder.none,
@@ -255,10 +229,7 @@ class SearchTextField extends StatelessWidget {
             hintText: S.current.search,
             hintStyle: const TextStyle(color: ColorRes.nobel),
           ),
-          style: const TextStyle(
-              fontFamily: FontRes.medium,
-              fontSize: 15,
-              color: ColorRes.charcoalGrey),
+          style: const TextStyle(fontFamily: FontRes.medium, fontSize: 15, color: ColorRes.charcoalGrey),
           cursorHeight: 15,
           cursorColor: ColorRes.charcoalGrey),
     );

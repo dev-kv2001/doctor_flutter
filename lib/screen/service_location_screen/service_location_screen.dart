@@ -125,8 +125,7 @@ class _PopUpMenuCustomState extends State<PopUpMenuCustom> {
     return PopupMenuButton(
       color: ColorRes.whiteSmoke,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15), bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(15), bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
       ),
       child: Image.asset(
         AssetRes.icMore,

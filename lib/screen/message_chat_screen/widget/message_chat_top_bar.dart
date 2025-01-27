@@ -13,9 +13,7 @@ class MessageChatTopBar extends StatelessWidget {
   final Conversation? conversation;
   final MessageChatScreenController controller;
 
-  const MessageChatTopBar(
-      {Key? key, required this.conversation, required this.controller})
-      : super(key: key);
+  const MessageChatTopBar({Key? key, required this.conversation, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +49,9 @@ class MessageChatTopBar extends StatelessWidget {
                       width: 50,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border:
-                            Border.all(color: ColorRes.tuftsBlue, width: 2.5),
+                        border: Border.all(color: ColorRes.tuftsBlue, width: 2.5),
                       ),
-                      child: ImageBuilderCustom(user?.image,
-                          size: 70, name: user?.username)),
+                      child: ImageBuilderCustom(user?.image, size: 70, name: user?.username)),
                   const SizedBox(
                     width: 10,
                   ),
@@ -110,9 +106,7 @@ class MessageChatTopBar extends StatelessWidget {
                         aspectRatio: 1.7,
                         onPositiveTap: controller.onChatItemDelete,
                         title1: S.of(context).deleteMessage,
-                        title2: S
-                            .of(context)
-                            .areYouSureYouWantToDeleteThisMessageOnce,
+                        title2: S.of(context).areYouSureYouWantToDeleteThisMessageOnce,
                         positiveText: S.current.delete,
                       ),
                     );
@@ -126,4 +120,3 @@ class MessageChatTopBar extends StatelessWidget {
     );
   }
 }
-

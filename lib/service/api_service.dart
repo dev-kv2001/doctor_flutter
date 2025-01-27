@@ -13,8 +13,7 @@ import 'package:doctor_flutter/model/global/faq_cat.dart';
 import 'package:doctor_flutter/model/global/get_path.dart';
 import 'package:doctor_flutter/model/global/global_setting.dart';
 import 'package:doctor_flutter/model/message/api_status.dart';
-import 'package:doctor_flutter/model/notification/notification.dart'
-    as notification;
+import 'package:doctor_flutter/model/notification/notification.dart' as notification;
 import 'package:doctor_flutter/model/review/review.dart';
 import 'package:doctor_flutter/model/user/fetch_user_detail.dart';
 import 'package:doctor_flutter/model/wallet/earning_history.dart';
@@ -42,13 +41,7 @@ class ApiService {
     http.Response response = await http.post(
       Uri.parse(Urls.doctorRegistration),
       headers: {pApiKeyName: ConstRes.apiKey},
-      body: {
-        pIdentity: identity,
-        pDeviceToken: deviceToken,
-        pName: name,
-        pIsLogin: '$isLogin',
-        pDeviceType: Platform.isAndroid ? '1' : '2'
-      },
+      body: {pIdentity: identity, pDeviceToken: deviceToken, pName: name, pIsLogin: '$isLogin', pDeviceType: Platform.isAndroid ? '1' : '2'},
     );
     debugPrint('${{
       pIdentity: identity,
@@ -57,12 +50,10 @@ class ApiService {
       pIsLogin: '$isLogin',
     }}');
     log(response.body);
-    Registration registration =
-        Registration.fromJson(jsonDecode(response.body));
+    Registration registration = Registration.fromJson(jsonDecode(response.body));
     PrefService prefService = PrefService();
     await prefService.init();
-    await prefService.saveString(
-        key: kRegistrationUser, value: jsonEncode(registration.data?.toJson()));
+    await prefService.saveString(key: kRegistrationUser, value: jsonEncode(registration.data?.toJson()));
     return registration;
   }
 
@@ -161,9 +152,7 @@ class ApiService {
       request.fields[pMobileNumber] = mobileNumber;
     }
     if (image != null) {
-      request.files.add(http.MultipartFile(
-          pImage, image.readAsBytes().asStream(), image.lengthSync(),
-          filename: image.path.split("/").last));
+      request.files.add(http.MultipartFile(pImage, image.readAsBytes().asStream(), image.lengthSync(), filename: image.path.split("/").last));
     }
     var response = await request.send();
     var respStr = await response.stream.bytesToString();
@@ -172,9 +161,7 @@ class ApiService {
 
     PrefService prefService = PrefService();
     await prefService.init();
-    await prefService.saveString(
-        key: kRegistrationUser,
-        value: jsonEncode(updateProfile.data?.toJson()));
+    await prefService.saveString(key: kRegistrationUser, value: jsonEncode(updateProfile.data?.toJson()));
     return updateProfile;
   }
 
@@ -183,13 +170,11 @@ class ApiService {
       Uri.parse(Urls.fetchDoctorCategories),
       headers: {pApiKeyName: ConstRes.apiKey},
     );
-    DoctorCategory doctorCategory =
-        DoctorCategory.fromJson(jsonDecode(response.body));
+    DoctorCategory doctorCategory = DoctorCategory.fromJson(jsonDecode(response.body));
     return doctorCategory;
   }
 
-  Future<ApiStatus> suggestDoctorCategory(
-      {String? title, String? about}) async {
+  Future<ApiStatus> suggestDoctorCategory({String? title, String? about}) async {
     http.Response response = await http.post(
       Uri.parse(Urls.suggestDoctorCategory),
       headers: {
@@ -204,8 +189,7 @@ class ApiService {
     return message;
   }
 
-  Future<notification.Notification> fetchDoctorNotifications(
-      {int? start}) async {
+  Future<notification.Notification> fetchDoctorNotifications({int? start}) async {
     http.Response response = await http.post(
       Uri.parse(Urls.fetchDoctorNotifications),
       headers: {
@@ -220,23 +204,19 @@ class ApiService {
   }
 
   Future<Registration> fetchMyDoctorProfile({int? doctorId}) async {
-    http.Response response = await http.post(
-        Uri.parse(Urls.fetchMyDoctorProfile(doctorId ?? PrefService.id)),
-        headers: {pApiKeyName: ConstRes.apiKey},
-        body: {pDoctorId: '${doctorId ?? PrefService.id}'});
+    http.Response response = await http.post(Uri.parse(Urls.fetchMyDoctorProfile(doctorId ?? PrefService.id)),
+        headers: {pApiKeyName: ConstRes.apiKey}, body: {pDoctorId: '${doctorId ?? PrefService.id}'});
 
     Registration data = Registration.fromJson(jsonDecode(response.body));
     PrefService prefService = PrefService();
     if (data.data?.id == PrefService.id) {
       await prefService.init();
-      await prefService.saveString(
-          key: kRegistrationUser, value: jsonEncode(data.data?.toJson()));
+      await prefService.saveString(key: kRegistrationUser, value: jsonEncode(data.data?.toJson()));
     }
     return data;
   }
 
-  Future<Registration> addEditService(
-      {String? title, int? apiType, int? serviceId}) async {
+  Future<Registration> addEditService({String? title, int? apiType, int? serviceId}) async {
     Map<String, dynamic> map = {};
     map[pDoctorId] = PrefService.id.toString();
     map[pTitle] = title;
@@ -255,8 +235,7 @@ class ApiService {
     return Registration.fromJson(jsonDecode(response.body));
   }
 
-  Future<Registration> addEditExpertise(
-      {String? title, int? apiType, int? expertiseId}) async {
+  Future<Registration> addEditExpertise({String? title, int? apiType, int? expertiseId}) async {
     Map<String, dynamic> map = {};
     map[pDoctorId] = PrefService.id.toString();
     map[pTitle] = title;
@@ -275,8 +254,7 @@ class ApiService {
     return Registration.fromJson(jsonDecode(response.body));
   }
 
-  Future<Registration> addEditExperience(
-      {String? title, int? apiType, int? experienceId}) async {
+  Future<Registration> addEditExperience({String? title, int? apiType, int? experienceId}) async {
     Map<String, dynamic> map = {};
     map[pDoctorId] = PrefService.id.toString();
     map[pTitle] = title;
@@ -295,8 +273,7 @@ class ApiService {
     return Registration.fromJson(jsonDecode(response.body));
   }
 
-  Future<Registration> addEditAwards(
-      {String? title, int? apiType, int? awardId}) async {
+  Future<Registration> addEditAwards({String? title, int? apiType, int? awardId}) async {
     Map<String, dynamic> map = {};
     map[pDoctorId] = PrefService.id.toString();
     map[pTitle] = title;
@@ -316,12 +293,7 @@ class ApiService {
   }
 
   Future<Registration> addEditServiceLocations(
-      {String? hospitalTitle,
-      String? hospitalAddress,
-      int? type,
-      int? serviceLocationId,
-      double? hospitalLat,
-      double? hospitalLong}) async {
+      {String? hospitalTitle, String? hospitalAddress, int? type, int? serviceLocationId, double? hospitalLat, double? hospitalLong}) async {
     Map<String, dynamic> map = {};
     map[pDoctorId] = PrefService.id.toString();
     map[pHospitalTitle] = hospitalTitle;
@@ -375,10 +347,7 @@ class ApiService {
     return ApiStatus.fromJson(jsonDecode(response.body));
   }
 
-  Future<AddSlot> addAppointmentSlots(
-      {required String time,
-      required int weekday,
-      required String bookingLimit}) async {
+  Future<AddSlot> addAppointmentSlots({required String time, required int weekday, required String bookingLimit}) async {
     Map<String, dynamic> map = {};
     map[pDoctorId] = PrefService.id.toString();
     map[pTime] = time;
@@ -436,8 +405,7 @@ class ApiService {
       request.fields[pSwiftCode] = swiftCode;
     }
     if (chequePhoto != null) {
-      request.files.add(http.MultipartFile(pChequePhoto,
-          chequePhoto.readAsBytes().asStream(), chequePhoto.lengthSync(),
+      request.files.add(http.MultipartFile(pChequePhoto, chequePhoto.readAsBytes().asStream(), chequePhoto.lengthSync(),
           filename: chequePhoto.path.split("/").last));
     }
     var response = await request.send();
@@ -446,8 +414,7 @@ class ApiService {
     Registration userData = Registration.fromJson(responseJson);
     PrefService prefService = PrefService();
     await prefService.init();
-    await prefService.saveString(
-        key: kRegistrationUser, value: jsonEncode(userData.data?.toJson()));
+    await prefService.saveString(key: kRegistrationUser, value: jsonEncode(userData.data?.toJson()));
 
     return userData;
   }
@@ -457,16 +424,12 @@ class ApiService {
     map[pDoctorId] = PrefService.id.toString();
     map[pStart] = start.toString();
     map[pCount] = '$paginationLimit';
-    http.Response response = await http.post(
-        Uri.parse(Urls.fetchAppointmentRequests),
-        headers: {pApiKeyName: ConstRes.apiKey},
-        body: map);
+    http.Response response = await http.post(Uri.parse(Urls.fetchAppointmentRequests), headers: {pApiKeyName: ConstRes.apiKey}, body: map);
 
     return AppointmentRequest.fromJson(jsonDecode(response.body));
   }
 
-  Future<AppointmentDetail> fetchAppointmentDetails(
-      {int? appointmentId}) async {
+  Future<AppointmentDetail> fetchAppointmentDetails({int? appointmentId}) async {
     Map<String, dynamic> map = {};
     map[pAppointmentId] = '$appointmentId';
     http.Response response = await http.post(
@@ -479,8 +442,7 @@ class ApiService {
     return AppointmentDetail.fromJson(jsonDecode(response.body));
   }
 
-  Future<ApiStatus> acceptAppointment(
-      {int? appointmentId, int? doctorId}) async {
+  Future<ApiStatus> acceptAppointment({int? appointmentId, int? doctorId}) async {
     Map<String, dynamic> map = {};
     map[pAppointmentId] = '$appointmentId';
     map[pDoctorId] = '$doctorId';
@@ -494,8 +456,7 @@ class ApiService {
     return ApiStatus.fromJson(jsonDecode(response.body));
   }
 
-  Future<ApiStatus> declineAppointment(
-      {int? appointmentId, int? doctorId}) async {
+  Future<ApiStatus> declineAppointment({int? appointmentId, int? doctorId}) async {
     Map<String, dynamic> map = {};
     map[pAppointmentId] = '$appointmentId';
     map[pDoctorId] = '$doctorId';
@@ -509,8 +470,7 @@ class ApiService {
     return ApiStatus.fromJson(jsonDecode(response.body));
   }
 
-  Future<AppointmentRequest> fetchAcceptedAppointsByDate(
-      {required String date}) async {
+  Future<AppointmentRequest> fetchAcceptedAppointsByDate({required String date}) async {
     http.Response response = await http.post(
       Uri.parse(Urls.fetchAcceptedAppointsByDate),
       headers: {pApiKeyName: ConstRes.apiKey},
@@ -519,11 +479,9 @@ class ApiService {
     return AppointmentRequest.fromJson(jsonDecode(response.body));
   }
 
-  Future<AppointmentRequest> fetchAppointmentHistory(
-      {required int? start}) async {
+  Future<AppointmentRequest> fetchAppointmentHistory({required int? start}) async {
     log(PrefService.id.toString());
-    http.Response response =
-        await http.post(Uri.parse(Urls.fetchAppointmentHistory), headers: {
+    http.Response response = await http.post(Uri.parse(Urls.fetchAppointmentHistory), headers: {
       pApiKeyName: ConstRes.apiKey,
     }, body: {
       pDoctorId: PrefService.id.toString(),
@@ -533,12 +491,8 @@ class ApiService {
     return AppointmentRequest.fromJson(jsonDecode(response.body));
   }
 
-  Future<ApiStatus> addPrescription(
-      {required int? appointmentId,
-      int? userId,
-      required Map<String, dynamic>? medicine}) async {
-    http.Response response =
-        await http.post(Uri.parse(Urls.addPrescription), headers: {
+  Future<ApiStatus> addPrescription({required int? appointmentId, int? userId, required Map<String, dynamic>? medicine}) async {
+    http.Response response = await http.post(Uri.parse(Urls.addPrescription), headers: {
       pApiKeyName: ConstRes.apiKey,
     }, body: {
       pAppointmentId: appointmentId.toString(),
@@ -548,10 +502,8 @@ class ApiService {
     return ApiStatus.fromJson(jsonDecode(response.body));
   }
 
-  Future<ApiStatus> editPrescription(
-      {int? prescriptionId, required Map<String, dynamic>? medicine}) async {
-    http.Response response =
-        await http.post(Uri.parse(Urls.editPrescription), headers: {
+  Future<ApiStatus> editPrescription({int? prescriptionId, required Map<String, dynamic>? medicine}) async {
+    http.Response response = await http.post(Uri.parse(Urls.editPrescription), headers: {
       pApiKeyName: ConstRes.apiKey,
     }, body: {
       pPrescriptionId: prescriptionId.toString(),
@@ -560,13 +512,8 @@ class ApiService {
     return ApiStatus.fromJson(jsonDecode(response.body));
   }
 
-  Future<ApiStatus> completeAppointment(
-      {int? appointmentId,
-      int? doctorId,
-      required String otp,
-      required String diagnoseWith}) async {
-    http.Response response =
-        await http.post(Uri.parse(Urls.completeAppointment), headers: {
+  Future<ApiStatus> completeAppointment({int? appointmentId, int? doctorId, required String otp, required String diagnoseWith}) async {
+    http.Response response = await http.post(Uri.parse(Urls.completeAppointment), headers: {
       pApiKeyName: ConstRes.apiKey,
     }, body: {
       pAppointmentId: appointmentId.toString(),
@@ -583,11 +530,7 @@ class ApiService {
       headers: {
         pApiKeyName: ConstRes.apiKey,
       },
-      body: {
-        pDoctorId: PrefService.id.toString(),
-        pStart: start.toString(),
-        pCount: '$paginationLimit'
-      },
+      body: {pDoctorId: PrefService.id.toString(), pStart: start.toString(), pCount: '$paginationLimit'},
     );
     return WalletStatement.fromJson(jsonDecode(response.body));
   }
@@ -611,46 +554,32 @@ class ApiService {
       headers: {
         pApiKeyName: ConstRes.apiKey,
       },
-      body: {
-        pDoctorId: PrefService.id.toString(),
-        pStart: start.toString(),
-        pCount: '$paginationLimit'
-      },
+      body: {pDoctorId: PrefService.id.toString(), pStart: start.toString(), pCount: '$paginationLimit'},
     );
     return Review.fromJson(jsonDecode(response.body));
   }
 
-  Future<EarningHistory> fetchDoctorEarningHistory(
-      {String? month, String? year}) async {
+  Future<EarningHistory> fetchDoctorEarningHistory({String? month, String? year}) async {
     http.Response response = await http.post(
       Uri.parse(Urls.fetchDoctorEarningHistory),
       headers: {
         pApiKeyName: ConstRes.apiKey,
       },
-      body: {
-        pDoctorId: PrefService.id.toString(),
-        pMonth: month.toString(),
-        pYear: year.toString()
-      },
+      body: {pDoctorId: PrefService.id.toString(), pMonth: month.toString(), pYear: year.toString()},
     );
     return EarningHistory.fromJson(jsonDecode(response.body));
   }
 
   Future<PayoutHistory> fetchDoctorPayoutHistory() async {
-    http.Response response = await http.post(
-        Uri.parse(Urls.fetchDoctorPayoutHistory),
-        headers: {pApiKeyName: ConstRes.apiKey},
-        body: {pDoctorId: PrefService.id.toString()});
+    http.Response response = await http
+        .post(Uri.parse(Urls.fetchDoctorPayoutHistory), headers: {pApiKeyName: ConstRes.apiKey}, body: {pDoctorId: PrefService.id.toString()});
 
     return PayoutHistory.fromJson(jsonDecode(response.body));
   }
 
-  Future<ApiStatus> checkMobileNumberExists(
-      {required String mobileNumber}) async {
-    http.Response response = await http.post(
-        Uri.parse(Urls.checkMobileNumberExists),
-        headers: {pApiKeyName: ConstRes.apiKey},
-        body: {pMobileNumber: mobileNumber});
+  Future<ApiStatus> checkMobileNumberExists({required String mobileNumber}) async {
+    http.Response response =
+        await http.post(Uri.parse(Urls.checkMobileNumberExists), headers: {pApiKeyName: ConstRes.apiKey}, body: {pMobileNumber: mobileNumber});
 
     return ApiStatus.fromJson(jsonDecode(response.body));
   }
@@ -664,8 +593,7 @@ class ApiService {
   }
 
   Future<ApiStatus> logOutDoctor() async {
-    http.Response response =
-        await http.post(Uri.parse(Urls.logOutDoctor), headers: {
+    http.Response response = await http.post(Uri.parse(Urls.logOutDoctor), headers: {
       pApiKeyName: ConstRes.apiKey
     }, body: {
       pDoctorId: PrefService.id.toString(),
@@ -674,8 +602,7 @@ class ApiService {
   }
 
   Future<ApiStatus> deleteDoctorAccount() async {
-    http.Response response =
-        await http.post(Uri.parse(Urls.deleteDoctorAccount), headers: {
+    http.Response response = await http.post(Uri.parse(Urls.deleteDoctorAccount), headers: {
       pApiKeyName: ConstRes.apiKey
     }, body: {
       pDoctorId: PrefService.id.toString(),
@@ -684,14 +611,11 @@ class ApiService {
   }
 
   Future<GlobalSetting> fetchGlobalSettings() async {
-    http.Response response = await http.post(
-        Uri.parse(Urls.fetchGlobalSettings),
-        headers: {pApiKeyName: ConstRes.apiKey});
+    http.Response response = await http.post(Uri.parse(Urls.fetchGlobalSettings), headers: {pApiKeyName: ConstRes.apiKey});
     GlobalSetting setting = GlobalSetting.fromJson(jsonDecode(response.body));
     PrefService prefService = PrefService();
     await prefService.init();
-    await prefService.saveString(
-        key: kGlobalSetting, value: jsonEncode(setting.data));
+    await prefService.saveString(key: kGlobalSetting, value: jsonEncode(setting.data));
     return setting;
   }
 
@@ -705,9 +629,7 @@ class ApiService {
     });
     if (image != null) {
       request.files.add(
-        http.MultipartFile(
-            pFile, image.readAsBytes().asStream(), image.lengthSync(),
-            filename: image.path.split("/").last),
+        http.MultipartFile(pFile, image.readAsBytes().asStream(), image.lengthSync(), filename: image.path.split("/").last),
       );
     }
     var response = await request.send();
@@ -717,28 +639,22 @@ class ApiService {
   }
 
   Future<AgoraToken> getAgoraToken({required String channelName}) async {
-    http.Response response = await http.post(Uri.parse(Urls.generateAgoraToken),
-        headers: {pApiKeyName: ConstRes.apiKey},
-        body: {pChannelName: channelName});
+    http.Response response =
+        await http.post(Uri.parse(Urls.generateAgoraToken), headers: {pApiKeyName: ConstRes.apiKey}, body: {pChannelName: channelName});
     return AgoraToken.fromJson(jsonDecode(response.body));
   }
 
   Future<FetchUserDetail> fetchUserDetails({required int userId}) async {
-    http.Response response = await http.post(Uri.parse(Urls.fetchUserDetails),
-        headers: {pApiKeyName: ConstRes.apiKey},
-        body: {pUserId: userId.toString()});
+    http.Response response =
+        await http.post(Uri.parse(Urls.fetchUserDetails), headers: {pApiKeyName: ConstRes.apiKey}, body: {pUserId: userId.toString()});
     return FetchUserDetail.fromJson(jsonDecode(response.body));
   }
 
-  Future pushNotification(
-      {required Map<String, dynamic> data, required String token}) async {
+  Future pushNotification({required Map<String, dynamic> data, required String token}) async {
     await http
         .post(
       Uri.parse(Urls.pushNotificationToSingleUser),
-      headers: {
-        pApiKeyName: ConstRes.apiKey,
-        'content-type': 'application/json'
-      },
+      headers: {pApiKeyName: ConstRes.apiKey, 'content-type': 'application/json'},
       body: json.encode({
         'message': {'token': token, 'data': data}
       }),
@@ -750,10 +666,7 @@ class ApiService {
     );
   }
 
-  void call(
-      {required String url,
-      Map<String, dynamic>? param,
-      required Function(Object response) completion}) async {
+  void call({required String url, Map<String, dynamic>? param, required Function(Object response) completion}) async {
     Map<String, String> params = {};
     param?.forEach((key, value) {
       params[key] = "$value";
@@ -812,9 +725,7 @@ class ApiService {
       for (var xFile in files) {
         if (xFile != null && xFile.path.isNotEmpty) {
           File file = File(xFile.path);
-          var multipartFile = http.MultipartFile(
-              keyName, file.readAsBytes().asStream(), file.lengthSync(),
-              filename: xFile.name);
+          var multipartFile = http.MultipartFile(keyName, file.readAsBytes().asStream(), file.lengthSync(), filename: xFile.name);
           request.files.add(multipartFile);
         }
       }

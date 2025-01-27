@@ -11,14 +11,12 @@ class ImageBuilderCustom extends StatelessWidget {
   final double? size;
   final Color? bgColor;
 
-  const ImageBuilderCustom(this.imageUrl,
-      {super.key, this.name, this.radius, this.size, this.bgColor});
+  const ImageBuilderCustom(this.imageUrl, {super.key, this.name, this.radius, this.size, this.bgColor});
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius:
-          SmoothBorderRadius(cornerRadius: radius ?? 50, cornerSmoothing: 1),
+      borderRadius: SmoothBorderRadius(cornerRadius: radius ?? 50, cornerSmoothing: 1),
       child: Image.network(
         '${ConstRes.itemBaseURL}$imageUrl',
         width: size ?? 45,
@@ -32,10 +30,7 @@ class ImageBuilderCustom extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               (name ?? appName)[0].toUpperCase(),
-              style: TextStyle(
-                  color: (bgColor ?? ColorRes.havelockBlue).withOpacity(.7),
-                  fontSize: (size ?? 45) / 2,
-                  fontFamily: FontRes.semiBold),
+              style: TextStyle(color: (bgColor ?? ColorRes.havelockBlue).withOpacity(.7), fontSize: (size ?? 45) / 2, fontFamily: FontRes.semiBold),
             ),
           );
         },

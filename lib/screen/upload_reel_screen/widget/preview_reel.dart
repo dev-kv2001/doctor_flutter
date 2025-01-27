@@ -11,13 +11,11 @@ class PreviewReel extends StatelessWidget {
   final VideoPlayerController videoPlayerController;
   final Reel reel;
 
-  const PreviewReel(
-      {super.key, required this.videoPlayerController, required this.reel});
+  const PreviewReel({super.key, required this.videoPlayerController, required this.reel});
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        Get.put(ReelScreenController(reel.obs), tag: '${reel.id}');
+    final controller = Get.put(ReelScreenController(reel.obs), tag: '${reel.id}');
     return Container(
       color: ColorRes.black,
       child: Stack(
@@ -28,10 +26,7 @@ class PreviewReel extends StatelessWidget {
               alignment: Alignment.center,
               child: SizedBox.expand(
                 child: FittedBox(
-                  fit: videoPlayerController.value.size.width <
-                          videoPlayerController.value.size.height
-                      ? BoxFit.cover
-                      : BoxFit.fitWidth,
+                  fit: videoPlayerController.value.size.width < videoPlayerController.value.size.height ? BoxFit.cover : BoxFit.fitWidth,
                   child: SizedBox(
                       width: videoPlayerController.value.size.width,
                       height: videoPlayerController.value.size.height,
@@ -42,8 +37,7 @@ class PreviewReel extends StatelessWidget {
           Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Image.asset(AssetRes.icBlackShadow_1,
-                  width: double.infinity, fit: BoxFit.fitWidth),
+              Image.asset(AssetRes.icBlackShadow_1, width: double.infinity, fit: BoxFit.fitWidth),
               UserInformation(reelData: reel),
               SideBarList(reelData: reel),
               Positioned(

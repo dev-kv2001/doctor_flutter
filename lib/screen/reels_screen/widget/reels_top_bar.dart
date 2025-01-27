@@ -72,9 +72,7 @@ class ReelsTopBar extends StatelessWidget {
                     Center(
                       child: CustomPaint(
                         painter: TrianglePainter(
-                          strokeColor: controller.reels.isEmpty
-                              ? ColorRes.charcoalGrey
-                              : ColorRes.white,
+                          strokeColor: controller.reels.isEmpty ? ColorRes.charcoalGrey : ColorRes.white,
                           strokeWidth: 0,
                           paintingStyle: PaintingStyle.fill,
                         ),
@@ -85,12 +83,9 @@ class ReelsTopBar extends StatelessWidget {
                       width: double.infinity,
                       constraints: const BoxConstraints(maxHeight: 200),
                       decoration: ShapeDecoration(
-                        color: controller.reels.isEmpty
-                            ? ColorRes.charcoalGrey
-                            : ColorRes.white,
+                        color: controller.reels.isEmpty ? ColorRes.charcoalGrey : ColorRes.white,
                         shape: SmoothRectangleBorder(
-                          borderRadius: SmoothBorderRadius(
-                              cornerRadius: 8, cornerSmoothing: 1),
+                          borderRadius: SmoothBorderRadius(cornerRadius: 8, cornerSmoothing: 1),
                         ),
                       ),
                       child: ListView.builder(
@@ -99,8 +94,7 @@ class ReelsTopBar extends StatelessWidget {
                         itemCount: controller.doctorCategories.length,
                         itemBuilder: (context, index) {
                           final category = controller.doctorCategories[index];
-                          return Obx(() => _buildCategoryItem(category, index,
-                              controller, controller.reels.isEmpty));
+                          return Obx(() => _buildCategoryItem(category, index, controller, controller.reels.isEmpty));
                         },
                       ),
                     ),
@@ -121,8 +115,7 @@ class ReelsTopBar extends StatelessWidget {
     } else if (profileType == ProfileType.profile) {
       return InkWell(
         onTap: () => Get.back(),
-        child: Image.asset(AssetRes.icBackArrow,
-            color: ColorRes.white, height: 37, width: 37),
+        child: Image.asset(AssetRes.icBackArrow, color: ColorRes.white, height: 37, width: 37),
       );
     }
     return const SizedBox(width: 37, height: 37);
@@ -145,25 +138,17 @@ class ReelsTopBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (controller.selectedCategory.value.id != 0)
-              Image.network(
-                  '${ConstRes.itemBaseURL}${controller.selectedCategory.value.image}',
-                  height: 17,
-                  width: 17,
-                  fit: BoxFit.cover,
-                  color: ColorRes.white),
+              Image.network('${ConstRes.itemBaseURL}${controller.selectedCategory.value.image}',
+                  height: 17, width: 17, fit: BoxFit.cover, color: ColorRes.white),
             const SizedBox(width: 5),
             Obx(
               () => Text(
                 controller.selectedCategory.value.title ?? '',
-                style: const TextStyle(
-                    fontSize: 14,
-                    fontFamily: FontRes.regular,
-                    color: ColorRes.white),
+                style: const TextStyle(fontSize: 14, fontFamily: FontRes.regular, color: ColorRes.white),
               ),
             ),
             const SizedBox(width: 5),
-            Image.asset(AssetRes.icDownArrow,
-                color: ColorRes.white, height: 10, width: 10),
+            Image.asset(AssetRes.icDownArrow, color: ColorRes.white, height: 10, width: 10),
           ],
         ),
       ),
@@ -171,8 +156,7 @@ class ReelsTopBar extends StatelessWidget {
   }
 
   // Single Category Item
-  Widget _buildCategoryItem(DoctorCategoryData category, int index,
-      ReelsScreenController controller, bool isDataNotShow) {
+  Widget _buildCategoryItem(DoctorCategoryData category, int index, ReelsScreenController controller, bool isDataNotShow) {
     final isSelected = controller.selectedCategory.value.id == category.id;
 
     return Column(
@@ -192,37 +176,27 @@ class ReelsTopBar extends StatelessWidget {
                         fontFamily: FontRes.bold,
                         color: isDataNotShow
                             ? (isSelected ? ColorRes.white : ColorRes.lightGrey)
-                            : (isSelected
-                                ? ColorRes.charcoalGrey
-                                : ColorRes.battleshipGrey)),
+                            : (isSelected ? ColorRes.charcoalGrey : ColorRes.battleshipGrey)),
                   ),
                 ),
-                if (isSelected)
-                  Icon(Icons.check_circle,
-                      color: isDataNotShow
-                          ? ColorRes.white
-                          : ColorRes.charcoalGrey,
-                      size: 20),
+                if (isSelected) Icon(Icons.check_circle, color: isDataNotShow ? ColorRes.white : ColorRes.charcoalGrey, size: 20),
               ],
             ),
           ),
         ),
-        if (index < controller.doctorCategories.length - 1)
-          const Divider(height: 1, color: ColorRes.battleshipGrey),
+        if (index < controller.doctorCategories.length - 1) const Divider(height: 1, color: ColorRes.battleshipGrey),
       ],
     );
   }
 
   // Right Icon: Report Button or Placeholder
   Widget _buildRightIcon() {
-    final shouldShowReport =
-        reelData?.doctorId != PrefService.id && controller.reels.isNotEmpty;
+    final shouldShowReport = reelData?.doctorId != PrefService.id && controller.reels.isNotEmpty;
 
     return shouldShowReport
         ? InkWell(
             onTap: () {
-              Get.bottomSheet(ReportSheet(reel: reelData),
-                  isScrollControlled: true);
+              Get.bottomSheet(ReportSheet(reel: reelData), isScrollControlled: true);
             },
             child: Image.asset(
               AssetRes.icReport,
@@ -239,10 +213,7 @@ class TrianglePainter extends CustomPainter {
   final PaintingStyle paintingStyle;
   final double strokeWidth;
 
-  TrianglePainter(
-      {this.strokeColor = Colors.black,
-      this.strokeWidth = 3,
-      this.paintingStyle = PaintingStyle.stroke});
+  TrianglePainter({this.strokeColor = Colors.black, this.strokeWidth = 3, this.paintingStyle = PaintingStyle.stroke});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -264,8 +235,6 @@ class TrianglePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(TrianglePainter oldDelegate) {
-    return oldDelegate.strokeColor != strokeColor ||
-        oldDelegate.paintingStyle != paintingStyle ||
-        oldDelegate.strokeWidth != strokeWidth;
+    return oldDelegate.strokeColor != strokeColor || oldDelegate.paintingStyle != paintingStyle || oldDelegate.strokeWidth != strokeWidth;
   }
 }

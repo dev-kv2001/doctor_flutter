@@ -51,15 +51,11 @@ class DashboardScreen extends StatelessWidget {
         curve: Curves.easeIn,
         onItemSelected: controller.onItemSelected,
         items: [
-          BottomNavyBarItem(
-              image: AssetRes.icCheckList, title: S.current.appointments),
-          BottomNavyBarItem(
-              image: AssetRes.listMinus, title: S.current.requests),
+          BottomNavyBarItem(image: AssetRes.icCheckList, title: S.current.appointments),
+          BottomNavyBarItem(image: AssetRes.listMinus, title: S.current.requests),
           BottomNavyBarItem(image: AssetRes.icReel, title: S.current.medReels),
-          BottomNavyBarItem(
-              image: AssetRes.icNotification, title: S.current.notifications),
-          BottomNavyBarItem(
-              image: AssetRes.icProfile, title: S.current.profile),
+          BottomNavyBarItem(image: AssetRes.icNotification, title: S.current.notifications),
+          BottomNavyBarItem(image: AssetRes.icProfile, title: S.current.profile),
         ],
       ),
     );

@@ -39,9 +39,7 @@ class AppointmentDetailScreenController extends GetxController {
 
   void onAcceptBtnTap(AppointmentData? data) {
     CustomUi.loader();
-    ApiService.instance
-        .acceptAppointment(appointmentId: data?.id, doctorId: data?.doctorId)
-        .then((value) {
+    ApiService.instance.acceptAppointment(appointmentId: data?.id, doctorId: data?.doctorId).then((value) {
       Get.back();
       if (value.status == true) {
         onUpdate?.call(AppointmentStatus.accept, data);
@@ -59,9 +57,7 @@ class AppointmentDetailScreenController extends GetxController {
     }
 
     isLoading = true;
-    ApiService.instance
-        .fetchAppointmentDetails(appointmentId: appointmentData?.id)
-        .then((value) {
+    ApiService.instance.fetchAppointmentDetails(appointmentId: appointmentData?.id).then((value) {
       appointmentData = value.data;
       isLoading = false;
       update();
@@ -73,10 +69,7 @@ class AppointmentDetailScreenController extends GetxController {
       ConfirmationDialog(
         onPositiveTap: () {
           CustomUi.loader();
-          ApiService.instance
-              .declineAppointment(
-                  appointmentId: data?.id, doctorId: data?.doctorId)
-              .then((value) {
+          ApiService.instance.declineAppointment(appointmentId: data?.id, doctorId: data?.doctorId).then((value) {
             Get.back();
             Get.back();
             CustomUi.snackBar(message: value.message);
@@ -94,18 +87,13 @@ class AppointmentDetailScreenController extends GetxController {
   }
 
   void onMedicalPrescriptionTap() {
-    Get.to(() => const MedicalPrescriptionScreen(), arguments: appointmentData)
-        ?.then((value) {
+    Get.to(() => const MedicalPrescriptionScreen(), arguments: appointmentData)?.then((value) {
       fetchAppointmentDetailsApiCall();
     });
   }
 
   void onMarkCompleteTap(AppointmentDetailScreenController controller) {
-    Get.bottomSheet(
-            MarkCompleteSheet(
-                onTap: completeAppointmentApiCall, controller: controller),
-            isScrollControlled: true)
-        .then((value) {
+    Get.bottomSheet(MarkCompleteSheet(onTap: completeAppointmentApiCall, controller: controller), isScrollControlled: true).then((value) {
       diagnosedController.text = '';
       completionOtpController.text = '';
       isDiagnosed = false;

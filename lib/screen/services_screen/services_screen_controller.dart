@@ -39,16 +39,13 @@ class ServicesScreenController extends GetxController {
 
       switch (screenType) {
         case 0:
-          value =
-              await ApiService.instance.addEditService(apiType: apiType, title: serviceController.text, serviceId: id);
+          value = await ApiService.instance.addEditService(apiType: apiType, title: serviceController.text, serviceId: id);
           break;
         case 1:
-          value = await ApiService.instance
-              .addEditExpertise(apiType: apiType, title: serviceController.text, expertiseId: id);
+          value = await ApiService.instance.addEditExpertise(apiType: apiType, title: serviceController.text, expertiseId: id);
           break;
         case 2:
-          value = await ApiService.instance
-              .addEditExperience(apiType: apiType, title: serviceController.text, experienceId: id);
+          value = await ApiService.instance.addEditExperience(apiType: apiType, title: serviceController.text, experienceId: id);
           break;
         case 3:
           value = await ApiService.instance.addEditAwards(apiType: apiType, title: serviceController.text, awardId: id);

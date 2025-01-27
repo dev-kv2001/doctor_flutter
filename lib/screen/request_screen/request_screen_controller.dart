@@ -18,9 +18,7 @@ class RequestScreenController extends GetxController {
 
   void fetchAppointmentRequestApiCall() {
     isLoading.value = true;
-    ApiService.instance
-        .fetchAppointmentRequests(start: appointment.length)
-        .then((value) {
+    ApiService.instance.fetchAppointmentRequests(start: appointment.length).then((value) {
       appointment.addAll(value.data ?? []);
       isLoading.value = false;
       update();
@@ -31,9 +29,7 @@ class RequestScreenController extends GetxController {
     if (requestController.hasClients) {
       requestController.addListener(
         () {
-          if (requestController.offset ==
-                  requestController.position.maxScrollExtent &&
-              !isLoading.value) {
+          if (requestController.offset == requestController.position.maxScrollExtent && !isLoading.value) {
             fetchAppointmentRequestApiCall();
           }
         },

@@ -14,14 +14,11 @@ class MessageChatScreen extends StatelessWidget {
   final Conversation? conversation;
   final DoctorData? doctorData;
 
-  const MessageChatScreen(
-      {Key? key, required this.conversation, this.doctorData})
-      : super(key: key);
+  const MessageChatScreen({Key? key, required this.conversation, this.doctorData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        Get.put(MessageChatScreenController(conversation, doctorData));
+    final controller = Get.put(MessageChatScreenController(conversation, doctorData));
     return Scaffold(
       backgroundColor: ColorRes.white,
       body: GestureDetector(
@@ -32,9 +29,7 @@ class MessageChatScreen extends StatelessWidget {
               children: [
                 GetBuilder(
                   init: controller,
-                  builder: (controller) => MessageChatTopBar(
-                      conversation: controller.conversationUser,
-                      controller: controller),
+                  builder: (controller) => MessageChatTopBar(conversation: controller.conversationUser, controller: controller),
                 ),
                 MessageCenterArea(
                   scrollController: controller.scrollController,
@@ -58,10 +53,8 @@ class MessageChatScreen extends StatelessWidget {
                 top: false,
                 child: FancyButton(
                   key: controller.key,
-                  onCameraTap: () =>
-                      controller.onImageTap(source: ImageSource.camera),
-                  onGalleryTap: () =>
-                      controller.onImageTap(source: ImageSource.gallery),
+                  onCameraTap: () => controller.onImageTap(source: ImageSource.camera),
+                  onGalleryTap: () => controller.onImageTap(source: ImageSource.gallery),
                   onVideoTap: controller.onVideoTap,
                   isOpen: controller.isOpen,
                   msgFocusNode: controller.msgFocusNode,

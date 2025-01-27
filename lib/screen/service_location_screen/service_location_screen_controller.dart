@@ -33,12 +33,12 @@ class ServiceLocationScreenController extends GetxController {
   void addServiceLocationApiCall({required int type, int? id, bool isBack = false}) async {
     if (hospitalNameController.text.isEmpty) {
       CustomUi.snackBar(
-          message: '${S.current.please} ${type == 1 ? S.current.add : S.current.edit} ${S.current.hospitalName}',
+        message: '${S.current.please} ${type == 1 ? S.current.add : S.current.edit} ${S.current.hospitalName}',
       );
       return;
     } else if (hospitalAddressController.text.isEmpty) {
       CustomUi.snackBar(
-          message: '${S.current.please} ${type == 1 ? S.current.add : S.current.edit} ${S.current.hospitalAddress}',
+        message: '${S.current.please} ${type == 1 ? S.current.add : S.current.edit} ${S.current.hospitalAddress}',
       );
       return;
     }
@@ -94,9 +94,7 @@ class ServiceLocationScreenController extends GetxController {
                     data?.hospitalLat ?? '0',
                   )
                 : 1.0,
-            longitude: data?.hospitalLong != null || data?.hospitalLong != 'null'
-                ? double.parse(data?.hospitalLong ?? '0')
-                : 1.0),
+            longitude: data?.hospitalLong != null || data?.hospitalLong != 'null' ? double.parse(data?.hospitalLong ?? '0') : 1.0),
       )?.then((value) {
         latitude = value?[0];
         longitude = value?[1];

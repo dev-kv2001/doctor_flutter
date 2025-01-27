@@ -22,9 +22,7 @@ class ChartBox extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-            color: ColorRes.whiteSmoke,
-            borderRadius: BorderRadius.circular(15)),
+        decoration: BoxDecoration(color: ColorRes.whiteSmoke, borderRadius: BorderRadius.circular(15)),
         child: Column(
           children: [
             Row(
@@ -34,16 +32,12 @@ class ChartBox extends StatelessWidget {
                     builder: (context) {
                       return Text(
                         "$dollar${controller.thisMonthEarning}",
-                        style: const TextStyle(
-                            color: ColorRes.tuftsBlue,
-                            fontFamily: FontRes.extraBold,
-                            fontSize: 19),
+                        style: const TextStyle(color: ColorRes.tuftsBlue, fontFamily: FontRes.extraBold, fontSize: 19),
                       );
                     }),
                 const Spacer(),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   decoration: BoxDecoration(
                     color: ColorRes.battleshipGrey.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(8),
@@ -71,10 +65,7 @@ class ChartBox extends StatelessWidget {
                             builder: (context) {
                               return Text(
                                 " ${DateFormat(mmmm, 'en').format(DateTime(controller.year, controller.month))} ${controller.year}",
-                                style: const TextStyle(
-                                    fontSize: 15,
-                                    fontFamily: FontRes.semiBold,
-                                    color: ColorRes.tuftsBlue),
+                                style: const TextStyle(fontSize: 15, fontFamily: FontRes.semiBold, color: ColorRes.tuftsBlue),
                               );
                             }),
                       ),
@@ -90,9 +81,7 @@ class ChartBox extends StatelessWidget {
               child: GetBuilder<EarningReportScreenController>(
                 init: controller,
                 builder: (controller) {
-                  final filteredData = controller.chartData
-                      .where((data) => data.x != null && data.y != null)
-                      .toList();
+                  final filteredData = controller.chartData.where((data) => data.x != null && data.y != null).toList();
 
                   return SfCartesianChart(
                     borderColor: Colors.transparent,
