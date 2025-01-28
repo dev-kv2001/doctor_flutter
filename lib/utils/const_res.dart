@@ -5,7 +5,9 @@ class ConstRes {
 
   static const String base = 'https://africmed.org/';
   static const String baseURL = '${base}api/';
-  static const String itemBaseURL = '${base}public/storage/';
+  static const String itemBaseURL = 'https://africmed-s3.s3.eu-north-1.amazonaws.com/';
+
+  // static const String itemBaseURL = '${base}public/storage/';
   static const String privacyPolicy = '${base}privacypolicy';
   static const String termsOfUser = '${base}termsOfUse';
   // static const String apiKey = '123';
