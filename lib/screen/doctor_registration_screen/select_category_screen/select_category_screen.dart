@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_flutter/common/custom_ui.dart';
 import 'package:doctor_flutter/common/doctor_reg_button.dart';
@@ -134,6 +136,7 @@ class SelectCategoryScreen extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       DoctorCategoryData? categories = controller.filterList[index];
                       bool selected = controller.selectedCategories?.title?.contains('${categories.title}') ?? false;
+                      log("${categories.image}");
                       return InkWell(
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
@@ -154,24 +157,20 @@ class SelectCategoryScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Spacer(),
                                 CachedNetworkImage(
                                   imageUrl: '${ConstRes.itemBaseURL}${categories.image}',
                                   width: 35,
-                                  color: selected ? ColorRes.white : ColorRes.havelockBlue,
+                                  // color: selected ? ColorRes.white : ColorRes.havelockBlue,
                                   errorWidget: (context, url, error) {
                                     return Container();
                                   },
                                 ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
+                                const Spacer(),
                                 Text(
                                   (categories.title ?? '').capitalize ?? '',
                                   style:
                                       TextStyle(color: selected ? ColorRes.white : ColorRes.havelockBlue, fontFamily: FontRes.semiBold, fontSize: 13),
                                 ),
-                                const Spacer(),
                               ],
                             ),
                           ),
