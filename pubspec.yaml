@@ -60,6 +60,8 @@ dependencies:
   video_player: ^2.9.2
   video_player_android: ^2.7.17
   timezone: ^0.10.0
+  wakelock_plus: ^1.2.10
+
 
   #------------  Google map ------------#
   google_maps_flutter: ^2.9.0

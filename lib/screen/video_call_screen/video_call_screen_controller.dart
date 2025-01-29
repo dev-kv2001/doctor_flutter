@@ -65,6 +65,13 @@ class VideoCallScreenController extends GetxController {
     join();
   }
 
+
+  // RxBool isCameraFront =  false.obs;
+  void switchCamera() {
+    // isCameraFront.value = !isCameraFront.value;
+    agoraEngine.switchCamera();
+  }
+
   void join() async {
     String token = appointmentChat.videoCall?.token ?? '';
     String channelId = appointmentChat.videoCall?.channelId ?? '';
