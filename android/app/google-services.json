@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "211007738532",
+    "project_id": "africmed-2d2db",
+    "storage_bucket": "africmed-2d2db.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211007738532:android:2737cbdacb3ccea659cc31",
+        "android_client_info": {
+          "package_name": "com.africmed.doctor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzRKnhavIYNFV0l2G2qldnBfYBDeQlxCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
